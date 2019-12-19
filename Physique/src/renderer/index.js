@@ -75,20 +75,50 @@ const getArduinoData = () => {
 const showCurrentWeather = (weatherData, timeByPot, temperature) => {
   const currTime = new Date(Date.now());
   const currMinutes = currTime.getMinutes();
+  const currHours = currTime.getHours();
   const hour = timeByPot.substring(0, 2);
   const minute = timeByPot.substring(3, 5);
   const $temp = document.querySelector('.temp');
   //Api gives data of every 3 hours (00 - 03 - 06 - 09 - 12 - ...). So if the current hour is lower than the first hour delivered by the API you need te make sure it can display the weather for the first following hour
   //This if statement makes sure it shows the data for the comming hour and not the data of the hour on the next day
   //if (curerentHour + 1) === firstHourApi AND the minute >= currentMinute
-   if ((((parseFloat(hour) + 1)).toString() === weatherData[0].time[0] && minute >= currMinutes) || ((parseFloat(hour) + 2)).toString() === weatherData[0].time[0]) {
-     $temp.textContent = `${weatherData[0].temp}°C --- ${weatherData[0].type}`;
-  } else {
-    weatherData.forEach(data => {
-      if (data.time.includes(hour)) {
-           $temp.textContent = `${data.temp}°C --- ${data.type}`;
-         }
+  //((parseFloat(hour) + 1)).toString() === weatherData[0].time[0] && minute >= currMinutes
+  console.log(currMinutes);
+  if(("0" + (currHours + 2)).slice(-2) === weatherData[0].time[0]) {
+    if(((parseFloat(hour) + 2)).toString() === weatherData[0].time[0] && minute < currMinutes){
+      $temp.textContent = `${weatherData[weatherData.length - 1].temp}°C --- ${weatherData[weatherData.length - 1].type}`;
+    } else if (((parseFloat(hour) + 2)).toString() === weatherData[0].time[0]) {
+      $temp.textContent = `${weatherData[0].temp}°C --- ${weatherData[0].type}`;
+    } else if (((parseFloat(hour) + 1)).toString() === weatherData[0].time[0]) {
+      $temp.textContent = `${weatherData[0].temp}°C --- ${weatherData[0].type}`;
+    } else {
+      weatherData.forEach(data => {
+        if (data.time.includes(hour)) {
+          $temp.textContent = `${data.temp}°C --- ${data.type}`;
+        }
       });
+    }
+  } else if (("0" + (currHours + 1)).slice(-2) === weatherData[0].time[0]) {
+    if(((parseFloat(hour) + 1)).toString() === weatherData[0].time[0] && minute >= currMinutes){
+      $temp.textContent = `${weatherData[0].temp}°C --- ${weatherData[0].type}`;
+    } else {
+      weatherData.forEach(data => {
+        if (data.time.includes(hour)) {
+             $temp.textContent = `${data.temp}°C --- ${data.type}`;
+           }
+        });
+    } 
+  } else if (("0" + (currHours)).slice(-2) === weatherData[0].time[0]) {
+    if(((parseFloat(hour))).toString() === weatherData[0].time[0] && minute < currMinutes) {
+      $temp.textContent = `${weatherData[weatherData.length - 1].temp}°C --- ${weatherData[weatherData.length - 1].type}`;
+    } else {
+      weatherData.forEach(data => {
+        if (data.time.includes(hour)) {
+             $temp.textContent = `${data.temp}°C --- ${data.type}`;
+           }
+        });
+    }
+    
   }
   
 };
@@ -146,7 +176,7 @@ const convertInputToTime = input => {
 
 //Get current time and return it in total minutes
 const getCurrentTime = () => {
-  const currentTime = new Date(Date.now());
+  const currentTime = new Date(Date.now()); //test minus 1 hour: - 3600000
   const hours = currentTime.getHours() * 60;
   const minutes = currentTime.getMinutes();
   return hours + minutes;
@@ -156,7 +186,7 @@ const getCurrentTime = () => {
 const showValue = potentiometer => {
   const currentTime = getCurrentTime();
   //Max range of potentiometer is 1023, so multiply by 1.407... to reach 1440 (which is the total amount of minutes in a day)
-  const input = potentiometer.value * 1.40762463
+  const input = potentiometer.value * 1.40762463;
   const currentDay = 1440 - currentTime;
   if (input <= currentDay) {
     const fullTime = input + currentTime;
