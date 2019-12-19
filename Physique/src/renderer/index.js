@@ -5,9 +5,9 @@
 //   "lon": 3.26459,
 //   "lat": 50.82811
 
+import "./style.css";
 
-
-const { Board, GPS, Sensor } = require("johnny-five");
+const { Board, GPS, Sensor, Thermometer } = require("johnny-five");
 
 const init = () => {
   getArduinoData();
@@ -27,6 +27,7 @@ const checkGpsData = gpsData => {
 
 let timeByPot;
 let weatherData = [];
+let temperature;
 
 const getArduinoData = () => {
   const board = new Board({
@@ -48,6 +49,15 @@ const getArduinoData = () => {
 
     checkGpsData(gpsData);
 
+    const thermometer = new Thermometer({
+      pin: "A0"
+    });
+  
+    thermometer.on("change", () => {
+      const {celsius, fahrenheit, kelvin} = thermometer;
+      temperature = celsius;
+      document.querySelector('.tempInside').textContent = `Inside: ${temperature}°C`
+    });
 
     const potentiometer = new Sensor("A3");
 
@@ -56,13 +66,13 @@ const getArduinoData = () => {
       //console.log(potentiometer.value)
       timeByPot = showValue(potentiometer);
       document.querySelector(".time").textContent = timeByPot;
-      showCurrentWeather(weatherData, timeByPot);
+      showCurrentWeather(weatherData, timeByPot, temperature);
     });
   });
 };
 
 //Show weather based on hour
-const showCurrentWeather = (weatherData, timeByPot) => {
+const showCurrentWeather = (weatherData, timeByPot, temperature) => {
   const currTime = new Date(Date.now());
   const currMinutes = currTime.getMinutes();
   const hour = timeByPot.substring(0, 2);
@@ -71,8 +81,8 @@ const showCurrentWeather = (weatherData, timeByPot) => {
   //Api gives data of every 3 hours (00 - 03 - 06 - 09 - 12 - ...). So if the current hour is lower than the first hour delivered by the API you need te make sure it can display the weather for the first following hour
   //This if statement makes sure it shows the data for the comming hour and not the data of the hour on the next day
   //if (curerentHour + 1) === firstHourApi AND the minute >= currentMinute
-   if (((parseFloat(hour) + 1)).toString() === weatherData[0].time[0] && minute >= currMinutes) {
-     $temp.textContent = `${weatherData[0].temp}°C --- ${weatherData[0].type}`
+   if ((((parseFloat(hour) + 1)).toString() === weatherData[0].time[0] && minute >= currMinutes) || ((parseFloat(hour) + 2)).toString() === weatherData[0].time[0]) {
+     $temp.textContent = `${weatherData[0].temp}°C --- ${weatherData[0].type}`;
   } else {
     weatherData.forEach(data => {
       if (data.time.includes(hour)) {
@@ -80,7 +90,7 @@ const showCurrentWeather = (weatherData, timeByPot) => {
          }
       });
   }
-
+  
 };
 
 
