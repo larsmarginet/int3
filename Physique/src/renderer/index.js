@@ -61,17 +61,26 @@ const getArduinoData = () => {
   });
 };
 
-
+//Show weather based on hour
 const showCurrentWeather = (weatherData, timeByPot) => {
+  const currTime = new Date(Date.now());
+  const currMinutes = currTime.getMinutes();
   const hour = timeByPot.substring(0, 2);
+  const minute = timeByPot.substring(3, 5);
   const $temp = document.querySelector('.temp');
-  $temp.textContent = `${weatherData[0].temp}°C`
-  if (hour === weatherData[0].time) {
-    console.log(weatherData[0].time);
-    console.log("match");
+  //Api gives data of every 3 hours (00 - 03 - 06 - 09 - 12 - ...). So if the current hour is lower than the first hour delivered by the API you need te make sure it can display the weather for the first following hour
+  //This if statement makes sure it shows the data for the comming hour and not the data of the hour on the next day
+  //if (curerentHour + 1) === firstHourApi AND the minute >= currentMinute
+   if (((parseFloat(hour) + 1)).toString() === weatherData[0].time[0] && minute >= currMinutes) {
+     $temp.textContent = `${weatherData[0].temp}°C --- ${weatherData[0].type}`
   } else {
-    console.log("no match");
+    weatherData.forEach(data => {
+      if (data.time.includes(hour)) {
+           $temp.textContent = `${data.temp}°C --- ${data.type}`;
+         }
+      });
   }
+
 };
 
 
@@ -91,13 +100,8 @@ const getWeather = (lon, lat) => {
 
 
 
-
-
-
-
 // Convert JSON to data I need 
 const convertWeatherData = data => {
-  //const time = document.querySelector(".time").textContent;
   for (let i = 0; i < 8; i++) {
     const item = data.list[i];
     const weatherObj = {
@@ -108,28 +112,29 @@ const convertWeatherData = data => {
     weatherData.push(weatherObj);
   }
   console.log(weatherData);
-  console.log(timeByPot);
-  //return weatherData;
 }
 
 
-//convert Time 
+//convert Time --> make array with the hour range (3 hours)
 const convertTime = time => {
-  const hours = ("0" + time.getHours()).slice(-2);
-  return hours;
+  const hour1 = time.getHours();
+  const hour2 = time.getHours() + 1;
+  const hour3 = time.getHours() + 2;
+  const hoursRange = [("0" + hour1).slice(-2), ("0" + hour2).slice(-2), ("0" + hour3).slice(-2)];
+  return hoursRange;
 }
 
-
+//Convert minutes to hours and minutes
 const convertInputToTime = input => {
   const convert = input / 60;
   const hour = convert.toString().split(".")[0];
   const convertedHours = ("0" + hour).slice(-2);
-  const minutes = (parseFloat(convert.toString().split(".")[1]) * 60).toString().substring(0, 2);
-  const convertMinutes = ("0" + minutes).slice(-2);
-  return `${convertedHours}:${convertMinutes}`;
+  const minutes = Math.floor(parseFloat(("0." + convert.toString().split(".")[1])) * 60);
+  const convertedMinutes = ("0" + minutes).slice(-2);
+  return `${convertedHours}:${convertedMinutes}`;
 }
 
-
+//Get current time and return it in total minutes
 const getCurrentTime = () => {
   const currentTime = new Date(Date.now());
   const hours = currentTime.getHours() * 60;
@@ -137,10 +142,10 @@ const getCurrentTime = () => {
   return hours + minutes;
 }
 
-
-
+//Convert potentiometer value to time (if time reaches 23:59 jump to 00:00
 const showValue = potentiometer => {
-  const currentTime = getCurrentTime(); //Tijd ophalen via code en dan omzetten naar minuten
+  const currentTime = getCurrentTime();
+  //Max range of potentiometer is 1023, so multiply by 1.407... to reach 1440 (which is the total amount of minutes in a day)
   const input = potentiometer.value * 1.40762463
   const currentDay = 1440 - currentTime;
   if (input <= currentDay) {
