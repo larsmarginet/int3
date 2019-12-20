@@ -74,50 +74,59 @@ const getArduinoData = () => {
 const showCurrentWeather = (weatherData, timeByPot, temperature) => {
   const currTime = new Date(Date.now());
   const currMinutes = currTime.getMinutes();
-  const currHours = currTime.getHours() - 2;
+  const currHours = currTime.getHours();
   const hour = timeByPot.substring(0, 2);
   const minute = parseFloat(timeByPot.substring(3, 5));
   const $temp = document.querySelector('.temp');
 
   if(("0" + (currHours + 2)).slice(-2) === weatherData[0].time[0]) {
     if(("0" + ((parseFloat(hour) + 2)).toString()).slice(-2) === weatherData[0].time[0] && minute < currMinutes){
-      $temp.textContent = `${weatherData[weatherData.length - 1].temp}°C --- ${weatherData[weatherData.length - 1].type}`;
+      $temp.textContent = `${weatherData[weatherData.length - 1].temp}°C`;
+      showWeatherType(weatherData[weatherData.length - 1].type);
       calculateClothingAdvice(temperature, weatherData[weatherData.length - 1].temp);
     } else if (("0" + ((parseFloat(hour) + 2)).toString()).slice(-2) === weatherData[0].time[0]) {
-      $temp.textContent = `${weatherData[0].temp}°C --- ${weatherData[0].type}`;
+      $temp.textContent = `${weatherData[0].temp}°C`;
+      showWeatherType(weatherData[0].type);
       calculateClothingAdvice(temperature, weatherData[0].temp);
     } else if (("0" + ((parseFloat(hour) + 1)).toString()).slice(-2) === weatherData[0].time[0]) {
-      $temp.textContent = `${weatherData[0].temp}°C --- ${weatherData[0].type}`;
+      $temp.textContent = `${weatherData[0].temp}°C`;
+      showWeatherType(weatherData[0].type);
       calculateClothingAdvice(temperature, weatherData[0].temp);
     } else {
       weatherData.forEach(data => {
         if (data.time.includes(hour)) {
-          $temp.textContent = `${data.temp}°C --- ${data.type}`;
+          $temp.textContent = `${data.temp}°C`;
+          showWeatherType(data.type);
           calculateClothingAdvice(temperature, data.temp);
         }
       });
     }
   } else if (("0" + (currHours + 1)).slice(-2) === weatherData[0].time[0]) {
     if(("0" + ((parseFloat(hour) + 1)).toString()).slice(-2) === weatherData[0].time[0] && minute >= currMinutes){
-      $temp.textContent = `${weatherData[0].temp}°C --- ${weatherData[0].type}`;
+      $temp.textContent = `${weatherData[0].temp}°C`;
+      showWeatherType(weatherData[0].type);
       calculateClothingAdvice(temperature, weatherData[0].temp);
     } else {
       weatherData.forEach(data => {
         if (data.time.includes(hour)) {
-            $temp.textContent = `${data.temp}°C --- ${data.type}`;
+            $temp.textContent = `${data.temp}°C`;
+            showWeatherType(data.type);
             calculateClothingAdvice(temperature, data.temp);         
            }
         });
     } 
   } else if (("0" + (currHours)).slice(-2) === weatherData[0].time[0]) {
     if(("0" + (hour)).slice(-2) === weatherData[0].time[0] && minute < currMinutes) {
-      $temp.textContent = `${weatherData[weatherData.length - 1].temp}°C --- ${weatherData[weatherData.length - 1].type}`;
+      $temp.textContent = `${weatherData[weatherData.length - 1].temp}°C`;
+      showWeatherType(weatherData[weatherData.length - 1].type);
       calculateClothingAdvice(temperature, weatherData[weatherData.length - 1].temp);
     } else {
       weatherData.forEach(data => {
         if (data.time.includes(hour)) {
-          $temp.textContent = `${data.temp}°C --- ${data.type}`;
+          $temp.textContent = `${data.temp}°C`;
+          showWeatherType(data.type);
           calculateClothingAdvice(temperature, data.temp);
+          
         }
       });
     }
@@ -134,6 +143,36 @@ const calculateClothingAdvice = (temperature, weatherTemp) => {
     $advice.textContent = 'advice: +1';
   } else if ((temperature - weatherTemp) > 5) {
     $advice.textContent = 'advice: +2';
+  }
+}
+
+
+const showWeatherType = type => {
+  const $type = document.querySelector('.type');
+  switch (type) {
+    case "Thunderstorm":
+      $type.textContent = "thunderstorm";
+      break;
+    case "Drizzle":
+      $type.textContent = "drizzle";
+      break;
+    case "Rain":
+      $type.textContent = "rain";
+      break;
+    case "Snow":
+      $type.textContent = "snow";
+      break;
+    case "Atmosphere":
+      $type.textContent = "atmosphere";
+      break;
+    case "Clear":
+      $type.textContent = "clear";
+      break;
+    case "Clouds":
+      $type.textContent = "clouds";
+      break;
+    default:
+      $type.textContent = "Unknown weathertype...";
   }
 }
 
@@ -190,7 +229,7 @@ const convertInputToTime = input => {
 
 //Get current time and return it in total minutes
 const getCurrentTime = () => {
-  const currentTime = new Date(Date.now()- 7200000); //test minus 1 hour: - 3600000
+  const currentTime = new Date(Date.now()); //test minus 1 hour: - 3600000
   const hours = currentTime.getHours() * 60;
   const minutes = currentTime.getMinutes();
   return hours + minutes;
