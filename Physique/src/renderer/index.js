@@ -5,7 +5,24 @@
 //   "lon": 3.26459,
 //   "lat": 50.82811
 
+
+//GENT: 51.07 3.67
+//WENDUINE 51.297 3.086
+
 import "./style.css";
+import atmosphere from './img/atmosphere.gif';
+import clear from './img/clear.gif';
+import clouds from './img/clouds.gif';
+import drizzle from './img/drizzle.gif';
+import rain from './img/rain.gif';
+import snow from './img/snow.gif';
+import thunderstorm from './img/thunderstorm.gif';
+import pluszero from './img/pluszero.png';
+import plusone from './img/plusone.png';
+import plustwo from './img/plustwo.png';
+
+
+
 
 const { Board, GPS, Sensor, Thermometer } = require("johnny-five");
 
@@ -18,7 +35,7 @@ const init = () => {
 const checkGpsData = gpsData => {
   if (gpsData.lat === 0 || gpsData.lon === 0) {
     console.log('gps failed');
-    getWeather(3.26, 50.83);
+    getWeather(3.26459, 50.82811);
   } else {
     console.log('gps location found!');
     getWeather(gpsData.lon, gpsData.lat);
@@ -56,6 +73,7 @@ const getArduinoData = () => {
     thermometer.on("change", () => {
       const {celsius, fahrenheit, kelvin} = thermometer;
       temperature = celsius;
+      //console.log(`${temperature}°C`);
     });
 
     const potentiometer = new Sensor("A3");
@@ -64,7 +82,9 @@ const getArduinoData = () => {
       const {value, raw} = potentiometer;
       //console.log(potentiometer.value)
       timeByPot = showValue(potentiometer);
-      document.querySelector(".time").textContent = timeByPot;
+      document.querySelectorAll(".time").forEach(time => {
+        time.textContent = timeByPot;
+      });
       showCurrentWeather(weatherData, timeByPot, temperature);
     });
   });
@@ -77,103 +97,115 @@ const showCurrentWeather = (weatherData, timeByPot, temperature) => {
   const currHours = currTime.getHours();
   const hour = timeByPot.substring(0, 2);
   const minute = parseFloat(timeByPot.substring(3, 5));
-  const $temp = document.querySelector('.temp');
+  const $temps = document.querySelectorAll('.temp');
 
-  if(("0" + (currHours + 2)).slice(-2) === weatherData[0].time[0]) {
-    if(("0" + ((parseFloat(hour) + 2)).toString()).slice(-2) === weatherData[0].time[0] && minute < currMinutes){
-      $temp.textContent = `${weatherData[weatherData.length - 1].temp}°C`;
-      showWeatherType(weatherData[weatherData.length - 1].type);
-      calculateClothingAdvice(temperature, weatherData[weatherData.length - 1].temp);
-    } else if (("0" + ((parseFloat(hour) + 2)).toString()).slice(-2) === weatherData[0].time[0]) {
-      $temp.textContent = `${weatherData[0].temp}°C`;
-      showWeatherType(weatherData[0].type);
-      calculateClothingAdvice(temperature, weatherData[0].temp);
-    } else if (("0" + ((parseFloat(hour) + 1)).toString()).slice(-2) === weatherData[0].time[0]) {
-      $temp.textContent = `${weatherData[0].temp}°C`;
-      showWeatherType(weatherData[0].type);
-      calculateClothingAdvice(temperature, weatherData[0].temp);
-    } else {
-      weatherData.forEach(data => {
-        if (data.time.includes(hour)) {
-          $temp.textContent = `${data.temp}°C`;
-          showWeatherType(data.type);
-          calculateClothingAdvice(temperature, data.temp);
-        }
-      });
-    }
-  } else if (("0" + (currHours + 1)).slice(-2) === weatherData[0].time[0]) {
-    if(("0" + ((parseFloat(hour) + 1)).toString()).slice(-2) === weatherData[0].time[0] && minute >= currMinutes){
-      $temp.textContent = `${weatherData[0].temp}°C`;
-      showWeatherType(weatherData[0].type);
-      calculateClothingAdvice(temperature, weatherData[0].temp);
-    } else {
-      weatherData.forEach(data => {
-        if (data.time.includes(hour)) {
+  $temps.forEach($temp => {
+    if(("0" + (currHours + 2)).slice(-2) === weatherData[0].time[0]) {
+      if(("0" + ((parseFloat(hour) + 2)).toString()).slice(-2) === weatherData[0].time[0] && minute < currMinutes){
+        $temp.textContent = `${weatherData[weatherData.length - 1].temp}°C`;
+        showWeatherType(weatherData[weatherData.length - 1].type);
+        calculateClothingAdvice(temperature, weatherData[weatherData.length - 1].temp);
+      } else if (("0" + ((parseFloat(hour) + 2)).toString()).slice(-2) === weatherData[0].time[0]) {
+        $temp.textContent = `${weatherData[0].temp}°C`;
+        showWeatherType(weatherData[0].type);
+        calculateClothingAdvice(temperature, weatherData[0].temp);
+      } else if (("0" + ((parseFloat(hour) + 1)).toString()).slice(-2) === weatherData[0].time[0]) {
+        $temp.textContent = `${weatherData[0].temp}°C`;
+        showWeatherType(weatherData[0].type);
+        calculateClothingAdvice(temperature, weatherData[0].temp);
+      } else {
+        weatherData.forEach(data => {
+          if (data.time.includes(hour)) {
             $temp.textContent = `${data.temp}°C`;
             showWeatherType(data.type);
-            calculateClothingAdvice(temperature, data.temp);         
-           }
+            calculateClothingAdvice(temperature, data.temp);
+          }
         });
-    } 
-  } else if (("0" + (currHours)).slice(-2) === weatherData[0].time[0]) {
-    if(("0" + (hour)).slice(-2) === weatherData[0].time[0] && minute < currMinutes) {
-      $temp.textContent = `${weatherData[weatherData.length - 1].temp}°C`;
-      showWeatherType(weatherData[weatherData.length - 1].type);
-      calculateClothingAdvice(temperature, weatherData[weatherData.length - 1].temp);
-    } else {
-      weatherData.forEach(data => {
-        if (data.time.includes(hour)) {
-          $temp.textContent = `${data.temp}°C`;
-          showWeatherType(data.type);
-          calculateClothingAdvice(temperature, data.temp);
-          
-        }
-      });
+      }
+    } else if (("0" + (currHours + 1)).slice(-2) === weatherData[0].time[0]) {
+      if(("0" + ((parseFloat(hour) + 1)).toString()).slice(-2) === weatherData[0].time[0] && minute >= currMinutes){
+        $temp.textContent = `${weatherData[0].temp}°C`;
+        showWeatherType(weatherData[0].type);
+        calculateClothingAdvice(temperature, weatherData[0].temp);
+      } else {
+        weatherData.forEach(data => {
+          if (data.time.includes(hour)) {
+              $temp.textContent = `${data.temp}°C`;
+              showWeatherType(data.type);
+              calculateClothingAdvice(temperature, data.temp);         
+             }
+          });
+      } 
+    } else if (("0" + (currHours)).slice(-2) === weatherData[0].time[0]) {
+      if(("0" + (hour)).slice(-2) === weatherData[0].time[0] && minute < currMinutes) {
+        $temp.textContent = `${weatherData[weatherData.length - 1].temp}°C`;
+        showWeatherType(weatherData[weatherData.length - 1].type);
+        calculateClothingAdvice(temperature, weatherData[weatherData.length - 1].temp);
+      } else {
+        weatherData.forEach(data => {
+          if (data.time.includes(hour)) {
+            $temp.textContent = `${data.temp}°C`;
+            showWeatherType(data.type);
+            calculateClothingAdvice(temperature, data.temp);
+          }
+        });
+      }
     }
-  }
+  });
 };
 
 
 //Calculate clothing advice based on the temperature difference
 const calculateClothingAdvice = (temperature, weatherTemp) => {
-  const $advice = document.querySelector('.advice');
-  if ((temperature - weatherTemp) <= 0) {
-    $advice.textContent = 'advice: +0';
-  } else if ((temperature - weatherTemp) <= 5) {
-    $advice.textContent = 'advice: +1';
-  } else if ((temperature - weatherTemp) > 5) {
-    $advice.textContent = 'advice: +2';
-  }
+  const $advices = document.querySelectorAll('.advice');
+  $advices.forEach($advice => {
+    if ((temperature - weatherTemp) <= 0) {
+      $advice.innerHTML = `<img class="icon" src="${pluszero}">`;
+    } else if ((temperature - weatherTemp) <= 5) {
+      $advice.innerHTML = `<img class="icon" src="${plusone}">`;
+    } else if ((temperature - weatherTemp) > 5) {
+      $advice.innerHTML = `<img class="icon" src="${plustwo}">`;
+    }
+  });
 }
 
 
 const showWeatherType = type => {
-  const $type = document.querySelector('.type');
-  switch (type) {
-    case "Thunderstorm":
-      $type.textContent = "thunderstorm";
-      break;
-    case "Drizzle":
-      $type.textContent = "drizzle";
-      break;
-    case "Rain":
-      $type.textContent = "rain";
-      break;
-    case "Snow":
-      $type.textContent = "snow";
-      break;
-    case "Atmosphere":
-      $type.textContent = "atmosphere";
-      break;
-    case "Clear":
-      $type.textContent = "clear";
-      break;
-    case "Clouds":
-      $type.textContent = "clouds";
-      break;
-    default:
-      $type.textContent = "Unknown weathertype...";
-  }
+  const $types = document.querySelectorAll('.type'); 
+  $types.forEach($type => {
+    switch (type) {
+      case "Thunderstorm":
+        console.log("thunderstorm");
+        $type.innerHTML = `<img class="animation" src='${thunderstorm}'>`;
+        break;
+      case "Drizzle":
+        console.log("Drizzle");
+        $type.innerHTML = `<img class="animation" src='${drizzle}'>`;
+        break;
+      case "Rain":
+        console.log("Rain");
+        $type.innerHTML = `<img class="animation" src='${rain}'>`;
+        break;
+      case "Snow":
+        console.log("Snow");
+        $type.innerHTML = `<img class="animation" src='${snow}'>`;
+        break;
+      case "Atmosphere":
+        console.log("Atmosphere");
+        $type.innerHTML = `<img class="animation" src='${atmosphere}'>`;
+        break;
+      case "Clear":
+        console.log("Clear");
+        $type.innerHTML = `<img class="animation" src='${clear}'>`;
+        break;
+      case "Clouds":
+        console.log("Clouds");
+        $type.innerHTML = `<img class="animation" src='${clouds}'>`;
+        break;
+      default:
+        $type.textContent = "Unknown weathertype...";
+    }
+  });
 }
 
 
