@@ -8,6 +8,7 @@
 
 //GENT: 51.07 3.67
 //WENDUINE 51.297 3.086
+//BARCELONA 41.3872 2.1733
 
 import "./style.css";
 import atmosphere from './img/atmosphere.gif';
