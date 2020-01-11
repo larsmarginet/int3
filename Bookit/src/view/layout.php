@@ -2,9 +2,10 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>EDIT Todos - <?php echo $title; ?></title>
+    <title><?php echo $title; ?></title>
     <?php /* NEW */ ?>
     <?php echo $css;?>
+    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   </head>
   <body>
     <main>
@@ -16,7 +17,6 @@
           echo '<div class="info box">' . $_SESSION['info'] . '</div>';
         }
       ?>
-      <header><h1>Todos - <?php echo $title; ?></h1></header>
       <?php echo $content;?>
     </main>
     <?php echo $js; ?>
