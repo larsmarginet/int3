@@ -1,0 +1,120 @@
+@import '../vars.css';
+
+@media (--medium-viewport) {
+
+  .webshop__header {
+    display: none;
+  }
+}
+
+@media (--large-viewport) {
+
+  .webshop__header__responsive {
+    display: none;
+  }
+}
+
+.webshop__secondary-nav {
+  max-width: 96rem;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.webshop__secondary-nav__list {
+  display: flex;
+  height: calc(var(--extraSmallMargin) * 4);
+  align-items: center;
+}
+
+.webshop__secondary-nav__list__item {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.webshop__secondary-nav__list__item__link {
+  padding: var(--extraSmallMargin);
+  text-decoration: none;
+  color: black;
+  text-transform: uppercase;
+  font-size: var(--smallFont);
+  transition: color .3s;
+}
+
+.webshop__secondary-nav__list__item__link:hover {
+  color: var(--redColor);
+}
+
+.webshop__secondary-nav__list__item__link--bold {
+  font-weight: bold;
+}
+
+.webshop__secondary-nav__list__item--highlight {
+  background-color: var(--redColor);
+}
+
+.webshop__secondary-nav__list__item__link--highlight {
+  color: white;
+}
+
+.webshop__secondary-nav__list__item__link--highlight:hover {
+  color: white;
+}
+
+.webshop__primary-nav {
+  background-color: var(--lightColor);
+}
+
+.webshop__primary-nav__list {
+  max-width: 96rem;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.webshop__primary-nav__list__item__link {
+  text-transform: uppercase;
+  font-size: var(--mediumTitle);
+  color: black;
+  font-family: 'swiss721-Condensed', sans-serif;
+  text-decoration: none;
+  transition: color .3s;
+}
+
+.webshop__primary-nav__list__item__link:hover {
+  color: var(--redColor);
+}
+
+.webshop__primary-nav__list__item__link--active {
+  color: var(--redColor);
+}
+
+.webshop__footer {
+  background-color: var(--lightColor);
+  text-align: center;
+  padding: var(--mediumMargin);
+  margin-top: 30rem;
+}
+
+.webshop__footer__text {
+  max-width: 96rem;
+  margin: 0 auto;
+}
+
+.webshop__header__responsive__nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: .5rem double black;
+}
+
+.webshop__header__responsive__list__item {
+  margin: var(--extraSmallMargin);
+}
+
+.webshop__header__responsive__list {
+  display: flex;
+
+}

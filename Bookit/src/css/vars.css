@@ -1,0 +1,37 @@
+@font-face {
+  font-family: 'swiss721';
+  src: url(../assets/fonts/swiss721/swiss721-Normal/swiss721-Normal.woff) format('woff'), url(../assets/fonts/swiss721/swiss721-Normal/swiss721-Normal.woff2) format('woff2');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'swiss721';
+  src: url(../assets/fonts/swiss721/swiss721-Bold/swiss721-Bold.woff) format('woff'), url(../assets/fonts/swiss721/swiss721-Bold/swiss721-Bold.woff2) format('woff2');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'swiss721-Condensed';
+  src: url(../assets/fonts/swiss721/swiss721-Condensed/swiss721-Condensed.woff) format('woff'), url(../assets/fonts/swiss721/swiss721-Condensed/swiss721-Condensed.woff2) format('woff2');
+  font-stretch: condensed;
+}
+
+:root {
+  --redColor: #db3125;
+  --yellowColor: #ffe408;
+  --greenColor: #2eb101;
+  --greyColor: #c4c4c4;
+  --lightColor: #f8f8f4;
+  --extraSmallMargin: 1rem;
+  --smallMargin: 2rem;
+  --regularMargin: 3rem;
+  --mediumMargin: 5rem;
+  --smallFont: 1.3rem;
+  --regularFont: 1.6rem;
+  --mediumTitle: 2.4rem;
+  --bigTitle: 4.6rem;
+}
+
+@custom-media --small-viewport (width <= 375px);
+@custom-media --medium-viewport (width <= 834px);
+@custom-media --large-viewport (width > 834px);

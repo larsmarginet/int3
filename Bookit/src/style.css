@@ -1,4 +1,77 @@
-body {
-  background-color: lightsalmon;
-  font-family: sans-serif;
+@import './css/reset.css';
+@import './css/vars.css';
+@import './css/components/header.css';
+@import './css/components/banner.css';
+
+::selection {
+  background: var(--redColor);
+}
+
+/* stylelint-disable */
+*{
+  box-sizing: border-box;
+}
+/* stylelint-enable */
+
+html {
+  box-sizing: inherit;
+  font-size: 62.5%;
+  height: 100%;
+}
+
+.webshop__wrapper {
+  font-family: 'swiss721', sans-serif;
+  font-size: var(--regularFont);
+  line-height: 1.5;
+}
+
+.hidden {
+  display: none;
+}
+
+.webshop__primary-btn-small {
+  background-color: var(--redColor);
+  border: none;
+  font-size: var(--smallFont);
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 2.9rem;
+  padding: 0 var(--extraSmallMargin);
+}
+
+.webshop__primary-btn-small svg {
+  margin-right: var(--extraSmallMargin);
+}
+
+.webshop__primary-btn-small:hover {
+  border: .1rem solid var(--redColor);
+}
+
+.webshop__favorite-btn {
+  border: .1rem solid var(--redColor);
+  width: 2.9rem;
+  height: 2.9rem;
+  margin: 0 var(--smallMargin) 0 var(--extraSmallMargin);
+  background-color: rgba(100, 100, 100, 0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.webshop__secondary-btn-small {
+  border: .1rem solid var(--redColor);
+  text-transform: uppercase;
+  color: var(--redColor);
+  text-decoration: none;
+  font-size: var(--smallFont);
+  height: 2.9rem;
+  padding: 0 var(--extraSmallMargin);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
 }

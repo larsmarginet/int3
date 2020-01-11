@@ -1,0 +1,81 @@
+@import '../vars.css';
+
+.webshop__banner {
+  background-color: var(--yellowColor);
+  max-width: 96rem;
+  margin: var(--smallMargin) auto;
+  display: flex;
+}
+
+.webshop__banner__img__discount {
+  margin: var(--extraSmallMargin) 0 0 var(--extraSmallMargin);
+  width: calc(var(--extraSmallMargin) * 10);
+  height: calc(var(--extraSmallMargin) * 10);
+  border-radius: calc(var(--extraSmallMargin) * 10);
+  background-color: var(--redColor);
+  color: white;
+  text-align: center;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  line-height: 1.3;
+  position: absolute;
+  z-index: 99;
+}
+
+.webshop__banner__img__discount__price {
+  font-size: var(--smallFont);
+  font-weight: bold;
+  text-decoration: line-through;
+}
+
+.webshop__banner__img__discount__discount-price {
+  font-size: var(--mediumTitle);
+  font-weight: bold;
+}
+
+.webshop__banner__img__discount__text {
+  font-size: calc(var(--mediumTitle) / 3);
+}
+
+.webshop__banner__img {
+  margin: var(--smallMargin) 0 0 var(--smallMargin);
+  width: 100%;
+}
+
+.webshop__banner__info {
+  padding: var(--regularMargin);
+}
+
+.webshop__banner__info__title {
+  color: var(--redColor);
+  font-weight: bold;
+}
+
+.webshop__banner__info__book-title {
+  font-size: var(--bigTitle);
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: 'swiss721-Condensed', sans-serif;
+  line-height: 1;
+}
+
+.webshop__banner__info__quote-wrapper {
+  margin-left: var(--mediumMargin);
+}
+
+.webshop__banner__info__quote {
+  font-size: var(--mediumTitle);
+  font-weight: bold;
+  font-family: 'swiss721-Condensed', sans-serif;
+}
+
+.webshop__banner__info__quote-author {
+  margin-left: calc(var(--mediumMargin) * 2);
+}
+
+.webshop__banner__info__buttons {
+  display: flex;
+  margin-top: var(--smallMargin);
+}

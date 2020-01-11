@@ -23,6 +23,16 @@ module.exports = (env, {mode}) => {
           }
         },
         {
+          test: /\.(ttf|eot|woff|woff2)$/,
+          use: {
+            loader: "file-loader",
+            options: {
+              context: './src',
+              name: "[path][name].[ext]",
+            }
+          }
+        },
+        {
           test: /\.(jpe?g|png|svg|webp)$/,
           use: {
             loader: 'url-loader',
