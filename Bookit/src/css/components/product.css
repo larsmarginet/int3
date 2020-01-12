@@ -12,8 +12,8 @@
 .webshop__product {
   border-bottom: .1rem dashed black;
   margin-bottom: var(--mediumMargin);
-  display: flex;
-  flex-flow: column;
+  display: grid;
+  grid-template-rows: 20.5rem 2.5rem 6rem auto;
 }
 
 .webshop__product__img {
@@ -49,7 +49,7 @@
 }
 
 .webshop__product__info-wrapper {
-  height: 7rem;
+  height: 6rem;
 }
 
 .webshop__product__title {
@@ -70,6 +70,7 @@
   font-family: 'swiss721-Condensed', sans-serif;
   font-size: var(--bigBold);
   font-weight: bold;
+  color: var(--redColor);
 }
 
 .webshop__product__discountprice-text {
@@ -78,4 +79,61 @@
 
 .webshop__product__discountprice {
   text-decoration: line-through;
+}
+
+.webshop__product__end-wrapper {
+  align-self: end;
+}
+
+.webshop__filter {
+  max-width: 96rem;
+  margin: 0 auto var(--smallMargin) auto;
+}
+
+.webshop__filter__form-wrapper {
+  background-color: var(--lightColor);
+  padding: var(--smallMargin) 0;
+}
+
+.webshop__filter__form {
+  display: inline-block;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 39rem 17rem auto;
+  grid-gap: var(--smallMargin);
+}
+
+.webshop__filter__form__label {
+  text-transform: uppercase;
+  font-weight: bold;
+  margin: var(--smallMargin);
+}
+
+.webshop__filter__form__label:hover {
+  color: var(--redColor);
+}
+
+.webshop__filter__form__input:checked + .webshop__filter__form__label {
+  color: var(--redColor);
+}
+
+.webshop__filter__subscribe {
+  justify-self: end;
+  padding: var(--smallMargin);
+  background-color: var(--lightColor);
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.webshop__filter__subscribe:hover {
+  color: var(--redColor);
+}
+
+.webshop__filter__remove {
+  color: var(--redColor);
+  margin-left: var(--smallMargin);
+}
+
+.webshop__filter__form__btns {
+  display: flex;
 }

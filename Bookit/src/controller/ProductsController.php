@@ -12,10 +12,21 @@ class ProductsController extends Controller {
     }
 
   public function index() {
-    $products = $this->productDAO->selectAllProducts();
+    $category = false;
+
+    if (!empty($_GET['product_category'])) {
+      $category = $_GET['product_category'];
+    }
+
+    $products = $this->productDAO->selectAllProducts($category);
 
     $this->set('products', $products);
     $this->set('title', 'producten');
+
+    if ($_SERVER['HTTP_ACCEPT'] == 'application/json') {
+      echo json_encode($products);
+      exit();
+  }
   }
 
   public function detail() {

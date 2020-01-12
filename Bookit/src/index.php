@@ -26,7 +26,7 @@ if(empty($_GET['page'])) {
   $_GET['page'] = 'home';
 }
 if(empty($routes[$_GET['page']])) {
-  header('Location: index.php');
+  header('Location: index.php?page=home');
   exit();
 }
 

@@ -42,6 +42,7 @@ html {
   justify-content: space-around;
   height: 2.9rem;
   padding: 0 var(--extraSmallMargin);
+  cursor: pointer;
 }
 
 .webshop__primary-btn-small svg {
