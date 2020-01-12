@@ -2,6 +2,7 @@
 @import './css/vars.css';
 @import './css/components/header.css';
 @import './css/components/banner.css';
+@import './css/components/product.css';
 
 ::selection {
   background: var(--redColor);
