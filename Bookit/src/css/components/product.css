@@ -31,6 +31,11 @@
   position: absolute;
   top: var(--extraSmallMargin);
   right: var(--extraSmallMargin);
+  cursor: pointer;
+}
+
+.webshop__product__favorite:hover > svg {
+  fill: var(--redColor);
 }
 
 .webshop__product__review-wrapper {
@@ -135,5 +140,9 @@
 }
 
 .webshop__filter__form__btns {
+  display: flex;
+}
+
+.webshop__product__review__score {
   display: flex;
 }

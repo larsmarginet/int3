@@ -1,9 +1,18 @@
 {
   const init = () => {
     document.querySelectorAll('.hide-js').forEach(hide => hide.style.display = 'none');
+    document.querySelectorAll('.show-js').forEach(hide => hide.style.display = 'block');
     document.querySelectorAll('.webshop__filter__form__input').forEach($input => $input.addEventListener('change', handleInputField));
+    document.querySelectorAll('.webshop__detail__general__img__small__item__link').forEach($link => $link.addEventListener('click', handleClickLink));
+    const $modalBtn = document.querySelector('.webshop__detail__general__btn');
+    if ($modalBtn) {
+      $modalBtn.addEventListener('click', handleClickModal);
+    }
   };
 
+
+
+  // Filter
   const handleInputField = e => {
     e.preventDefault();
     submitWithJS();
@@ -117,6 +126,54 @@
   };
 
 
+
+
+  //Images
+  const handleClickLink = e => {
+    e.preventDefault();
+    const $link = e.currentTarget;
+    highlightSelectedPicture($link.parentElement);
+    const $picture = $link.firstElementChild.innerHTML;
+
+    document.querySelector(`.webshop__detail_general__img__large-wrapper`).innerHTML = `${$picture}`;
+    const path = window.location.href.split('?')[0];
+    const qs = $link.getAttribute(`href`).split('?')[1];
+     window.history.pushState({},'',`${path}?${qs}`);
+  };
+
+  const highlightSelectedPicture = item => {
+    const $items = document.querySelectorAll('.webshop__detail__general__img__small__item');
+    $items.forEach($item => {
+      $item.removeAttribute('class');
+      $item.classList.add('webshop__detail__general__img__small__item');
+    });
+    item.classList.add('webshop__detail__general__img__small__item--highlight');
+  }
+
+
+
+  //Modal
+  const handleClickModal = e => {
+    e.preventDefault();
+    const $modal = document.querySelector('.webshop__detail__general__modal');
+    $modal.style.display = 'block';
+
+    const $close = document.querySelector('.webshop__detail__general__modal-conten__close');
+    $close.addEventListener('click', handleClickCrossClose);
+    window.addEventListener('click', handleClickModalClose);
+  }
+
+  const handleClickCrossClose = e => {
+    const $modal = document.querySelector('.webshop__detail__general__modal');
+    $modal.style.display = 'none';
+  }
+
+  const handleClickModalClose = e => {
+    if (e.target.getAttribute('class') === 'webshop__detail__general__modal') {
+      const $modal = document.querySelector('.webshop__detail__general__modal');
+      $modal.style.display = 'none';
+    }
+  }
 
 
   init();

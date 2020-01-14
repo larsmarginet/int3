@@ -26,4 +26,52 @@ class ProductDAO extends DAO {
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
   }
 
+  public function selectProductById($id){
+    $sql = "SELECT * FROM `products` WHERE `id` = :id";
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->bindValue(':id',$id);
+    $stmt->execute();
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+  }
+
+  public function selectAllImagesById($id){
+    $sql = "SELECT * FROM `images` WHERE `product_id` = :id";
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->bindValue(':id',$id);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+  }
+
+  public function selectImageById($id){
+    $sql = "SELECT * FROM `images` WHERE `id` = :id";
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->bindValue(':id',$id);
+    $stmt->execute();
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+  }
+
+  public function selectAllVersionsById($id){
+    $sql = "SELECT * FROM `versions` WHERE `product_id` = :id";
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->bindValue(':id',$id);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+  }
+
+  public function selectAllTestimonialsById($id){
+    $sql = "SELECT * FROM `testimonials` WHERE `product_id` = :id";
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->bindValue(':id',$id);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+  }
+
+  public function selectAllReviewsById($id){
+    $sql = "SELECT * FROM `reviews` WHERE `product_id` = :id GROUP BY `id`";
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->bindValue(':id',$id);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+  }
+
 }

@@ -2,6 +2,7 @@
 session_start();
 ini_set('display_errors', true);
 error_reporting(E_ALL);
+date_default_timezone_set('CET');
 
 // basic .env file parsing
 if (file_exists("../.env")) {
@@ -19,6 +20,10 @@ $routes = array(
   'detail' => array(
     'controller' => 'Products',
     'action' => 'detail'
+  ),
+  'detailViewingCopy' => array(
+    'controller' => 'Products',
+    'action' => 'detailViewingCopy'
   )
 );
 

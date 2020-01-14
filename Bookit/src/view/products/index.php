@@ -40,7 +40,7 @@
 
 <section class="webshop__filter">
   <h2 class="hidden">Filter</h2>
-  <form class="webshop__filter__form" id="filterForm" action="index.php?page=home">
+  <form method="get" class="webshop__filter__form" id="filterForm" action="index.php?page=home">
     <div class="webshop__filter__form-wrapper">
       <input class="webshop__filter__form__input hidden" type="checkbox" name="product_category[]" value="1" id="boeken" <?php if (!empty($_GET['product_category']) && in_array('1', $_GET['product_category'])) echo 'checked';?>>
       <label for="boeken" class="webshop__filter__form__label">Boeken</label>
