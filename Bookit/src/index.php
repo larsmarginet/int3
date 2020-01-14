@@ -24,6 +24,10 @@ $routes = array(
   'detailViewingCopy' => array(
     'controller' => 'Products',
     'action' => 'detailViewingCopy'
+  ),
+  'favorites' => array(
+    'controller' => 'Favorites',
+    'action' => 'index'
   )
 );
 

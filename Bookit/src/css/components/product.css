@@ -6,7 +6,15 @@
   grid-column-gap: var(--smallMargin);
   max-width: 96rem;
   padding: 0 var(--extraSmallMargin);
-  margin: 0 auto;
+  margin: var(--smallMargin) auto 0 auto;
+}
+
+.webshop__products__title {
+  font-size: var(--bigTitle);
+  max-width: 96rem;
+  margin: var(--mediumMargin) auto 0 auto;
+  font-family: 'swiss721-Condensed', sans-serif;
+  text-transform: uppercase;
 }
 
 .webshop__product {
@@ -34,7 +42,12 @@
   cursor: pointer;
 }
 
-.webshop__product__favorite:hover > svg {
+.webshop__product__favorite > button {
+  border: none;
+  background: none;
+}
+
+.webshop__product__favorite:hover > button > svg {
   fill: var(--redColor);
 }
 
@@ -92,7 +105,7 @@
 
 .webshop__filter {
   max-width: 96rem;
-  margin: 0 auto var(--smallMargin) auto;
+  margin: 0 auto;
 }
 
 .webshop__filter__form-wrapper {

@@ -132,14 +132,36 @@
           </svg>kopen
         </button>
       </form>
-      <form class="webshop__detail__general__favorite-form" method="POST" action="index.php?page=detail&id=<?php echo $product['id']?>">
-        <!-- input hidden -->
-        <button class="webshop__favorite-btn-big" type="submit" name="action" value="add">
-          <svg width="27" height="24" viewBox="0 0 27 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M2.5211 12.2443C-0.183077 8.65904 0.718315 3.28118 5.22528 1.48856C9.73224 -0.304055 12.4364 3.28118 13.3378 5.0738C14.2392 3.28118 17.8448 -0.304055 22.3517 1.48856C26.8587 3.28118 26.8587 8.65904 24.1545 12.2443C21.4503 15.8295 13.3378 23 13.3378 23C13.3378 23 5.22528 15.8295 2.5211 12.2443Z" stroke="#DB3125" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </button>
-      </form>
+
+      <?php
+        $favos = 0;
+        if(!empty($_SESSION['favorite'])){
+          foreach($_SESSION['favorite'] as $favo){
+            if($favo['product']['id'] === $product['id']){
+              $favos = 1;
+            }
+          }
+        }
+      ?>
+      <?php if($favos === 1){ ?>
+        <form class="webshop__detail__general__favorite-form" method="POST" action="index.php?page=detail&id=<?php echo $product['id']?>">
+        <input type="hidden" name="product_id" value="<?php echo $product['id'];?>" />
+          <button class="webshop__favorite-btn-big" type="submit" name="action" value="remove">
+            <svg width="27" height="24" viewBox="0 0 27 24" fill="#DB3125" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2.5211 12.2443C-0.183077 8.65904 0.718315 3.28118 5.22528 1.48856C9.73224 -0.304055 12.4364 3.28118 13.3378 5.0738C14.2392 3.28118 17.8448 -0.304055 22.3517 1.48856C26.8587 3.28118 26.8587 8.65904 24.1545 12.2443C21.4503 15.8295 13.3378 23 13.3378 23C13.3378 23 5.22528 15.8295 2.5211 12.2443Z" stroke="#DB3125" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </form>
+       <?php } else { ?>
+        <form class="webshop__detail__general__favorite-form" method="POST" action="index.php?page=detail&id=<?php echo $product['id']?>">
+        <input type="hidden" name="product_id" value="<?php echo $product['id'];?>" />
+          <button class="webshop__favorite-btn-big" type="submit" name="action" value="add">
+            <svg width="27" height="24" viewBox="0 0 27 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2.5211 12.2443C-0.183077 8.65904 0.718315 3.28118 5.22528 1.48856C9.73224 -0.304055 12.4364 3.28118 13.3378 5.0738C14.2392 3.28118 17.8448 -0.304055 22.3517 1.48856C26.8587 3.28118 26.8587 8.65904 24.1545 12.2443C21.4503 15.8295 13.3378 23 13.3378 23C13.3378 23 5.22528 15.8295 2.5211 12.2443Z" stroke="#DB3125" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </form>
+       <?php } ?>
     </div>
     <?php if($product['product_category'] !== 2): ?>
       <ul class="webshop__detail__general__list">

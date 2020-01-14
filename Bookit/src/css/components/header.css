@@ -83,6 +83,19 @@
   transition: color .3s;
 }
 
+.webshop__secondary-nav__list__item__link__count {
+  width: var(--smallMargin);
+  height: var(--smallMargin);
+  position: relative;
+  border-radius: var(--smallMargin);
+  background-color: var(--redColor);
+  display: flex;
+  justify-content: center;
+  color: white;
+  margin-top: calc(var(--smallMargin) * -1);
+  margin-left: var(--extraSmallMargin);
+}
+
 .webshop__primary-nav__list__item__link:hover {
   color: var(--redColor);
 }
@@ -114,7 +127,10 @@
   margin: var(--extraSmallMargin);
 }
 
+.webshop__header__responsive__list__item__link {
+  text-decoration: none;
+}
+
 .webshop__header__responsive__list {
   display: flex;
-
 }

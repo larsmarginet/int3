@@ -12,6 +12,19 @@ class ProductsController extends Controller {
     }
 
   public function index() {
+    if (!empty($_POST['action'])) {
+      if ($_POST['action'] == 'add') {
+        $this->_handleAddFavorite();
+        header('Location: index.php?page=home');
+        exit();
+      }
+      if ($_POST['action'] == 'remove') {
+        $this->_handleRemoveFavorite();
+        header('Location: index.php?page=home');
+        exit();
+      }
+    }
+
     $category = false;
 
     if (!empty($_GET['product_category'])) {
@@ -34,6 +47,21 @@ class ProductsController extends Controller {
       $_SESSION['error'] = 'Er is iets fout gegaan... De product werd niet gevonden. ';
       header('Location: index.php');
     }
+
+
+    if (!empty($_POST['action'])) {
+      if ($_POST['action'] == 'add') {
+        $this->_handleAddFavorite();
+        header('Location: index.php?page=detail&id=' . $_GET['id']);
+        exit();
+      }
+      if ($_POST['action'] == 'remove') {
+        $this->_handleRemoveFavorite();
+        header('Location: index.php?page=detail&id=' . $_GET['id']);
+        exit();
+      }
+    }
+
 
     $product = $this->productDAO->selectProductById($_GET['id']);
     $images = $this->productDAO->selectAllImagesById($_GET['id']);
@@ -81,4 +109,28 @@ class ProductsController extends Controller {
     $this->set('product', $product);
   }
 
+
+
+
+
+
+
+  private function _handleAddFavorite() {
+    $product = $this->productDAO->selectProductById($_GET['id']);
+    if (empty($product)) {
+      return;
+    }
+    $_SESSION['favorite'][$_GET['id']] = array(
+      'product' => $product
+    );
+  }
+
+  private function _handleRemoveFavorite() {
+    if (isset($_SESSION['favorite'][$_GET['id']])) {
+      unset($_SESSION['favorite'][$_GET['id']]);
+    }
+  }
+
 }
+
+

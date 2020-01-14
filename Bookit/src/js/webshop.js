@@ -15,11 +15,11 @@
   // Filter
   const handleInputField = e => {
     e.preventDefault();
-    submitWithJS();
+    submitWithJS(document.getElementById('filterForm'));
   };
 
-  const submitWithJS = async () => {
-    const $form = document.getElementById('filterForm');
+  const submitWithJS = async (form) => {
+    const $form = form;
     const data = new FormData($form);
     const entries = [...data.entries()];
     const qs = new URLSearchParams(entries).toString();
