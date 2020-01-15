@@ -89,7 +89,7 @@ class ProductsController extends Controller {
     if(!empty($_GET['image']) && $productImage = $this->productDAO->selectImageById($_GET['image'])) {
       $largeImage = $productImage;
     }
-    $date = date('d/m/Y', strtotime(date('Y-m-d'). ' + 2 days'));;
+    $date = date('d/m/Y', strtotime(date('Y-m-d'). ' + 2 days'));
 
     $this->set('product', $product);
     $this->set('images', $images);

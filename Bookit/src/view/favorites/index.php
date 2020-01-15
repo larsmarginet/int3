@@ -69,8 +69,8 @@
         <div class="webshop__product__end-wrapper">
           <?php if($product['discount_price'] > 0){ ?>
             <div class="webshop__product__price-wrapper">
-              <p class="webshop__product__price"><?php echo '€' . $product['discount_price'];?></p>
-              <p class="webshop__product__discountprice"><?php echo $product['price']?></p>
+              <p class="webshop__product__price"><?php echo '€' . number_format(($product['discount_price']), 2 , "," , ".") ;?></p>
+              <p class="webshop__product__discountprice"><?php echo number_format(($product['price']), 2 , "," , ".")?></p>
               <p class="webshop__product__discountprice-text">kortingscode uit je Humo</p>
             </div>
           <?php } else { ?>

@@ -28,6 +28,10 @@ $routes = array(
   'favorites' => array(
     'controller' => 'Favorites',
     'action' => 'index'
+  ),
+  'cart' => array(
+    'controller' => 'Orders',
+    'action' => 'index'
   )
 );
 

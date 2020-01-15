@@ -8,8 +8,65 @@
     if ($modalBtn) {
       $modalBtn.addEventListener('click', handleClickModal);
     }
+    document.querySelectorAll('.webshop__cart__orders__form__table__order__quantity__input').forEach($quantity => $quantity.addEventListener('input', handleInputQuantity));
+    const $gift = document.querySelector('.webshop__cart__orders__form__gift__input');
+    if ($gift) {
+      $gift.addEventListener('change', handleClickCheckbox);
+    }
   };
 
+
+  //Cart
+  const handleInputQuantity = e => {
+    const $input = e.currentTarget;
+    const $value = $input.value;
+
+    const $subtotal = $input.parentElement.parentElement.querySelector('.webshop__cart__orders__form__table__order__price');
+    const $totalPrice = document.querySelector('.webshop__cart__orders__form__price__total-price');
+    const $original = document.querySelector('.webshop__cart__orders__form__price__original');
+    const $save = document.querySelector('.webshop__cart__orders__form__price__savings');
+    const $price = $subtotal.dataset.price;
+
+
+    const subtotal = moneyToNumber($subtotal);
+    const newSubtotal = $price * $value;
+    const totalPrice = moneyToNumber($totalPrice);
+    const newTotal = totalPrice + (($price * $value) - subtotal);
+    const original = moneyToNumber($original);
+    const newOriginal = original + (($price * $value) - subtotal);
+    const save = parseFloat($save.textContent.substring(14).replace(',', '.'));
+    const newSave = newOriginal - newTotal;
+
+
+    $subtotal.textContent = `€${numberToMoney(newSubtotal)}`;
+    $totalPrice.textContent = `€${numberToMoney(newTotal)}`;
+    $original.textContent = `€${numberToMoney(newOriginal)}`;
+    $save.textContent = `Je bespaart €${numberToMoney(newSave)}`;
+  }
+
+  const handleClickCheckbox = e => {
+    const $totalPrice = document.querySelector('.webshop__cart__orders__form__price__total-price');
+    const $original = document.querySelector('.webshop__cart__orders__form__price__original');
+    if(e.target.checked){
+      const totalPrice = moneyToNumber($totalPrice) + 2;
+      const original = moneyToNumber($original) + 2;
+      $totalPrice.textContent = `€${numberToMoney(totalPrice)}`;
+      $original.textContent = `€${numberToMoney(original)}`;
+    } else {
+      const totalPrice = moneyToNumber($totalPrice) - 2;
+      const original = moneyToNumber($original) - 2;
+      $totalPrice.textContent = `€${numberToMoney(totalPrice)}`;
+      $original.textContent = `€${numberToMoney(original)}`;
+    }
+  }
+
+  const moneyToNumber = value => {
+    return parseFloat(value.textContent.substring(1).replace(',', '.'));
+  }
+
+  const numberToMoney = value => {
+    return value.toFixed(2).toString().replace('.', ',')
+  }
 
 
   // Filter

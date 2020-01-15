@@ -1,0 +1,146 @@
+@import '../vars.css';
+
+.webshop__cart__orders {
+  display: flex;
+  justify-content: space-between;
+  max-width: 96rem;
+  margin: var(--mediumMargin) auto;
+}
+
+.webshop__cart__orders__form {
+  width: 64rem;
+}
+
+.webshop__cart__info {
+  border: .1rem solid var(--redColor);
+  height: 10.5rem;
+  padding: var(--extraSmallMargin) var(--smallMargin);
+  border-radius: var(--extraSmallMargin);
+  width: 30rem;
+}
+
+.webshop__cart__orders__form__table__order {
+  border-bottom: .1rem dashed black;
+  display: grid;
+  grid-template-columns: 4rem 40rem 6rem 6rem 2rem;
+  grid-column-gap: var(--extraSmallMargin);
+  align-items: center;
+  padding: var(--extraSmallMargin);
+}
+
+.webshop__cart__orders__form__table__order__image {
+  width: 4rem;
+  height: 6rem;
+}
+
+.webshop__cart__orders__form__table__order__image__picture {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.webshop__cart__orders__form__table__order__title {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.webshop__cart__orders__form__table__order__quantity input {
+  font-size: var(--regularFont);
+  width: var(--mediumMargin);
+  text-align: center;
+  color: var(--greyColor);
+}
+
+.webshop__cart__orders__form__table__order__quantity input:focus {
+  color: black;
+}
+
+.webshop__cart__orders__form__info-wrapper {
+  display: grid;
+  margin-top: var(--smallMargin);
+  grid-template-columns: 40rem auto;
+}
+
+.webshop__cart__orders__form__info__label {
+  grid-column: 1/ span 2;
+  grid-row: 1/2;
+}
+
+.webshop__cart__orders__form__info__explain {
+  grid-column: 1/2;
+  grid-row: 2/3;
+}
+
+.webshop__cart__orders__form__info__input-wrapper {
+  grid-column: 1/2;
+  grid-row: 3/4;
+  height: 2.9rem;
+  margin-bottom: var(--extraSmallMargin);
+}
+
+.webshop__cart__orders__form__gift {
+  grid-column: 1/2;
+  grid-row: 4/5;
+  background-color: var(--yellowColor);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 var(--extraSmallMargin);
+  width: 30rem;
+}
+
+.webshop__cart__orders__form__gift__img {
+  background-color: white;
+  border-radius: 100%;
+}
+
+.webshop__cart__orders__form__gift__label::after {
+  content: '';
+  display: inline-block;
+  background-image: url(../../assets/img/gift.svg);
+  width: var(--smallMargin);
+  height: var(--smallMargin);
+  background-repeat: no-repeat;
+  vertical-align: middle;
+  margin-left: var(--extraSmallMargin);
+}
+
+.webshop__cart__orders__form__price__discount-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  grid-column: 2/3;
+  grid-row: 2/3;
+}
+
+.webshop__cart__orders__form__price__original {
+  text-decoration: line-through;
+}
+
+.webshop__cart__orders__form__price__savings {
+  margin-left: var(--extraSmallMargin);
+  color: var(--greenColor);
+}
+
+.webshop__cart__orders__form__price__big {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--mediumTitle);
+  font-family: 'swiss721-Condensed', sans-serif;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.webshop__cart__orders__form__table__order__price {
+  font-family: 'swiss721-Condensed', sans-serif;
+  font-weight: bold;
+}
+
+.webshop__cart__orders__form__table__order__remove-btn {
+  border: none;
+  cursor: pointer;
+  font-size: var(--mediumTitle);
+}
+
+.webshop__cart__orders__form__table__order__remove-btn:hover {
+  color: var(--redColor);
+}

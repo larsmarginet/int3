@@ -4,6 +4,7 @@
 @import './css/components/banner.css';
 @import './css/components/product.css';
 @import './css/components/detail.css';
+@import './css/components/cart.css';
 
 ::selection {
   background: var(--redColor);
@@ -117,6 +118,21 @@ html {
   text-decoration: none;
   font-size: var(--smallFont);
   height: 2.9rem;
+  padding: 0 var(--extraSmallMargin);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.webshop__secondary-btn-big {
+  border: .1rem solid var(--redColor);
+  text-transform: uppercase;
+  color: var(--redColor);
+  text-decoration: none;
+  font-size: var(--regularFont);
+  height: 4.5rem;
   padding: 0 var(--extraSmallMargin);
   display: flex;
   justify-content: center;
