@@ -22,6 +22,11 @@ class OrdersController extends Controller {
         header('Location: ' . $_SERVER['HTTP_REFERER']);
         exit();
       }
+      if ($_POST['action'] == 'addDiscount') {
+        $this->_handleAddDiscount();
+        header('Location: index.php?page=cart');
+        exit();
+      }
       if ($_POST['action'] == 'empty') {
         $_SESSION['cart'] = array();
       }
@@ -58,6 +63,26 @@ class OrdersController extends Controller {
     }
     $_SESSION['cart'][$_POST['id']]['quantity']++;
   }
+
+
+  private function _handleAddDiscount() {
+    if($_POST['discount'] === 'ABCDEF123' && $_POST['id'] == 3 ) {
+      $product = $this->productDAO->selectProductById($_POST['id']);
+      if (empty($product)) {
+        return;
+      }
+      $_SESSION['discount'][$_POST['id']] = array(
+        'product' => $product,
+        'discount' => $_POST['discount']
+      );
+      $_SESSION['info'] = 'De kortingscode is geldig';
+    } else {
+      $_SESSION['error'] = 'Geen geldige kortingscode';
+    }
+
+  }
+
+
 
   private function _handleRemove() {
     if (isset($_SESSION['cart'][$_POST['remove']])) {

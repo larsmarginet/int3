@@ -20,28 +20,29 @@
   const handleInputQuantity = e => {
     const $input = e.currentTarget;
     const $value = $input.value;
-
     const $subtotal = $input.parentElement.parentElement.querySelector('.webshop__cart__orders__form__table__order__price');
+    const $amount = $input.parentElement.parentElement.querySelector('.webshop__cart__orders__form__table__order__title__amount');
     const $totalPrice = document.querySelector('.webshop__cart__orders__form__price__total-price');
     const $original = document.querySelector('.webshop__cart__orders__form__price__original');
     const $save = document.querySelector('.webshop__cart__orders__form__price__savings');
-    const $price = $subtotal.dataset.price;
-
-
-    const subtotal = moneyToNumber($subtotal);
-    const newSubtotal = $price * $value;
-    const totalPrice = moneyToNumber($totalPrice);
-    const newTotal = totalPrice + (($price * $value) - subtotal);
-    const original = moneyToNumber($original);
-    const newOriginal = original + (($price * $value) - subtotal);
-    const save = parseFloat($save.textContent.substring(14).replace(',', '.'));
-    const newSave = newOriginal - newTotal;
-
-
-    $subtotal.textContent = `€${numberToMoney(newSubtotal)}`;
-    $totalPrice.textContent = `€${numberToMoney(newTotal)}`;
-    $original.textContent = `€${numberToMoney(newOriginal)}`;
-    $save.textContent = `Je bespaart €${numberToMoney(newSave)}`;
+    const $discountprice = $subtotal.dataset.discountprice;
+    const subtotal = $discountprice * $value;
+    $subtotal.textContent = `€${numberToMoney(subtotal)}`;
+    let originalPrice = 0;
+    let totalPrice = 0;
+    document.querySelectorAll('.webshop__cart__orders__form__table__order__price').forEach(price => {
+      const $quantity = price.parentElement.querySelector('.webshop__cart__orders__form__table__order__quantity__input').value;
+      originalPrice += parseFloat(price.dataset.price) * $quantity;
+      totalPrice += moneyToNumber(price);
+    });
+    if(document.querySelector('.webshop__cart__orders__form__gift__input').checked){
+      totalPrice += 2;
+      originalPrice += 2;
+    }
+    $amount.textContent = `${$value}X`;
+    $totalPrice.textContent = `€${numberToMoney(totalPrice)}`;
+    $original.textContent = `€${numberToMoney(originalPrice)}`;
+    $save.textContent = `Je bespaart €${numberToMoney(originalPrice - totalPrice)}`;
   }
 
   const handleClickCheckbox = e => {

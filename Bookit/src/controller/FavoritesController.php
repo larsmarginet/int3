@@ -21,9 +21,12 @@ class FavoritesController extends Controller {
     }
     $ids = [''];
 
-    foreach($_SESSION['favorite'] as $favorite){
-      array_push($ids, $favorite['product']['id']);
+    if(isset($_SESSION['favorite'])){
+      foreach($_SESSION['favorite'] as $favorite){
+        array_push($ids, $favorite['product']['id']);
+      }
     }
+
 
     $products = $this->favoriteDAO->selectAllProductsWIthId($ids);
 

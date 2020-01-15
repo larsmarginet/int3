@@ -55,6 +55,11 @@ class ProductsController extends Controller {
         header('Location: index.php?page=detail&id=' . $_GET['id']);
         exit();
       }
+      if ($_POST['action'] == 'addDiscount') {
+        $this->_handleAddDiscount();
+        header('Location: index.php?page=detail&id=' . $_POST['id']);
+        exit();
+      }
       if ($_POST['action'] == 'remove') {
         $this->_handleRemoveFavorite();
         header('Location: index.php?page=detail&id=' . $_GET['id']);
@@ -124,6 +129,26 @@ class ProductsController extends Controller {
       'product' => $product
     );
   }
+
+
+  private function _handleAddDiscount() {
+    if($_POST['discount'] === 'ABCDEF123' && $_POST['id'] == 3 ) {
+      $product = $this->productDAO->selectProductById($_POST['id']);
+      if (empty($product)) {
+        return;
+      }
+      $_SESSION['discount'][$_POST['id']] = array(
+        'product' => $product,
+        'discount' => $_POST['discount']
+      );
+      $_SESSION['info'] = 'De kortingscode is geldig';
+    } else {
+      $_SESSION['error'] = 'Geen geldige kortingscode';
+    }
+
+  }
+
+
 
   private function _handleRemoveFavorite() {
     if (isset($_SESSION['favorite'][$_GET['id']])) {

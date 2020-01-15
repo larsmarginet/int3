@@ -152,3 +152,22 @@ html {
 textarea {
   resize: none;
 }
+
+.box {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  color: white;
+  font-family: 'swiss721-Condensed', sans-serif;
+  text-transform: uppercase;
+  font-size: var(--regularFont);
+  padding: var(--extraSmallMargin);
+}
+
+.error {
+  background-color: var(--redColor);
+}
+
+.info {
+  background-color: var(--greenColor);
+}

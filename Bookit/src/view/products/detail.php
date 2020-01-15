@@ -99,27 +99,59 @@
     <?php endif; ?>
     <p class="webshop__detail__general__stock">Op voorraad</p>
     <div class="webshop__detail__general__price-wrapper">
+
         <p class="webshop__detail__general__price">
-          <?php echo '&euro;' . number_format(($product['price']), 2 , "," , ".");?>
+          <?php
+          $discount = 0;
+            if(isset($_SESSION['discount']) && !empty($_SESSION['discount'])){
+              foreach($_SESSION['discount'] as $item){
+                if($item['product']['id'] == $product['id']) {
+                  $discount = 1;
+                } else {
+                  $discount = 0;
+                }
+              }
+            }
+
+            if($discount === 1) {
+              echo '&euro;' . number_format(($product['discount_price']), 2 , "," , ".");
+            } else {
+              echo '&euro;' . number_format(($product['price']), 2 , "," , ".");
+            }
+          ?>
         </p>
-        <?php if($product['discount_price'] > 0 || $product['product_category'] == 2): ?>
+
+
+        <?php if(($product['discount_price'] > 0 || $product['product_category'] == 2) && $discount === 0):  ?>
         <p class="webshop__detail__general__price-detail">
-          <?php if($product['discount_price'] > 0){
+          <?php
+            if($product['discount_price'] > 0){
               echo '&euro;' . number_format(($product['discount_price']), 2 , "," , ".") . ' met kortingscode uit je Humo';
             } else if ($product['product_category'] == 2) {
               echo 'Na de betaling krijg je de code in jouw mailbox';
-          }?>
+            }
+          ?>
         </p>
         <?php endif; ?>
+
+
+
     </div>
     <?php if($product['discount_price'] > 0): ?>
-      <form class="webshop__detail__general__discount-form" method="POST" action="index.php?page=detail&id=<?php echo $product['id']?>'">
-       <!-- input hidden -->
+      <form class="webshop__detail__general__discount-form" method="POST" action="index.php?page=detail&id=<?php echo $product['id']?>&image=<?php echo $image['id']?>">
+        <input type="hidden" name="id" value="<?php echo $product['id'];?>"/>
         <label for="discount" class="webshop__detail__general__discount__label">Kortingscode</label>
         <p class="webshop__detail__general__discount__explain">Je vindt hem op de eerste pagina van jouw Humo (ABCDEF123)</p>
         <div class="webshop__detail__general__discount__input-wrapper">
-          <input id="discount" type="text" class="webshop__detail__general__discount__input">
-          <input  class="webshop__primary-btn-small" value="&#43;"type="submit">
+          <input id="discount" type="text" name="discount" class="webshop__detail__general__discount__input" value="<?php
+              if(isset($_SESSION['discount']) && !empty($_SESSION['discount'])){
+                foreach($_SESSION['discount'] as $discount) {
+                  if($discount['product']['id'] === $product['id']) {
+                    echo $discount['discount'];
+                  }
+                }
+              }?>">
+          <button class="webshop__primary-btn-small" type="submit" name="action" value="addDiscount">&#43;</button>
         </div>
       </form>
     <?php endif; ?>
