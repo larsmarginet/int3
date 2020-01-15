@@ -97,6 +97,7 @@
 
 .webshop__product__discountprice {
   text-decoration: line-through;
+  margin-left: var(--extraSmallMargin);
 }
 
 .webshop__product__end-wrapper {

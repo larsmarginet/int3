@@ -46,7 +46,25 @@ class ProductsController extends Controller {
     if(empty($_GET['id']) || !$product = $this->productDAO->selectProductById($_GET['id'])) {
       $_SESSION['error'] = 'Er is iets fout gegaan... De product werd niet gevonden. ';
       header('Location: index.php');
+    } else {
+      if (empty($_SESSION['recentlyViewed'][$_GET['id']])) {
+        if (empty($product)) {
+          return;
+        }
+        $_SESSION['recentlyViewed'][$_GET['id']] = array(
+          'product' => $product
+        );
+      } else {
+        unset($_SESSION['recentlyViewed'][$_GET['id']]);
+        if (empty($product)) {
+          return;
+        }
+        $_SESSION['recentlyViewed'][$_GET['id']] = array(
+          'product' => $product
+        );
+      }
     }
+
 
 
     if (!empty($_POST['action'])) {

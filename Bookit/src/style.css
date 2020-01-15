@@ -5,6 +5,7 @@
 @import './css/components/product.css';
 @import './css/components/detail.css';
 @import './css/components/cart.css';
+@import './css/components/viewed.css';
 
 ::selection {
   background: var(--redColor);
@@ -56,8 +57,8 @@ html {
   margin-right: var(--extraSmallMargin);
 }
 
-.webshop__primary-btn-small:hover {
-  border: .1rem solid var(--redColor);
+.webshop__primary-btn-small .webshop__primary-btn-small__svg {
+  margin-right: 0;
 }
 
 .webshop__primary-btn-big {
@@ -78,10 +79,6 @@ html {
 
 .webshop__primary-btn-big svg {
   margin-right: var(--extraSmallMargin);
-}
-
-.webshop__primary-btn-big:hover {
-  border: .1rem solid var(--redColor);
 }
 
 .webshop__favorite-btn {
