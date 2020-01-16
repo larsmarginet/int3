@@ -314,7 +314,22 @@
   margin-bottom: var(--extraSmallMargin);
 }
 
-.webshop__detail__reviews__input__form__stars > label:hover > svg,
-.webshop__detail__reviews__input__form__stars > label:hover ~ label > svg {
-  fill: var(--redColor);
+.webshop__detail__reviews__input__form__stars > label::before {
+  content: '';
+  background-image: url(../../assets/img/star-nofill.svg);
+  width: 3.7rem;
+  height: 3.7rem;
+  background-repeat: no-repeat;
+  display: inline-block;
+}
+
+.webshop__detail__reviews__input__form__stars > label:hover::before,
+.webshop__detail__reviews__input__form__stars > input:checked ~ label::before,
+.webshop__detail__reviews__input__form__stars > label:hover ~ label::before {
+  content: '';
+  background-image: url(../../assets/img/star-fill.svg);
+  width: 3.7rem;
+  height: 3.7rem;
+  background-repeat: no-repeat;
+  display: inline-block;
 }

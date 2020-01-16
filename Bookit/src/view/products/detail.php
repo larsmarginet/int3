@@ -375,8 +375,9 @@
 
 
 
-<section class="webshop__detail__reviews">
+<section id="reviews" class="webshop__detail__reviews">
 <h2 class="hidden">Reviews</h2>
+<div>
   <article class="webshop__detail__reviews__overview">
     <h3 class="webshop__detail__info__title">Reviews</h3>
     <?php if(!empty($reviews)){ ?>
@@ -404,47 +405,33 @@
       echo '<p> Er zijn nog geen reviews... Schrijf jij er één?</p>';
     } ?>
   </article>
+  </div>
   <article class="webshop__detail__reviews__input">
     <h3 class="webshop__detail__info__title">Wat vond jij ervan?</h3>
+    <p class="thanks"></p>
     <form class="webshop__detail__reviews__input__form" method="POST" action="index.php?page=detail&id=<?php echo $product['id']?><?php if(isset($_GET['color'])){ echo '&color=' . $_GET['color'];};?>">
-    <!-- input hidden -->
+      <input type="hidden" name="id" value="<?php echo $product['id'] ?>">
+      <input type="hidden" name="action" value="insertComment">
       <label for="name" class="webshop__detail__reviews__input__form__label">naam</label>
-      <input type="text" id="name" class="webshop__detail__reviews__input__form__input">
+      <p class="form-error"></p>
+      <input type="text" id="name" name="name" class="webshop__detail__reviews__input__form__input valid-input" required>
       <p class="webshop__detail__reviews__input__form__label">score</p>
       <div class="webshop__detail__reviews__input__form__stars">
-        <label>
-          <input class="webshop__detail__reviews__input__form__stars__star hidden" type="radio" name="review" value="5">
-          <svg width="36" height="34" viewBox="0 0 36 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M21.7459 12.8048L22.2202 12.6465L21.7459 12.8048C21.8412 13.0905 22.1087 13.2832 22.4099 13.2832H34.4975L24.7346 20.1897C24.4827 20.3679 24.3772 20.69 24.4749 20.9827L28.2104 32.177L18.4043 25.2399C18.162 25.0685 17.838 25.0685 17.5957 25.2399L7.78961 32.177L11.5251 20.9827C11.6228 20.69 11.5173 20.3679 11.2654 20.1897L1.50249 13.2832H13.5901C13.8914 13.2832 14.1588 13.0905 14.2541 12.8048L18 1.57957L21.7459 12.8048Z" stroke="#DB3125"/>
-          </svg>
-        </label>
-        <label>
-          <input class="webshop__detail__reviews__input__form__stars__star hidden" type="radio" name="review" value="4">
-          <svg width="36" height="34" viewBox="0 0 36 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M21.7459 12.8048L22.2202 12.6465L21.7459 12.8048C21.8412 13.0905 22.1087 13.2832 22.4099 13.2832H34.4975L24.7346 20.1897C24.4827 20.3679 24.3772 20.69 24.4749 20.9827L28.2104 32.177L18.4043 25.2399C18.162 25.0685 17.838 25.0685 17.5957 25.2399L7.78961 32.177L11.5251 20.9827C11.6228 20.69 11.5173 20.3679 11.2654 20.1897L1.50249 13.2832H13.5901C13.8914 13.2832 14.1588 13.0905 14.2541 12.8048L18 1.57957L21.7459 12.8048Z" stroke="#DB3125"/>
-          </svg>
-        </label>
-        <label>
-          <input class="webshop__detail__reviews__input__form__stars__star hidden" type="radio" name="review" value="3">
-          <svg width="36" height="34" viewBox="0 0 36 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M21.7459 12.8048L22.2202 12.6465L21.7459 12.8048C21.8412 13.0905 22.1087 13.2832 22.4099 13.2832H34.4975L24.7346 20.1897C24.4827 20.3679 24.3772 20.69 24.4749 20.9827L28.2104 32.177L18.4043 25.2399C18.162 25.0685 17.838 25.0685 17.5957 25.2399L7.78961 32.177L11.5251 20.9827C11.6228 20.69 11.5173 20.3679 11.2654 20.1897L1.50249 13.2832H13.5901C13.8914 13.2832 14.1588 13.0905 14.2541 12.8048L18 1.57957L21.7459 12.8048Z" stroke="#DB3125"/>
-          </svg>
-        </label>
-        <label>
-          <input class="webshop__detail__reviews__input__form__stars__star hidden" type="radio" name="review" value="2">
-          <svg width="36" height="34" viewBox="0 0 36 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M21.7459 12.8048L22.2202 12.6465L21.7459 12.8048C21.8412 13.0905 22.1087 13.2832 22.4099 13.2832H34.4975L24.7346 20.1897C24.4827 20.3679 24.3772 20.69 24.4749 20.9827L28.2104 32.177L18.4043 25.2399C18.162 25.0685 17.838 25.0685 17.5957 25.2399L7.78961 32.177L11.5251 20.9827C11.6228 20.69 11.5173 20.3679 11.2654 20.1897L1.50249 13.2832H13.5901C13.8914 13.2832 14.1588 13.0905 14.2541 12.8048L18 1.57957L21.7459 12.8048Z" stroke="#DB3125"/>
-          </svg>
-        </label>
-        <label>
-          <input class="webshop__detail__reviews__input__form__stars__star hidden" type="radio" name="review" value="1">
-          <svg width="36" height="34" viewBox="0 0 36 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M21.7459 12.8048L22.2202 12.6465L21.7459 12.8048C21.8412 13.0905 22.1087 13.2832 22.4099 13.2832H34.4975L24.7346 20.1897C24.4827 20.3679 24.3772 20.69 24.4749 20.9827L28.2104 32.177L18.4043 25.2399C18.162 25.0685 17.838 25.0685 17.5957 25.2399L7.78961 32.177L11.5251 20.9827C11.6228 20.69 11.5173 20.3679 11.2654 20.1897L1.50249 13.2832H13.5901C13.8914 13.2832 14.1588 13.0905 14.2541 12.8048L18 1.57957L21.7459 12.8048Z" stroke="#DB3125"/>
-          </svg>
-        </label>
+      <p class="form-error"></p>
+        <input class="webshop__detail__reviews__input__form__stars__star hidden valid-input" type="radio" name="review" id="five" value="5" required>
+        <label class="full" for="five"></label>
+        <input class="webshop__detail__reviews__input__form__stars__star hidden valid-input" type="radio" name="review" id="four" value="4" required>
+        <label class="full" for="four"></label>
+        <input class="webshop__detail__reviews__input__form__stars__star hidden valid-input" type="radio" name="review" id="three" value="3" required>
+        <label class="full" for="three"></label>
+        <input class="webshop__detail__reviews__input__form__stars__star hidden valid-input" type="radio" name="review" id="two" value="2" required>
+        <label class="full" for="two"></label>
+        <input class="webshop__detail__reviews__input__form__stars__star hidden valid-input" type="radio" name="review" id="one" value="1" required>
+        <label class="full" for="one"></label>
       </div>
       <label class="webshop__detail__reviews__input__form__label" for="review">Review</label>
-      <textarea id="review" name="message" class="webshop__detail__reviews__input__form__input webshop__detail__reviews__input__form__input--textarea"></textarea>
+      <p class="form-error"></p>
+      <textarea id="review" name="message" class="webshop__detail__reviews__input__form__input webshop__detail__reviews__input__form__input--textarea valid-input" required></textarea>
       <button type="sumbit" class="webshop__primary-btn-small">verzenden</button>
     </form>
   </article>

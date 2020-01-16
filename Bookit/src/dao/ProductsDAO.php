@@ -74,4 +74,42 @@ class ProductDAO extends DAO {
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
   }
 
+  public function selectReviewById($id){
+    $sql = "SELECT * FROM `reviews` WHERE `id` = :id";
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->bindValue(':id',$id);
+    $stmt->execute();
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+  }
+
+  public function insertComment($data){
+    $errors = $this->validate($data);
+    if(empty($errors)){
+      $sql = "INSERT INTO `reviews` (`product_id`,`author`,`score`,`comment`) VALUES(:product_id,:author,:score,:comment)";
+      $stmt = $this->pdo->prepare($sql);
+      $stmt->bindValue(':product_id',$data['id']);
+      $stmt->bindValue(':author',$data['name']);
+      $stmt->bindValue(':score',$data['review']);
+      $stmt->bindValue(':comment',$data['message']);
+      if($stmt->execute()){
+        return $this->selectReviewById($this->pdo->lastInsertId());
+      }
+    }
+    return false;
+  }
+
+  public function validate($data){
+    $errors = [];
+    if (empty($data['message'])) {
+      $errors['message'] = 'Gelieve een comment in te geven';
+    }
+    if (empty($data['name'])) {
+      $errors['name'] = 'Gelieve een name in te geven';
+    }
+    if (empty($data['review'])) {
+      $errors['review'] = 'Gelieve een score in te geven';
+    }
+    return $errors;
+  }
+
 }

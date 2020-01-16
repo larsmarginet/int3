@@ -168,3 +168,11 @@ textarea {
 .info {
   background-color: var(--greenColor);
 }
+
+.form-error {
+  color: var(--redColor);
+}
+
+.thanks {
+  color: var(--greenColor);
+}

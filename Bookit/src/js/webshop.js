@@ -1,5 +1,6 @@
 {
   const init = () => {
+    checkOverFlow();
     document.querySelectorAll('.hide-js').forEach(hide => hide.style.display = 'none');
     document.querySelectorAll('.show-js').forEach(hide => hide.style.display = 'block');
     document.querySelectorAll('.webshop__filter__form__input').forEach($input => $input.addEventListener('change', handleInputField));
@@ -13,7 +14,129 @@
     if ($gift) {
       $gift.addEventListener('change', handleClickCheckbox);
     }
+    const $reviewForm = document.querySelector('.webshop__detail__reviews__input__form');
+    if($reviewForm){
+        $reviewForm.addEventListener('submit', handleReviewSubmit);
+    }
   };
+
+  //Review
+  const checkOverFlow = () => {
+    const $reviewWrapper = document.querySelector('.webshop__detail__reviews__overview');
+    if($reviewWrapper) {
+     if($reviewWrapper.scrollHeight > 400) {
+      $reviewWrapper.style.height = "40rem";
+      $reviewWrapper.style.overflow = "hidden";
+      addMoreButton($reviewWrapper)
+     }
+    }
+  }
+
+  const addMoreButton = (wrapper) => {
+    let button = document.createElement('button');
+    const $button = document.querySelector('.review__button');
+    if($button) {
+      $button.remove();
+    }
+    if(wrapper){
+      wrapper.after(button);
+      button.textContent = `Meer reviews`;
+      button.classList.add('webshop__secondary-btn-big');
+      button.classList.add('review__button');
+      button.style.margin = "0 auto";
+      button.addEventListener('click', handleClickButton);
+    }
+  }
+
+  const handleClickButton = e => {
+    const button = e.currentTarget;
+    const $reviewWrapper = document.querySelector('.webshop__detail__reviews__overview');
+    $reviewWrapper.style.height = "auto";
+    button.textContent = `Minder reviews`;
+    button.addEventListener('click', handleClickLessButton);
+  }
+
+  const handleClickLessButton = e => {
+    const button = e.currentTarget;
+
+    const $reviewWrapper = document.querySelector('.webshop__detail__reviews__overview');
+    $reviewWrapper.style.height = "40rem";
+    $reviewWrapper.style.overflow = "hidden";
+    button.textContent = `Meer reviews`;
+    addMoreButton($reviewWrapper);
+  }
+
+  const handleReviewSubmit = e => {
+    const $form = e.currentTarget;
+    e.preventDefault();
+    postReview($form.getAttribute('action'), formdataToJson($form)); // object opmaken
+  };
+
+
+  const formdataToJson = $from => {
+    const data = new FormData($from);
+    const obj = {}
+    data.forEach((value, key) => {
+      obj[key] = value;
+    });
+    return obj;
+  }
+
+
+  const postReview = async (url, data) => {
+    const response = await fetch(url, {
+      method: "POST",
+      headers: new Headers({
+        'Content-Type': 'application/json'
+      }),
+      body: JSON.stringify(data)
+    });
+    const returned = await response.json();
+    if(returned.error){
+    }else{
+      showReviews(returned);
+    }
+    const $notification = document.querySelector(`.thanks`);
+    $notification.textContent = `Bedankt voor je review`;
+  };
+
+  const showReviews = reviews => {
+    document.querySelectorAll('.webshop__detail__reviews__input__form__input').forEach(input => {input.value=''});
+    const $parent = document.querySelector('.webshop__detail__reviews__overview');
+    $parent.innerHTML = '<h3 class="webshop__detail__info__title">Reviews</h3>'
+    reviews.forEach(review => {
+    let score = ' ';
+    if (review['score']){
+      for (let i = 0; i < Math.round(review['score']); i++) {
+        score += `<svg width="17" height="16" viewBox="0 0 17 16" fill="#db3125" xmlns="http://www.w3.org/2000/svg">
+                 <path d="M5.58853 9.01337L1.95486 6.37336L6.44632 6.37336C6.74958 6.37336 7.01835 6.17808 7.11206 5.88967L8.5 1.61804L9.88794 5.88967C9.98165 6.17809 10.2504 6.37336 10.5537 6.37336L15.0451 6.37336L11.4115 9.01337L11.7054 9.41788L11.4115 9.01337C11.1661 9.19162 11.0635 9.50758 11.1572 9.79599L12.5451 14.0676L8.91145 11.4276C8.66611 11.2494 8.33389 11.2494 8.08855 11.4276L4.45488 14.0676L5.84282 9.79599C5.93653 9.50758 5.83387 9.19162 5.58853 9.01337L5.29464 9.41788L5.58853 9.01337Z" stroke="#DB3125"/>
+                 </svg>`;
+       }
+       for (let i = 0; i < (5 - Math.round(review['score'])); i++) {
+         score += `<svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                 <path d="M5.58853 9.01337L1.95486 6.37336L6.44632 6.37336C6.74958 6.37336 7.01835 6.17808 7.11206 5.88967L8.5 1.61804L9.88794 5.88967C9.98165 6.17809 10.2504 6.37336 10.5537 6.37336L15.0451 6.37336L11.4115 9.01337L11.7054 9.41788L11.4115 9.01337C11.1661 9.19162 11.0635 9.50758 11.1572 9.79599L12.5451 14.0676L8.91145 11.4276C8.66611 11.2494 8.33389 11.2494 8.08855 11.4276L4.45488 14.0676L5.84282 9.79599C5.93653 9.50758 5.83387 9.19162 5.58853 9.01337L5.29464 9.41788L5.58853 9.01337Z" stroke="#DB3125"/>
+                 </svg>`;
+       }
+    } else {
+      for (let i = 0; i < 5; i++) {
+        score += `<svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5.58853 9.01337L1.95486 6.37336L6.44632 6.37336C6.74958 6.37336 7.01835 6.17808 7.11206 5.88967L8.5 1.61804L9.88794 5.88967C9.98165 6.17809 10.2504 6.37336 10.5537 6.37336L15.0451 6.37336L11.4115 9.01337L11.7054 9.41788L11.4115 9.01337C11.1661 9.19162 11.0635 9.50758 11.1572 9.79599L12.5451 14.0676L8.91145 11.4276C8.66611 11.2494 8.33389 11.2494 8.08855 11.4276L4.45488 14.0676L5.84282 9.79599C5.93653 9.50758 5.83387 9.19162 5.58853 9.01337L5.29464 9.41788L5.58853 9.01337Z" stroke="#DB3125"/>
+                </svg>`;
+      }
+    };
+    $parent.innerHTML += `
+      <div class="webshop__detail__reviews__overview-wrapper">
+          <p class="webshop__detail__reviews__overview__name">${review['author']}</p>
+          <div class="webshop__product__review__score">
+            ${score}
+          </div>
+          <p class="webshop__detail__reviews__overview__comment">${review['comment']}</p>
+        </div>
+      `;
+    })
+    checkOverFlow();
+  }
+
 
 
   //Cart

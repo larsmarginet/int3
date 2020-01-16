@@ -86,6 +86,37 @@ class ProductsController extends Controller {
     }
 
 
+    $contentType = isset($_SERVER["CONTENT_TYPE"]) ? trim($_SERVER["CONTENT_TYPE"]) : '';
+    if ($contentType === "application/json") {
+      $content = trim(file_get_contents("php://input"));
+      $data = json_decode($content, true); // JSON omzetten naar assoc array
+      $insertedComment = $this->productDAO->insertComment($data);
+      if(!$insertedComment){
+        $errors = $this->productDAO->validate($data);
+        $errors['error'] = "Er zijn fouten opgetreden";
+        $this->set('errors',$errors);
+        echo json_encode($errors);
+      }else{
+        $comments = $this->productDAO->selectAllReviewsById($data['id']);
+        echo json_encode($comments);
+      }
+      exit();
+    }
+
+      if(!empty($_POST['action'])){
+          if($_POST['action'] == 'insertComment'){
+            $insertedcomment = $this->productDAO->insertComment($_POST);
+            if(!$insertedcomment){
+              $errors = $this->productDAO->validate($_POST);
+              $this->set('errors',$errors);
+            }else{
+              header('Location:index.php?page=detail&id=' . $_POST['id'] . '#reviews');
+              exit();
+            }
+          }
+        }
+
+
     $product = $this->productDAO->selectProductById($_GET['id']);
     $images = $this->productDAO->selectAllImagesById($_GET['id']);
     $largeImage = $images[0];
