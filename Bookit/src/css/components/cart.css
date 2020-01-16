@@ -144,3 +144,8 @@
 .webshop__cart__orders__form__table__order__remove-btn:hover {
   color: var(--redColor);
 }
+
+.webshop__cart__orders__form__table__order__title__amount + a {
+  text-decoration: none;
+  color: black;
+}

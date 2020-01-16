@@ -19,10 +19,14 @@ class OrdersController extends Controller {
     if (!empty($_POST['action'])) {
       if ($_POST['action'] == 'add') {
         $this->_handleAdd();
+        $color = 0;
+        if(isset($_GET['color'])){
+          $color = $_GET['color'];
+        }
         if(strpos($_SERVER['HTTP_REFERER'], '?')){
-          header('Location: ' . $_SERVER['HTTP_REFERER'] . '&buy=true&product_id=' . $_POST['id']);
+          header('Location: ' . $_SERVER['HTTP_REFERER'] . '&buy=true&product_id=' . $_POST['id']) . '&color=' . $color;
         } else {
-          header('Location: ' . $_SERVER['HTTP_REFERER'] . '?buy=true&product_id=' . $_POST['id']);
+          header('Location: ' . $_SERVER['HTTP_REFERER'] . '?buy=true&product_id=' . $_POST['id']) . '&color=' . $color;
         }
 
         exit();
@@ -61,10 +65,18 @@ class OrdersController extends Controller {
       if (empty($product)) {
         return;
       }
-      $_SESSION['cart'][$_POST['id']] = array(
-        'product' => $product,
-        'quantity' => 0
-      );
+      if(isset($_GET['color'])){
+        $_SESSION['cart'][$_POST['id']] = array(
+          'product' => $product,
+          'quantity' => 0,
+          'color' => $_GET['color']
+        );
+      } else {
+        $_SESSION['cart'][$_POST['id']] = array(
+          'product' => $product,
+          'quantity' => 0
+        );
+      }
     }
     $_SESSION['cart'][$_POST['id']]['quantity']++;
   }

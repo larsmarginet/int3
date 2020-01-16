@@ -138,7 +138,7 @@
 
     </div>
     <?php if($product['discount_price'] > 0): ?>
-      <form class="webshop__detail__general__discount-form" method="POST" action="index.php?page=detail&id=<?php echo $product['id']?>&image=<?php echo $image['id']?>">
+      <form class="webshop__detail__general__discount-form" method="POST" action="index.php?page=detail&id=<?php echo $product['id']?>">
         <input type="hidden" name="id" value="<?php echo $product['id'];?>"/>
         <label for="discount" class="webshop__detail__general__discount__label">Kortingscode</label>
         <p class="webshop__detail__general__discount__explain">Je vindt hem op de eerste pagina van jouw Humo (ABCDEF123)</p>
@@ -156,7 +156,7 @@
       </form>
     <?php endif; ?>
     <div class="webshop__detail__general__btn-wrapper">
-      <form class="webshop__detail__general__buy-form" method="POST" action="index.php?page=cart">
+      <form class="webshop__detail__general__buy-form" method="POST" action="index.php?page=cart<?php if(isset($_GET['color'])) { echo '&color=' . $_GET['color']; }?>">
       <input type="hidden" name="id" value="<?php echo $product['id'];?>"/>
         <button class="webshop__primary-btn-big" type="submit" name="action" value="add">
           <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">

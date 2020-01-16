@@ -17,7 +17,7 @@
               <img class="webshop__cart__orders__form__table__order__image__picture" alt="<?php echo $order['product']['name']?>" src="../../assets/img/<?php echo $order['product']['image']?>/0.jpg">
             </picture>
         </td>
-          <td class="webshop__cart__orders__form__table__order__title"><span class="webshop__cart__orders__form__table__order__title__amount"><?php echo $order['quantity']?>x</span> <?php echo $order['product']['name']?></td>
+          <td class="webshop__cart__orders__form__table__order__title"><span class="webshop__cart__orders__form__table__order__title__amount"><?php echo $order['quantity']?>x</span> <a href="index.php?page=detail&id=<?php echo $order['product']['id']?><?php if(isset($order['color'])) {echo '&color='. $order['color'];} ?>"><?php echo $order['product']['name']?> <?php if(isset($order['color'])) {echo '('. $order['color'] .')';} ?></a></td>
           <td class="webshop__cart__orders__form__table__order__quantity"><input class="webshop__cart__orders__form__table__order__quantity__input" type="text" name="quantity[<?php echo $order['product']['id'];?>]" min="1" value="<?php echo $order['quantity']?>"></td>
           <?php
           $discount = 0;

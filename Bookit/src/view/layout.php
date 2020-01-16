@@ -87,7 +87,7 @@
                             <img class="buy-popup-content__img" alt="<?php echo $cart['product']['name']?>" src="../../assets/img/<?php echo $cart['product']['image']?>/0.jpg">
                           </picture>
                           <div class="buy-popup-content__info--wrapper">
-                            <p class="buy-popup-content__info__title"><?php echo $cart['product']['name'] ?></p>
+                            <p class="buy-popup-content__info__title"><?php echo $cart['product']['name'] ?> <?php if(isset($cart['color'])) {echo '('. $cart['color'] .')';} ?></p>
                             <?php if(!empty($cart['product']['author'])) { ?>
                               <p class="buy-popup-content__info__author"><?php echo $cart['product']['author'] ?></p>
                             <?php } ?>
