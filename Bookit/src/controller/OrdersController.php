@@ -19,7 +19,12 @@ class OrdersController extends Controller {
     if (!empty($_POST['action'])) {
       if ($_POST['action'] == 'add') {
         $this->_handleAdd();
-        header('Location: ' . $_SERVER['HTTP_REFERER']);
+        if(strpos($_SERVER['HTTP_REFERER'], '?')){
+          header('Location: ' . $_SERVER['HTTP_REFERER'] . '&buy=true&product_id=' . $_POST['id']);
+        } else {
+          header('Location: ' . $_SERVER['HTTP_REFERER'] . '?buy=true&product_id=' . $_POST['id']);
+        }
+
         exit();
       }
       if ($_POST['action'] == 'addDiscount') {

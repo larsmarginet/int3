@@ -63,7 +63,7 @@
             </svg>';
         }?>
       </div>
-      <p class="webshop__product__review__amount"><?php echo $count ?> reviews</p>
+      <a href="#reviews" class="webshop__product__review__amount"><?php echo $count ?> reviews</a>
     </div>
     <?php if($product['paperback_id'] > 0): ?>
       <div class="webshop__detail__general__version-wrapper">
