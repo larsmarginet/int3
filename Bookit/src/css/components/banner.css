@@ -2,7 +2,7 @@
 
 .webshop__banner {
   background-color: var(--yellowColor);
-  max-width: 96rem;
+  width: 96rem;
   margin: var(--smallMargin) auto;
   display: flex;
 }

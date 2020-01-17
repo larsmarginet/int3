@@ -2,13 +2,16 @@
 
 require_once __DIR__ . '/Controller.php';
 require_once __DIR__ . '/../dao/FavoritesDAO.php';
+require_once __DIR__ . '/../dao/SubscriptionsDAO.php';
 
 class FavoritesController extends Controller {
 
   private $favoriteDAO;
+  private $subscriptionDAO;
 
   function __construct() {
       $this->favoriteDAO = new FavoriteDAO();
+      $this->subscriptionDAO = new SubscriptionDAO();
     }
 
   public function index() {
@@ -27,9 +30,10 @@ class FavoritesController extends Controller {
       }
     }
 
-
+    $subscriptions = $this->subscriptionDAO->selectAllSubscriptions();
     $products = $this->favoriteDAO->selectAllProductsWIthId($ids);
 
+    $this->set('subscriptions', $subscriptions);
     $this->set('products',  $products);
     $this->set('title', 'Verlanglijstje');
   }

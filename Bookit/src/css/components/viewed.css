@@ -60,5 +60,5 @@
 
 .webshop__recently-viewed__product {
   display: grid;
-  grid-template-rows: 13rem auto 3rem 3rem;
+  grid-template-rows: 13rem auto var(--regularMargin) var(--regularMargin);
 }

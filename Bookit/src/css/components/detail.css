@@ -1,7 +1,7 @@
 @import '../vars.css';
 
 .webshop__detail__general {
-  max-width: 96rem;
+  width: 96rem;
   margin: var(--mediumMargin) auto 0 auto;
   display: flex;
 }
@@ -61,13 +61,13 @@
 .webshop__detail__general__modal-content {
   margin: 10vh auto;
   background-color: var(--lightColor);
-  max-width: 50rem;
+  width: 50rem;
   height: 80vh;
   overflow: scroll;
 }
 
 .webshop__viewing-copy {
-  max-width: 40rem;
+  width: 40rem;
   margin: var(--mediumMargin);
 }
 
@@ -187,7 +187,7 @@
 .webshop__detail__longread {
   background-color: var(--yellowColor);
   padding: var(--smallMargin);
-  max-width: 96rem;
+  width: 96rem;
   margin: var(--mediumMargin) auto 0 auto;
   display: grid;
   grid-template-columns: 28rem auto;
@@ -217,13 +217,13 @@
 
 .webshop__detail__info {
   display: flex;
-  max-width: 96rem;
+  width: 96rem;
   padding: 0 var(--extraSmallMargin);
   margin: var(--mediumMargin) auto 0 auto;
 }
 
 .webshop__detail__info__description-wrapper {
-  max-width: 54rem;
+  width: 54rem;
   margin-right: var(--smallMargin);
 }
 
@@ -237,7 +237,7 @@
 }
 
 .webshop__detail__specs {
-  max-width: 96rem;
+  width: 96rem;
   padding: 0 var(--extraSmallMargin);
   margin: var(--mediumMargin) auto 0 auto;
 }

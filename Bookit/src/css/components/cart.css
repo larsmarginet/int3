@@ -3,7 +3,7 @@
 .webshop__cart__orders {
   display: flex;
   justify-content: space-between;
-  max-width: 96rem;
+  width: 96rem;
   margin: var(--mediumMargin) auto;
 }
 

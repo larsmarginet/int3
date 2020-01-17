@@ -29,6 +29,10 @@ $routes = array(
     'controller' => 'Favorites',
     'action' => 'index'
   ),
+  'subscriptions' => array(
+    'controller' => 'Subscriptions',
+    'action' => 'index'
+  ),
   'cart' => array(
     'controller' => 'Orders',
     'action' => 'index'

@@ -2,13 +2,16 @@
 
 require_once __DIR__ . '/Controller.php';
 require_once __DIR__ . '/../dao/ProductsDAO.php';
+require_once __DIR__ . '/../dao/SubscriptionsDAO.php';
 
 class ProductsController extends Controller {
 
   private $productDAO;
+  private $subscriptionDAO;
 
   function __construct() {
       $this->productDAO = new ProductDAO();
+      $this->subscriptionDAO = new SubscriptionDAO();
     }
 
   public function index() {
@@ -31,8 +34,10 @@ class ProductsController extends Controller {
       $category = $_GET['product_category'];
     }
 
+    $subscriptions = $this->subscriptionDAO->selectAllSubscriptions();
     $products = $this->productDAO->selectAllProducts($category);
 
+    $this->set('subscriptions', $subscriptions);
     $this->set('products', $products);
     $this->set('title', 'Producten');
 
@@ -40,7 +45,14 @@ class ProductsController extends Controller {
       echo json_encode($products);
       exit();
   }
-  }
+}
+
+
+
+
+
+
+
 
   public function detail() {
     if(empty($_GET['id']) || !$product = $this->productDAO->selectProductById($_GET['id'])) {
@@ -116,7 +128,7 @@ class ProductsController extends Controller {
           }
         }
 
-
+    $subscriptions = $this->subscriptionDAO->selectAllSubscriptions();
     $product = $this->productDAO->selectProductById($_GET['id']);
     $images = $this->productDAO->selectAllImagesById($_GET['id']);
     $largeImage = $images[0];
@@ -145,6 +157,7 @@ class ProductsController extends Controller {
     }
     $date = date('d/m/Y', strtotime(date('Y-m-d'). ' + 2 days'));
 
+    $this->set('subscriptions', $subscriptions);
     $this->set('product', $product);
     $this->set('images', $images);
     $this->set('largeImage', $largeImage);
@@ -156,6 +169,15 @@ class ProductsController extends Controller {
     $this->set('date', $date);
     $this->set('title', $product['name']);
   }
+
+
+
+
+
+
+
+
+
 
   public function detailViewingCopy() {
     $product = $this->productDAO->selectProductById($_GET['id']);

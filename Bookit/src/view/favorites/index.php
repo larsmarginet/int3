@@ -7,9 +7,9 @@
       <div class="webshop__product__img-wrapper">
         <picture class="webshop__product__img">
           <source srcset="../../assets/img/<?php echo $product['image']?>/0.webp, ../../assets/img/<?php echo $product['image']?>/0-2X.webp 2x"
-            sizes="220w" type="image/webp">
+            sizes="220px" type="image/webp">
           <source srcset="../../assets/img/<?php echo $product['image']?>/0.jpg, ../../assets/img/<?php echo $product['image']?>/0-2X.jpg 2x"
-            sizes="220w" type="image/jpg">
+            sizes="220px" type="image/jpg">
           <img class="webshop__product__img" alt="<?php echo $product['name']?>" src="../../assets/img/<?php echo $product['image']?>/0.jpg">
         </picture>
         <?php
@@ -111,9 +111,9 @@
           <div class="webshop__recently-viewed__product__img-wrapper">
             <picture class="webshop__recently-viewed__product__img">
               <source srcset="../../assets/img/<?php echo $article['product']['image']?>/0.webp, ../../assets/img/<?php echo $article['product']['image']?>/0-2X.webp 2x"
-                sizes="80w" type="image/webp">
+                sizes="80px" type="image/webp">
               <source srcset="../../assets/img/<?php echo $article['product']['image']?>/0.jpg, ../../assets/img/<?php echo $article['product']['image']?>/0-2X.jpg 2x"
-                sizes="80w" type="image/jpg">
+                sizes="80px" type="image/jpg">
               <img class="webshop__recently-viewed__product__img" alt="<?php echo $article['product']['name']?>" src="../../assets/img/<?php echo $article['product']['image']?>/0.jpg">
             </picture>
           </div>
@@ -142,3 +142,55 @@
     </div>
   </section>
 <?php endif; ?>
+
+
+<section class="webshop__subscription__footer">
+  <div class="webshop__subscription__footer-wrapper">
+    <h2 class="webshop__subscription__footer__title">Nog geen abonnement?</h2>
+    <picture class="webshop__subscription__footer__image">
+      <source srcset="../../assets/img/Subscription/0.webp, ../../assets/img/Subscription/0-2X.webp 2x"
+        sizes="260px" type="image/webp">
+      <source srcset="../../assets/img/Subscription/0.jpg, ../../assets/img/Subscription0-2X.jpg 2x"
+        sizes="260px" type="image/jpg">
+      <img class="webshop__subscription__footer__image" alt="Humo abonnement" src="../../assets/img/Subscription/0.jpg">
+    </picture>
+    <ul class="webshop__subscription__footer__list">
+      <li class="webshop__subscription__footer__list__item">Sluit aan bij 50.000 andere humo(r) fans</li>
+      <li class="webshop__subscription__footer__list__item">Je betaalt maandelijks</li>
+      <li class="webshop__subscription__footer__list__item">1 x betalen en dan wordt het bedrag automatisch gestort</li>
+    </ul>
+
+  <form class="webshop__subscription__subscribe__form" method="POST" action="index.php?page=cart">
+    <?php foreach($subscriptions as $subscription): ?>
+      <input id="<?php echo $subscription['id']?>" class="webshop__subscription__subscribe__form__input" type="radio" name="id" value="<?php echo $subscription['id']?>" <?php if($subscription['id'] == 29){echo 'checked';} ?>>
+      <label for="<?php echo $subscription['id']?>" class="webshop__subscription__subscribe__form__label">
+        <div class="webshop__subscription__subscribe__form__btn-wrapper">
+          <div class="webshop__subscription__subscribe__form__radio"></div>
+          <p class="webshop__subscription__subscribe__form__duration"><?php echo $subscription['duration']?> maanden</p>
+          <?php if($subscription['discount_percentage'] > 0): ?>
+            <p class="webshop__subscription__subscribe__form__savings">Je bespaart <?php echo $subscription['discount_euro']?> euro</p>
+          <?php endif; ?>
+        </div>
+        <?php if($subscription['discount_percentage'] > 0): ?>
+          <p class="webshop__subscription__subscribe__form__percentage"><?php echo $subscription['discount_percentage']?>% Korting</p>
+        <?php endif; ?>
+        <p class="webshop__subscription__subscribe__form__price">
+          <?php if($subscription['discount_percentage'] > 0):?>
+            <span class="webshop__subscription__subscribe__form__price__original">&euro;15,95</span>
+          <?php endif; ?>
+          &euro;<?php echo $subscription['price']?>/mnd
+        </p>
+      </label>
+    <?php endforeach; ?>
+    <div class="webshop__subscription__subscribe__form__bigbtn-wrapper">
+      <a class="webshop__secondary-btn-big" href="index.php?page=subscriptions">meer info</a>
+      <button class="webshop__primary-btn-big webshop__subscription__subscribe__form__submit" type="submit" name="action" value="add">
+        <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18.9905 6.38903L18.1937 10.96C18.0954 11.465 17.6931 11.772 17.2292 11.7778H5.61292L5.38229 13.0778H16.4534C17.0363 13.1221 17.4318 13.5351 17.4389 14.0633C17.3965 14.645 16.9835 15.0415 16.4534 15.0488H4.20807C3.54581 14.9892 3.15091 14.4613 3.22257 13.8746L3.74677 11.0229L2.94999 3.01314L0.685455 2.30028C0.132064 2.08056 -0.0937983 1.57994 0.0354492 1.06317C0.250355 0.5246 0.765303 0.278534 1.27256 0.413165L4.16613 1.33576C4.55595 1.48188 4.78019 1.80097 4.8371 2.17448L5.00484 3.76804L18.1308 5.23579C18.7339 5.36643 19.0613 5.84414 18.9905 6.38903ZM7.20847 17.118C7.20847 17.9489 6.53492 18.6224 5.70402 18.6224C4.87313 18.6224 4.19958 17.9489 4.19958 17.118C4.19958 16.2871 4.87315 15.6135 5.70402 15.6135C6.53491 15.6135 7.20847 16.2871 7.20847 17.118ZM16.19 17.118C16.19 17.9489 15.5164 18.6224 14.6855 18.6224C13.8546 18.6224 13.1811 17.9489 13.1811 17.118C13.1811 16.2871 13.8546 15.6135 14.6855 15.6135C15.5164 15.6135 16.19 16.2871 16.19 17.118Z" fill="white"/>
+        </svg>kopen
+      </button>
+    </div>
+  </form>
+  </div>
+</section>
+

@@ -3,15 +3,18 @@
 require_once __DIR__ . '/Controller.php';
 require_once __DIR__ . '/../dao/OrdersDAO.php';
 require_once __DIR__ . '/../dao/ProductsDAO.php';
+require_once __DIR__ . '/../dao/SubscriptionsDAO.php';
 
 class OrdersController extends Controller {
 
   private $orderDAO;
   private $productDAO;
+  private $subscriptionDAO;
 
   function __construct() {
       $this->orderDAO = new OrderDAO();
       $this->productDAO = new ProductDAO();
+      $this->subscriptionDAO = new SubscriptionDAO();
     }
 
   public function index() {
@@ -61,19 +64,30 @@ class OrdersController extends Controller {
 
   private function _handleAdd() {
     if (empty($_SESSION['cart'][$_POST['id']])) {
-      $product = $this->productDAO->selectProductById($_POST['id']);
-      if (empty($product)) {
-        return;
-      }
-      if(isset($_GET['color'])){
+      if($_POST['id']<=28){
+        $product = $this->productDAO->selectProductById($_POST['id']);
+        if (empty($product)) {
+          return;
+        }
+        if(isset($_GET['color'])){
+          $_SESSION['cart'][$_POST['id']] = array(
+            'product' => $product,
+            'quantity' => 0,
+            'color' => $_GET['color']
+          );
+        } else {
+          $_SESSION['cart'][$_POST['id']] = array(
+            'product' => $product,
+            'quantity' => 0
+          );
+        }
+      } else if(isset($_POST['id']) && !empty($_POST['id'])) {
+        $subscription = $this->subscriptionDAO->selectSubscriptionById($_POST['id']);
+        if (empty($subscription)) {
+          return;
+        }
         $_SESSION['cart'][$_POST['id']] = array(
-          'product' => $product,
-          'quantity' => 0,
-          'color' => $_GET['color']
-        );
-      } else {
-        $_SESSION['cart'][$_POST['id']] = array(
-          'product' => $product,
+          'product' => $subscription,
           'quantity' => 0
         );
       }
