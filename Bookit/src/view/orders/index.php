@@ -107,7 +107,7 @@
         <p class="webshop__cart__orders__form__price__total">Totaal:</p>
         <p class="webshop__cart__orders__form__price__total-price">&euro;<?php echo number_format(($discountPrice), 2 , "," , ".")?></p>
       </div>
-      <a class="webshop__primary-btn-big" href="index.php?page=login">bestellen</a>
+      <button type="submit" class="webshop__primary-btn-big" name="order" id="order" value="update-cart">bestellen</button>
     </div>
 
   </form>

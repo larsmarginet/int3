@@ -53,11 +53,166 @@ class OrdersController extends Controller {
       header('Location: index.php?page=cart');
       exit();
     }
-
-
+    if (!empty($_POST['order'])) {
+      if ($_POST['order'] == 'update-cart') {
+        $this->_handleUpdate();
+      }
+      header('Location: index.php?page=login');
+      exit();
+    }
 
     $this->set('date', $date);
     $this->set('title', 'Winkelmandje');
+  }
+
+
+
+
+
+  public function login() {
+    $date = date('d/m/Y', strtotime(date('Y-m-d'). ' + 2 days'));
+    if (!empty($_POST['action'])) {
+      if ($_POST['action'] == 'login' && isset($_POST['email']) && isset($_POST['password'])) {
+        $this->_handleLogin();
+      }
+    }
+    $this->set('date', $date);
+    $this->set('title', 'Gegevens');
+  }
+
+  public function data() {
+    $date = date('d/m/Y', strtotime(date('Y-m-d'). ' + 2 days'));
+    if (!empty($_POST['action'])) {
+      if ($_POST['action'] == 'data') {
+        $this->_handleData();
+      }
+    }
+    $this->set('date', $date);
+    $this->set('title', 'Gegevens');
+  }
+
+  public function payment() {
+    $date = date('d/m/Y', strtotime(date('Y-m-d'). ' + 2 days'));
+    if (!empty($_POST['action'])) {
+      if ($_POST['action'] == 'payment') {
+        $this->_handlePayment();
+      }
+    }
+    $this->set('date', $date);
+    $this->set('title', 'Betaalmethode');
+  }
+
+  public function thanks() {
+    $date = date('d/m/Y', strtotime(date('Y-m-d'). ' + 2 days'));
+    $this->set('date', $date);
+    $this->set('title', 'Bedankt');
+  }
+
+
+
+  private function _handlePayment() {
+    if(isset($_POST['terms']) && $_POST['terms'] == 'on') {
+      $_SESSION['orders']['payment'] = $_POST['payment'];
+      unset( $_SESSION['cart']);
+      header('Location: index.php?page=thanks');
+    }
+  }
+
+
+
+  private function _handleData() {
+    $data = array();
+    if(isset($_POST['billing']) && $_POST['billing'] == 'on') {
+      $data = array(
+        'name' => $_POST['name'],
+        'email' => $_POST['email'],
+        'street' => $_POST['street'],
+        'number' => $_POST['number'],
+        'bus' => $_POST['bus'],
+        'zip' => $_POST['zip'],
+        'city' => $_POST['city'],
+        'billing-street' => $_POST['street'],
+        'billing-number' => $_POST['number'],
+        'billing-bus' => $_POST['bus'],
+        'billing-zip' => $_POST['zip'],
+        'billing-city' => $_POST['city']
+      );
+    } else {
+      $data = array(
+        'name' => $_POST['name'],
+        'email' => $_POST['email'],
+        'street' => $_POST['street'],
+        'number' => $_POST['number'],
+        'bus' => $_POST['bus'],
+        'zip' => $_POST['zip'],
+        'city' => $_POST['city'],
+        'billing-street' => $_POST['billing-street'],
+        'billing-number' => $_POST['billing-number'],
+        'billing-bus' => $_POST['billing-bus'],
+        'billing-zip' => $_POST['billing-zip'],
+        'billing-city' => $_POST['billing-city']
+      );
+    }
+    $errors = $this->validateBilling($data);
+    if(empty($errors)){
+      $_SESSION['orders'] = array(
+        'orders' => $_SESSION['cart'],
+        'info' => $data,
+        'payment' => 0
+      );
+      header('Location: index.php?page=payment');
+    } else {
+      $this->set('errors',$errors);
+    }
+  }
+
+
+  private function validateBilling($data) {
+    $errors = [];
+    if (empty($data['name'])) {
+      $errors['name'] = 'Gelieve een naam in te geven';
+    }
+    if (empty($data['email'])) {
+      $errors['email'] = 'Gelieve een email in te geven';
+    }
+    if (empty($data['street'])) {
+      $errors['street'] = 'Gelieve een straat in te geven';
+    }
+    if (empty($data['number'])) {
+      $errors['number'] = 'Gelieve een number in te geven';
+    }
+    if (empty($data['zip'])) {
+      $errors['zip'] = 'Gelieve een postcode in te geven';
+    }
+    if (empty($data['city'])) {
+      $errors['city'] = 'Gelieve een plaats in te geven';
+    }
+    if (empty($data['billing-street'])) {
+      $errors['billing-street'] = 'Gelieve een factuur straat in te geven';
+    }
+    if (empty($data['billing-number'])) {
+      $errors['billing-number'] = 'Gelieve een factuur number in te geven';
+    }
+    if (empty($data['billing-zip'])) {
+      $errors['billing-zip'] = 'Gelieve een factuur postcode in te geven';
+    }
+    if (empty($data['billing-city'])) {
+      $errors['billing-city'] = 'Gelieve een factuur plaats in te geven';
+    }
+    return $errors;
+  }
+
+
+  private function _handleLogin() {
+    $user = $this->orderDAO->selectUserByEmailAndPassword($_POST['email'], $_POST['password']);
+    if (empty($user)) {
+      $_SESSION['error'] = 'email of wachtwoord fout';
+      return;
+    }
+    $_SESSION['user']['1']= array(
+      'user' => $user
+    );
+    header('Location: index.php?page=data');
   }
 
 

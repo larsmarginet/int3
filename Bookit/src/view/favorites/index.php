@@ -148,11 +148,11 @@
   <div class="webshop__subscription__footer-wrapper">
     <h2 class="webshop__subscription__footer__title">Nog geen abonnement?</h2>
     <picture class="webshop__subscription__footer__image">
-      <source srcset="../../assets/img/Subscription/0.webp, ../../assets/img/Subscription/0-2X.webp 2x"
+      <source srcset="../../assets/img/Subscription/1.webp, ../../assets/img/Subscription/1-2X.webp 2x"
         sizes="260px" type="image/webp">
-      <source srcset="../../assets/img/Subscription/0.jpg, ../../assets/img/Subscription0-2X.jpg 2x"
-        sizes="260px" type="image/jpg">
-      <img class="webshop__subscription__footer__image" alt="Humo abonnement" src="../../assets/img/Subscription/0.jpg">
+      <source srcset="../../assets/img/Subscription/1.png, ../../assets/img/Subscription1-2X.png 2x"
+        sizes="260px" type="image/png">
+      <img class="webshop__subscription__footer__image" alt="Humo abonnement" src="../../assets/img/Subscription/1.png">
     </picture>
     <ul class="webshop__subscription__footer__list">
       <li class="webshop__subscription__footer__list__item">Sluit aan bij 50.000 andere humo(r) fans</li>

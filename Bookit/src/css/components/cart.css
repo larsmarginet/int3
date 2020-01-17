@@ -139,6 +139,7 @@
   border: none;
   cursor: pointer;
   font-size: var(--mediumTitle);
+  background: none;
 }
 
 .webshop__cart__orders__form__table__order__remove-btn:hover {

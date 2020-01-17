@@ -7,6 +7,7 @@
 @import './css/components/cart.css';
 @import './css/components/viewed.css';
 @import './css/components/subscription.css';
+@import './css/components/order.css';
 
 ::selection {
   background: var(--redColor);

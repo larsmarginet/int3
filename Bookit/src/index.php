@@ -36,6 +36,22 @@ $routes = array(
   'cart' => array(
     'controller' => 'Orders',
     'action' => 'index'
+  ),
+  'login' => array(
+    'controller' => 'Orders',
+    'action' => 'login'
+  ),
+  'data' => array(
+    'controller' => 'Orders',
+    'action' => 'data'
+  ),
+  'payment' => array(
+    'controller' => 'Orders',
+    'action' => 'payment'
+  ),
+  'thanks' => array(
+    'controller' => 'Orders',
+    'action' => 'thanks'
   )
 );
 

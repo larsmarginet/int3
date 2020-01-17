@@ -23,4 +23,14 @@ class OrderDAO extends DAO {
     $stmt->execute($bindValues);
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
   }
+
+  public function selectUserByEmailAndPassword($email, $password){
+    $sql = "SELECT * FROM `users` WHERE `email` = :email AND `password` = :password";
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->bindValue(':email',$email);
+    $stmt->bindValue(':password',$password);
+    $stmt->execute();
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+  }
+
 }

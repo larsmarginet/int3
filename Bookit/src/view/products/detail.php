@@ -412,26 +412,32 @@
     <form class="webshop__detail__reviews__input__form" method="POST" action="index.php?page=detail&id=<?php echo $product['id']?><?php if(isset($_GET['color'])){ echo '&color=' . $_GET['color'];};?>">
       <input type="hidden" name="id" value="<?php echo $product['id'] ?>">
       <input type="hidden" name="action" value="insertComment">
-      <label for="name" class="webshop__detail__reviews__input__form__label">naam</label>
-      <p class="form-error"></p>
-      <input type="text" id="name" name="name" class="webshop__detail__reviews__input__form__input valid-input" required>
-      <p class="webshop__detail__reviews__input__form__label">score</p>
-      <div class="webshop__detail__reviews__input__form__stars">
-      <p class="form-error"></p>
-        <input class="webshop__detail__reviews__input__form__stars__star hidden valid-input" type="radio" name="review" id="five" value="5" required>
-        <label class="full" for="five"></label>
-        <input class="webshop__detail__reviews__input__form__stars__star hidden valid-input" type="radio" name="review" id="four" value="4" required>
-        <label class="full" for="four"></label>
-        <input class="webshop__detail__reviews__input__form__stars__star hidden valid-input" type="radio" name="review" id="three" value="3" required>
-        <label class="full" for="three"></label>
-        <input class="webshop__detail__reviews__input__form__stars__star hidden valid-input" type="radio" name="review" id="two" value="2" required>
-        <label class="full" for="two"></label>
-        <input class="webshop__detail__reviews__input__form__stars__star hidden valid-input" type="radio" name="review" id="one" value="1" required>
-        <label class="full" for="one"></label>
+      <div>
+        <label for="name" class="webshop__detail__reviews__input__form__label">naam</label>
+        <p class="form-error"></p>
+        <input type="text" id="name" name="name" class="webshop__detail__reviews__input__form__input valid-input" required>
       </div>
-      <label class="webshop__detail__reviews__input__form__label" for="review">Review</label>
-      <p class="form-error"></p>
-      <textarea id="review" name="message" class="webshop__detail__reviews__input__form__input webshop__detail__reviews__input__form__input--textarea valid-input" required></textarea>
+      <div>
+        <p class="webshop__detail__reviews__input__form__label">score</p>
+        <div class="webshop__detail__reviews__input__form__stars">
+          <p class="form-error"></p>
+          <input class="webshop__detail__reviews__input__form__stars__star hidden valid-input" type="radio" name="review" id="five" value="5" required>
+          <label class="full" for="five"></label>
+          <input class="webshop__detail__reviews__input__form__stars__star hidden valid-input" type="radio" name="review" id="four" value="4" required>
+          <label class="full" for="four"></label>
+          <input class="webshop__detail__reviews__input__form__stars__star hidden valid-input" type="radio" name="review" id="three" value="3" required>
+          <label class="full" for="three"></label>
+          <input class="webshop__detail__reviews__input__form__stars__star hidden valid-input" type="radio" name="review" id="two" value="2" required>
+          <label class="full" for="two"></label>
+          <input class="webshop__detail__reviews__input__form__stars__star hidden valid-input" type="radio" name="review" id="one" value="1" required>
+          <label class="full" for="one"></label>
+        </div>
+      </div>
+      <div>
+        <label class="webshop__detail__reviews__input__form__label" for="review">Review</label>
+        <p class="form-error"></p>
+        <textarea id="review" name="message" class="webshop__detail__reviews__input__form__input webshop__detail__reviews__input__form__input--textarea valid-input" required></textarea>
+      </div>
       <button type="sumbit" class="webshop__primary-btn-small">verzenden</button>
     </form>
   </article>
@@ -487,11 +493,11 @@
   <div class="webshop__subscription__footer-wrapper">
     <h2 class="webshop__subscription__footer__title">Nog geen abonnement?</h2>
     <picture class="webshop__subscription__footer__image">
-      <source srcset="../../assets/img/Subscription/0.webp, ../../assets/img/Subscription/0-2X.webp 2x"
+      <source srcset="../../assets/img/Subscription/1.webp, ../../assets/img/Subscription/1-2X.webp 2x"
         sizes="260px" type="image/webp">
-      <source srcset="../../assets/img/Subscription/0.jpg, ../../assets/img/Subscription0-2X.jpg 2x"
-        sizes="260px" type="image/jpg">
-      <img class="webshop__subscription__footer__image" alt="Humo abonnement" src="../../assets/img/Subscription/0.jpg">
+      <source srcset="../../assets/img/Subscription/1.png, ../../assets/img/Subscription1-2X.png 2x"
+        sizes="260px" type="image/png">
+      <img class="webshop__subscription__footer__image" alt="Humo abonnement" src="../../assets/img/Subscription/1.png">
     </picture>
     <ul class="webshop__subscription__footer__list">
       <li class="webshop__subscription__footer__list__item">Sluit aan bij 50.000 andere humo(r) fans</li>

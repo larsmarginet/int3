@@ -67,7 +67,7 @@
       form.noValidate = true;
       form.addEventListener(`submit`, handleSubmitForm);
 
-      const fields = form.querySelectorAll(`.input`);
+      const fields = form.querySelectorAll(`.valid-input`);
       addValidationListeners(fields);
     })
 

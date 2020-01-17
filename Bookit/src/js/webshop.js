@@ -18,7 +18,23 @@
     if($reviewForm){
         $reviewForm.addEventListener('submit', handleReviewSubmit);
     }
+    const $billingCheck = document.querySelector('.webshop__order__content__data__form__check');
+    if($billingCheck){
+      $billingCheck.addEventListener('click', handleBillingCheck);
+  }
   };
+
+  //Order
+  const handleBillingCheck = e => {
+    const click = e.currentTarget;
+    const $billing = document.querySelector('.webshop__order__content__data__form__fieldset--billing');
+    console.log(click);
+    if(click.checked){
+      $billing.style.display = 'none'
+    } else {
+      $billing.style.display = 'block'
+    }
+  }
 
   //Review
   const checkOverFlow = () => {
