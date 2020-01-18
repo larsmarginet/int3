@@ -21,6 +21,7 @@
   display: grid;
   grid-template-columns: repeat(6, 14rem);
   grid-column-gap: var(--smallMargin);
+  overflow-x: scroll;
 }
 
 .webshop__recently-viewed__product__img-wrapper {

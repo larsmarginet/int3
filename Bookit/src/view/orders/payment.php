@@ -109,6 +109,7 @@
         <?php } endforeach; } ?>
       </table>
       <?php
+       if(isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
         $totalPrice = 0;
         foreach($_SESSION['cart'] as $price){
           if($price['product'] !== 'gift'){
@@ -129,6 +130,7 @@
         }
       ?>
       <p class="webshop__order__content__overview__price">Totaal: &euro;<?php echo number_format(($totalPrice), 2 , "," , ".") ?> </p>
+      <?php } ?>
     </div>
     <ul class="webshop__order__content__overview__list">
       <li class="webshop__order__content__overview__list__item"><strong class="webshop__strong">Gratis</strong> geleverd</li>

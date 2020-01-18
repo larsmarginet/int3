@@ -150,26 +150,28 @@
         <?php } endforeach; } ?>
       </table>
       <?php
-        $totalPrice = 0;
-        foreach($_SESSION['cart'] as $price){
-          if($price['product'] !== 'gift'){
-            if(isset($_SESSION['discount']) && !empty($_SESSION['discount'])){
-              foreach($_SESSION['discount'] as $item){
-                if($item['product']['id'] == $price['product']['id']) {
-                  $totalPrice += ($price['product']['discount_price']*$price['quantity']);
-                } else {
-                  $totalPrice += ($price['product']['price']*$price['quantity']);
-                }
-              }
-            } else {
-              $totalPrice += $price['product']['price']*$price['quantity'];
-            }
-          } else if($price['product'] === 'gift') {
-            $totalPrice += 2;
-          }
-        }
-      ?>
-      <p class="webshop__order__content__overview__price">Totaal: &euro;<?php echo number_format(($totalPrice), 2 , "," , ".") ?> </p>
+        if(isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
+         $totalPrice = 0;
+         foreach($_SESSION['cart'] as $price){
+           if($price['product'] !== 'gift'){
+             if(isset($_SESSION['discount']) && !empty($_SESSION['discount'])){
+               foreach($_SESSION['discount'] as $item){
+                 if($item['product']['id'] == $price['product']['id']) {
+                   $totalPrice += ($price['product']['discount_price']*$price['quantity']);
+                 } else {
+                   $totalPrice += ($price['product']['price']*$price['quantity']);
+                 }
+               }
+             } else {
+               $totalPrice += $price['product']['price']*$price['quantity'];
+             }
+           } else if($price['product'] === 'gift') {
+             $totalPrice += 2;
+           }
+         }
+       ?>
+       <p class="webshop__order__content__overview__price">Totaal: &euro;<?php echo number_format(($totalPrice), 2 , "," , ".") ?> </p>
+       <?php } ?>
     </div>
     <ul class="webshop__order__content__overview__list">
       <li class="webshop__order__content__overview__list__item"><strong class="webshop__strong">Gratis</strong> geleverd</li>

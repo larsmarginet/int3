@@ -174,7 +174,7 @@
               </ul>
               <a class="webshop__header__responsive__link" href="index.php"><img class="webshop__header__responsive__link__img" src="../assets/img/logo138.svg" alt="logo" width="138" height="46"></a>
               <ul class="webshop__header__responsive__list">
-                <li class="webshop__header__responsive__list__item"><a class="webshop__header__responsive__list__item__link" href="index.php">
+                <li class="webshop__header__responsive__list__item webshop__header__responsive__list__item-login"><a class="webshop__header__responsive__list__item__link" href="index.php">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M12.0001 0.666016C13.503 0.666016 14.9443 1.26304 16.007 2.32574C17.0697 3.38845 17.6667 4.82979 17.6667 6.33268C17.6667 7.83558 17.0697 9.27691 16.007 10.3396C14.9443 11.4023 13.503 11.9993 12.0001 11.9993C10.4972 11.9993 9.05585 11.4023 7.99314 10.3396C6.93044 9.27691 6.33341 7.83558 6.33341 6.33268C6.33341 4.82979 6.93044 3.38845 7.99314 2.32574C9.05585 1.26304 10.4972 0.666016 12.0001 0.666016ZM12.0001 14.8327C18.2617 14.8327 23.3334 17.3685 23.3334 20.4993V23.3327H0.666748V20.4993C0.666748 17.3685 5.73841 14.8327 12.0001 14.8327Z" fill="black"/>
                   </svg>

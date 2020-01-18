@@ -5,6 +5,15 @@
   width: 96rem;
   margin: var(--smallMargin) auto;
   display: flex;
+
+  @media (--regular-viewport) {
+    width: 100vw;
+    margin: var(--smallMargin) 0;
+  }
+
+  @media (--medium-viewport) {
+    font-size: var(--bigBold);
+  }
 }
 
 .webshop__banner__img__discount {
@@ -41,11 +50,25 @@
 
 .webshop__banner__img {
   margin: var(--smallMargin) 0 0 var(--smallMargin);
-  width: 100%;
+  width: 22rem;
+
+  @media (--small-viewport) {
+    margin: var(--mediumMargin) 0 0 0;
+    width: 14rem;
+    align-self: flex-end;
+  }
 }
 
 .webshop__banner__info {
   padding: var(--regularMargin);
+
+  @media (--small-viewport) {
+    margin-left: calc(var(--smallMargin) * -1);
+  }
+
+  @media (--extrasmall-viewport) {
+    padding: var(--extraSmallMargin) var(--extraSmallMargin) var(--extraSmallMargin) 0;
+  }
 }
 
 .webshop__banner__info__title {
@@ -59,23 +82,46 @@
   text-transform: uppercase;
   font-family: 'swiss721-Condensed', sans-serif;
   line-height: 1;
+
+  @media (--small-viewport) {
+    font-size: var(--mediumTitle);
+  }
 }
 
 .webshop__banner__info__quote-wrapper {
   margin-left: var(--mediumMargin);
+
+  @media (--medium-viewport) {
+    margin: var(--extraSmallMargin) 0 0 0;
+    line-height: 1.2;
+  }
 }
 
 .webshop__banner__info__quote {
   font-size: var(--mediumTitle);
   font-weight: bold;
   font-family: 'swiss721-Condensed', sans-serif;
+
+  @media (--small-viewport) {
+    font-size: var(--regularFont);
+  }
 }
 
 .webshop__banner__info__quote-author {
   margin-left: calc(var(--mediumMargin) * 2);
+
+  @media (--extrasmall-viewport) {
+    margin-left: 0;
+  }
 }
 
 .webshop__banner__info__buttons {
   display: flex;
   margin-top: var(--smallMargin);
+
+  @media (--extrasmall-viewport) {
+    display: grid;
+    grid-template-columns: 10rem 1fr;
+    grid-row-gap: var(--extraSmallMargin);
+  }
 }

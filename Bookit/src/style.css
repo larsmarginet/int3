@@ -92,6 +92,10 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media (--extrasmall-viewport) {
+    margin: 0;
+  }
 }
 
 .webshop__favorite-btn:hover > svg {
@@ -138,6 +142,7 @@ html {
   align-items: center;
   font-weight: bold;
   cursor: pointer;
+  background: none;
 }
 
 .webshop__favorite-btn-big:hover > svg {

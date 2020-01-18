@@ -215,9 +215,9 @@
       sizes="280px" type="image/webp">
     <source srcset="../../assets/img/<?php echo $product['image']?>/3.jpg, ../../assets/img/<?php echo $product['image']?>/3-2X.jpg 2x"
       sizes="280px" type="image/jpg">
-    <img alt="<?php echo $product['name']?>" src="../../assets/img/<?php echo $product['image']?>/3.jpg">
+    <img class="webshop__detail__longread__img" alt="<?php echo $product['name']?>" src="../../assets/img/<?php echo $product['image']?>/3.jpg">
   </picture>
-  <h2 class="webshop__detail__longread__title">ontdek de wereld in een prachtige longread!</h2>
+  <h2 class="webshop__detail__longread__title">ontdek het verhaal in een prachtige longread!</h2>
   <a href="../<?php echo $product['longread']?>" class="webshop__primary-btn-small webshop__detail__longread__btn">ga naar de longread</a>
   </section>
 <?php  endif; ?>
