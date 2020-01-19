@@ -5,11 +5,11 @@
     <h3 class="hidden">Afbeeldingen</h3>
     <div class="webshop__detail_general__img__large-wrapper">
       <picture class="webshop__detail_general__img__large">
-        <source srcset="../../assets/img/<?php echo $largeImage['image-webp-1X']?>, ../../assets/img/<?php echo $largeImage['image-webp-2X']?> 2x"
+        <source srcset="assets/img/<?php echo $largeImage['image-webp-1X']?>, assets/img/<?php echo $largeImage['image-webp-2X']?> 2x"
           sizes="250px" type="image/webp">
-        <source srcset="../../assets/img/<?php echo $largeImage['image-jpg-1X']?>, ../../assets/img/<?php echo $largeImage['image-jpg-2X']?> 2x"
+        <source srcset="assets/img/<?php echo $largeImage['image-jpg-1X']?>, assets/img/<?php echo $largeImage['image-jpg-2X']?> 2x"
           sizes="250px" type="image/jpg">
-        <img alt="<?php echo $product['name']?>" src="../../assets/img/<?php echo $largeImage['image-jpg-1X']?>">
+        <img alt="<?php echo $product['name']?>" src="assets/img/<?php echo $largeImage['image-jpg-1X']?>">
       </picture>
     </div>
     <ul class="webshop__detail__general__img__small">
@@ -25,11 +25,11 @@
             ; ?>">
           <a class="webshop__detail__general__img__small__item__link" href="index.php?page=detail&id=<?php echo $product['id']?>&image=<?php echo $image['id']?>">
             <picture class="webshop__detail_general__img__small__picture">
-              <source srcset="../../assets/img/<?php echo $image['image-webp-1X']?>, ../../assets/img/<?php echo $image['image-webp-2X']?> 2x"
+              <source srcset="assets/img/<?php echo $image['image-webp-1X']?>, assets/img/<?php echo $image['image-webp-2X']?> 2x"
                 sizes="52px" type="image/webp">
-              <source srcset="../../assets/img/<?php echo $image['image-jpg-1X']?>, ../../assets/img/<?php echo $image['image-jpg-2X']?> 2x"
+              <source srcset="assets/img/<?php echo $image['image-jpg-1X']?>, assets/img/<?php echo $image['image-jpg-2X']?> 2x"
                 sizes="52px" type="image/jpg">
-              <img class="webshop__detail_general__img__small__picture__img" alt="<?php echo $product['name']?>" src="../../assets/img/<?php echo $image['image-jpg-1X']?>">
+              <img class="webshop__detail_general__img__small__picture__img" alt="<?php echo $product['name']?>" src="assets/img/<?php echo $image['image-jpg-1X']?>">
           </picture>
           </a>
       <?php endforeach ?>
@@ -211,11 +211,11 @@
 <?php if(!empty($product['longread'])): ?>
   <section class="webshop__detail__longread">
   <picture class="webshop__detail__longread__img">
-    <source srcset="../../assets/img/<?php echo $product['image']?>/3.webp, ../../assets/img/<?php echo $product['image']?>/3-2X.webp 2x"
+    <source srcset="assets/img/<?php echo $product['image']?>/3.webp, assets/img/<?php echo $product['image']?>/3-2X.webp 2x"
       sizes="280px" type="image/webp">
-    <source srcset="../../assets/img/<?php echo $product['image']?>/3.jpg, ../../assets/img/<?php echo $product['image']?>/3-2X.jpg 2x"
+    <source srcset="assets/img/<?php echo $product['image']?>/3.jpg, assets/img/<?php echo $product['image']?>/3-2X.jpg 2x"
       sizes="280px" type="image/jpg">
-    <img class="webshop__detail__longread__img" alt="<?php echo $product['name']?>" src="../../assets/img/<?php echo $product['image']?>/3.jpg">
+    <img class="webshop__detail__longread__img" alt="<?php echo $product['name']?>" src="assets/img/<?php echo $product['image']?>/3.jpg">
   </picture>
   <h2 class="webshop__detail__longread__title">ontdek het verhaal in een prachtige longread!</h2>
   <a href="../<?php echo $product['longread']?>" class="webshop__primary-btn-small webshop__detail__longread__btn">ga naar de longread</a>
@@ -455,11 +455,11 @@
         <article class="webshop__recently-viewed__product">
           <div class="webshop__recently-viewed__product__img-wrapper">
             <picture class="webshop__recently-viewed__product__img">
-              <source srcset="../../assets/img/<?php echo $article['product']['image']?>/0.webp, ../../assets/img/<?php echo $article['product']['image']?>/0-2X.webp 2x"
+              <source srcset="assets/img/<?php echo $article['product']['image']?>/0.webp, assets/img/<?php echo $article['product']['image']?>/0-2X.webp 2x"
                 sizes="80px" type="image/webp">
-              <source srcset="../../assets/img/<?php echo $article['product']['image']?>/0.jpg, ../../assets/img/<?php echo $article['product']['image']?>/0-2X.jpg 2x"
+              <source srcset="assets/img/<?php echo $article['product']['image']?>/0.jpg, assets/img/<?php echo $article['product']['image']?>/0-2X.jpg 2x"
                 sizes="80px" type="image/jpg">
-              <img class="webshop__recently-viewed__product__img" alt="<?php echo $article['product']['name']?>" src="../../assets/img/<?php echo $article['product']['image']?>/0.jpg">
+              <img class="webshop__recently-viewed__product__img" alt="<?php echo $article['product']['name']?>" src="assets/img/<?php echo $article['product']['image']?>/0.jpg">
             </picture>
           </div>
           <h3 class="webshop__recently-viewed__product__title"><?php echo $article['product']['name']?></h3>
@@ -493,11 +493,11 @@
   <div class="webshop__subscription__footer-wrapper">
     <h2 class="webshop__subscription__footer__title">Nog geen abonnement?</h2>
     <picture class="webshop__subscription__footer__image">
-      <source srcset="../../assets/img/Subscription/1.webp, ../../assets/img/Subscription/1-2X.webp 2x"
+      <source srcset="assets/img/Subscription/1.webp, assets/img/Subscription/1-2X.webp 2x"
         sizes="260px" type="image/webp">
-      <source srcset="../../assets/img/Subscription/1.png, ../../assets/img/Subscription1-2X.png 2x"
+      <source srcset="assets/img/Subscription/1.png, assets/img/Subscription1-2X.png 2x"
         sizes="260px" type="image/png">
-      <img class="webshop__subscription__footer__image" alt="Humo abonnement" src="../../assets/img/Subscription/1.png">
+      <img class="webshop__subscription__footer__image" alt="Humo abonnement" src="assets/img/Subscription/1.png">
     </picture>
     <ul class="webshop__subscription__footer__list">
       <li class="webshop__subscription__footer__list__item">Sluit aan bij 50.000 andere humo(r) fans</li>

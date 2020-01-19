@@ -18,12 +18,12 @@ class ProductsController extends Controller {
     if (!empty($_POST['action'])) {
       if ($_POST['action'] == 'add') {
         $this->_handleAddFavorite();
-        header('Location: index.php?page=home');
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
         exit();
       }
       if ($_POST['action'] == 'remove') {
         $this->_handleRemoveFavorite();
-        header('Location: index.php?page=home');
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
         exit();
       }
     }

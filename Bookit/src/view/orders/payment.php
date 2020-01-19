@@ -27,11 +27,11 @@
       <input id="bancontact" class="webshop__order__content__payment__form__input" type="radio" name="payment" value="bancontact" checked>
       <label for="bancontact" class="webshop__order__content__payment__form__label">
         <picture class="webshop__order__content__payment__form__picture">
-          <source srcset="../../assets/img/payment/bancontact.webp, ../../assets/img/payment/bancontact-2X.webp 2x"
+          <source srcset="assets/img/payment/bancontact.webp, assets/img/payment/bancontact-2X.webp 2x"
             sizes="40px" type="image/webp">
-          <source srcset="../../assets/img/payment/bancontact.jpg, ../../assets/img/payment/bancontact-2X.jpg 2x"
+          <source srcset="assets/img/payment/bancontact.jpg, assets/img/payment/bancontact-2X.jpg 2x"
             sizes="40px" type="image/jpg">
-          <img class="webshop__order__content__payment__form__picture" alt="Bancontact" src="../../assets/img/payment/bancontact.jpg">
+          <img class="webshop__order__content__payment__form__picture" alt="Bancontact" src="assets/img/payment/bancontact.jpg">
         </picture>
         <p class="webshop__order__content__payment__form__title">Bancontact</p>
         <p class="webshop__order__content__payment__form__free">Gratis</p>
@@ -39,11 +39,11 @@
       <input id="creditcard" class="webshop__order__content__payment__form__input" type="radio" name="payment" value="creditcard">
       <label for="creditcard" class="webshop__order__content__payment__form__label">
         <picture class="webshop__order__content__payment__form__picture">
-          <source srcset="../../assets/img/payment/mastercard.webp, ../../assets/img/payment/mastercard-2X.webp 2x"
+          <source srcset="assets/img/payment/mastercard.webp, assets/img/payment/mastercard-2X.webp 2x"
             sizes="40px" type="image/webp">
-          <source srcset="../../assets/img/payment/mastercard.jpg, ../../assets/img/payment/mastercard-2X.jpg 2x"
+          <source srcset="assets/img/payment/mastercard.jpg, assets/img/payment/mastercard-2X.jpg 2x"
             sizes="40px" type="image/jpg">
-          <img class="webshop__order__content__payment__form__picture" alt="Mastercard" src="../../assets/img/payment/mastercard.jpg">
+          <img class="webshop__order__content__payment__form__picture" alt="Mastercard" src="assets/img/payment/mastercard.jpg">
         </picture>
         <p class="webshop__order__content__payment__form__title">Creditcard</p>
         <p class="webshop__order__content__payment__form__free">Gratis</p>
@@ -51,11 +51,11 @@
       <input id="paypal" class="webshop__order__content__payment__form__input" type="radio" name="payment" value="paypal">
       <label for="paypal" class="webshop__order__content__payment__form__label">
         <picture class="webshop__order__content__payment__form__picture">
-          <source srcset="../../assets/img/payment/paypal.webp, ../../assets/img/payment/paypal-2X.webp 2x"
+          <source srcset="assets/img/payment/paypal.webp, assets/img/payment/paypal-2X.webp 2x"
             sizes="40px" type="image/webp">
-          <source srcset="../../assets/img/payment/paypal.jpg, ../../assets/img/payment/paypal-2X.jpg 2x"
+          <source srcset="assets/img/payment/paypal.jpg, assets/img/payment/paypal-2X.jpg 2x"
             sizes="40px" type="image/jpg">
-          <img class="webshop__order__content__payment__form__picture" alt="Paypal" src="../../assets/img/payment/paypal.jpg">
+          <img class="webshop__order__content__payment__form__picture" alt="Paypal" src="assets/img/payment/paypal.jpg">
         </picture>
         <p class="webshop__order__content__payment__form__title">Paypal</p>
         <p class="webshop__order__content__payment__form__free">Gratis</p>

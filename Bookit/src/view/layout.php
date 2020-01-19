@@ -6,7 +6,7 @@
     <title><?php echo $title; ?></title>
     <?php /* NEW */ ?>
     <?php echo $css;?>
-    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
   </head>
   <body>
     <main>
@@ -80,11 +80,11 @@
                             </svg> Proficiat: succesvol toegevoegd
                           </p>
                           <picture class="buy-popup-content__img">
-                            <source srcset="../../assets/img/<?php echo $cart['product']['image']?>/0.webp, ../../assets/img/<?php echo $cart['product']['image']?>/0-2X.webp 2x"
+                            <source srcset="assets/img/<?php echo $cart['product']['image']?>/0.webp, assets/img/<?php echo $cart['product']['image']?>/0-2X.webp 2x"
                               sizes="60px" type="image/webp">
-                            <source srcset="../../assets/img/<?php echo $cart['product']['image']?>/0.jpg, ../../assets/img/<?php echo $cart['product']['image']?>/0-2X.jpg 2x"
+                            <source srcset="assets/img/<?php echo $cart['product']['image']?>/0.jpg, assets/img/<?php echo $cart['product']['image']?>/0-2X.jpg 2x"
                               sizes="60px" type="image/jpg">
-                            <img class="buy-popup-content__img" alt="<?php echo $cart['product']['name']?>" src="../../assets/img/<?php echo $cart['product']['image']?>/0.jpg">
+                            <img class="buy-popup-content__img" alt="<?php echo $cart['product']['name']?>" src="assets/img/<?php echo $cart['product']['image']?>/0.jpg">
                           </picture>
                           <div class="buy-popup-content__info--wrapper">
                             <p class="buy-popup-content__info__title"><?php echo $cart['product']['name'] ?> <?php if(isset($cart['color'])) {echo '('. $cart['color'] .')';} ?></p>
@@ -135,7 +135,7 @@
                 <li class="webshop__primary-nav__list__item"><a class="webshop__primary-nav__list__item__link" href="index.php">home</a></li>
                 <li class="webshop__primary-nav__list__item"><a class="webshop__primary-nav__list__item__link" href="index.php">actua</a></li>
                 <li class="webshop__primary-nav__list__item"><a class="webshop__primary-nav__list__item__link" href="index.php">humor</a></li>
-                <li class="webshop__primary-nav__list__item"><a class="webshop__primary-nav__list__item__link" href="index.php"><img class="primary-nav__list__item__link__img" src="../assets/img/logo.svg" alt="logo" width="210" height="70"></a></li>
+                <li class="webshop__primary-nav__list__item"><a class="webshop__primary-nav__list__item__link" href="index.php"><img class="primary-nav__list__item__link__img" src="assets/img/logo.svg" alt="logo" width="210" height="70"></a></li>
                 <li class="webshop__primary-nav__list__item"><a class="webshop__primary-nav__list__item__link" href="index.php">tv/film</a></li>
                 <li class="webshop__primary-nav__list__item"><a class="webshop__primary-nav__list__item__link" href="index.php">muziek</a></li>
                 <li class="webshop__primary-nav__list__item"><a class="webshop__primary-nav__list__item__link" href="index.php">boeken</a></li>
@@ -172,7 +172,7 @@
                   </a>
                 </li>
               </ul>
-              <a class="webshop__header__responsive__link" href="index.php"><img class="webshop__header__responsive__link__img" src="../assets/img/logo138.svg" alt="logo" width="138" height="46"></a>
+              <a class="webshop__header__responsive__link" href="index.php"><img class="webshop__header__responsive__link__img" src="assets/img/logo138.svg" alt="logo" width="138" height="46"></a>
               <ul class="webshop__header__responsive__list">
                 <li class="webshop__header__responsive__list__item webshop__header__responsive__list__item-login"><a class="webshop__header__responsive__list__item__link" href="index.php">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -227,11 +227,11 @@
                             </svg> Proficiat: succesvol toegevoegd
                           </p>
                           <picture class="buy-popup-content__img">
-                            <source srcset="../../assets/img/<?php echo $cart['product']['image']?>/0.webp, ../../assets/img/<?php echo $cart['product']['image']?>/0-2X.webp 2x"
+                            <source srcset="assets/img/<?php echo $cart['product']['image']?>/0.webp, assets/img/<?php echo $cart['product']['image']?>/0-2X.webp 2x"
                               sizes="60px" type="image/webp">
-                            <source srcset="../../assets/img/<?php echo $cart['product']['image']?>/0.jpg, ../../assets/img/<?php echo $cart['product']['image']?>/0-2X.jpg 2x"
+                            <source srcset="assets/img/<?php echo $cart['product']['image']?>/0.jpg, assets/img/<?php echo $cart['product']['image']?>/0-2X.jpg 2x"
                               sizes="60px" type="image/jpg">
-                            <img class="buy-popup-content__img" alt="<?php echo $cart['product']['name']?>" src="../../assets/img/<?php echo $cart['product']['image']?>/0.jpg">
+                            <img class="buy-popup-content__img" alt="<?php echo $cart['product']['name']?>" src="assets/img/<?php echo $cart['product']['image']?>/0.jpg">
                           </picture>
                           <div class="buy-popup-content__info--wrapper">
                             <p class="buy-popup-content__info__title"><?php echo $cart['product']['name'] ?> <?php if(isset($cart['color'])) {echo '('. $cart['color'] .')';} ?></p>
@@ -287,6 +287,7 @@
       <?php };?>
 
     </main>
+
     <?php echo $js; ?>
   </body>
 </html>

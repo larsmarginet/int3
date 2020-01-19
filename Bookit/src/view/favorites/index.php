@@ -6,11 +6,11 @@
     <article class="webshop__product">
       <div class="webshop__product__img-wrapper">
         <picture class="webshop__product__img">
-          <source srcset="../../assets/img/<?php echo $product['image']?>/0.webp, ../../assets/img/<?php echo $product['image']?>/0-2X.webp 2x"
+          <source srcset="assets/img/<?php echo $product['image']?>/0.webp, assets/img/<?php echo $product['image']?>/0-2X.webp 2x"
             sizes="220px" type="image/webp">
-          <source srcset="../../assets/img/<?php echo $product['image']?>/0.jpg, ../../assets/img/<?php echo $product['image']?>/0-2X.jpg 2x"
+          <source srcset="assets/img/<?php echo $product['image']?>/0.jpg, assets/img/<?php echo $product['image']?>/0-2X.jpg 2x"
             sizes="220px" type="image/jpg">
-          <img class="webshop__product__img" alt="<?php echo $product['name']?>" src="../../assets/img/<?php echo $product['image']?>/0.jpg">
+          <img class="webshop__product__img" alt="<?php echo $product['name']?>" src="assets/img/<?php echo $product['image']?>/0.jpg">
         </picture>
         <?php
         $favos = 0;
@@ -110,11 +110,11 @@
         <article class="webshop__recently-viewed__product">
           <div class="webshop__recently-viewed__product__img-wrapper">
             <picture class="webshop__recently-viewed__product__img">
-              <source srcset="../../assets/img/<?php echo $article['product']['image']?>/0.webp, ../../assets/img/<?php echo $article['product']['image']?>/0-2X.webp 2x"
+              <source srcset="assets/img/<?php echo $article['product']['image']?>/0.webp, assets/img/<?php echo $article['product']['image']?>/0-2X.webp 2x"
                 sizes="80px" type="image/webp">
-              <source srcset="../../assets/img/<?php echo $article['product']['image']?>/0.jpg, ../../assets/img/<?php echo $article['product']['image']?>/0-2X.jpg 2x"
+              <source srcset="assets/img/<?php echo $article['product']['image']?>/0.jpg, assets/img/<?php echo $article['product']['image']?>/0-2X.jpg 2x"
                 sizes="80px" type="image/jpg">
-              <img class="webshop__recently-viewed__product__img" alt="<?php echo $article['product']['name']?>" src="../../assets/img/<?php echo $article['product']['image']?>/0.jpg">
+              <img class="webshop__recently-viewed__product__img" alt="<?php echo $article['product']['name']?>" src="assets/img/<?php echo $article['product']['image']?>/0.jpg">
             </picture>
           </div>
           <h3 class="webshop__recently-viewed__product__title"><?php echo $article['product']['name']?></h3>
@@ -148,11 +148,11 @@
   <div class="webshop__subscription__footer-wrapper">
     <h2 class="webshop__subscription__footer__title">Nog geen abonnement?</h2>
     <picture class="webshop__subscription__footer__image">
-      <source srcset="../../assets/img/Subscription/1.webp, ../../assets/img/Subscription/1-2X.webp 2x"
+      <source srcset="assets/img/Subscription/1.webp, assets/img/Subscription/1-2X.webp 2x"
         sizes="260px" type="image/webp">
-      <source srcset="../../assets/img/Subscription/1.png, ../../assets/img/Subscription1-2X.png 2x"
+      <source srcset="assets/img/Subscription/1.png, assets/img/Subscription1-2X.png 2x"
         sizes="260px" type="image/png">
-      <img class="webshop__subscription__footer__image" alt="Humo abonnement" src="../../assets/img/Subscription/1.png">
+      <img class="webshop__subscription__footer__image" alt="Humo abonnement" src="assets/img/Subscription/1.png">
     </picture>
     <ul class="webshop__subscription__footer__list">
       <li class="webshop__subscription__footer__list__item">Sluit aan bij 50.000 andere humo(r) fans</li>

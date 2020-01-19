@@ -10,11 +10,11 @@
         <tr class="webshop__cart__orders__form__table__order">
           <td class="webshop__cart__orders__form__table__order__image">
             <picture class="webshop__cart__orders__form__table__order__image__picture">
-              <source srcset="../../assets/img/<?php echo $order['product']['image']?>/0.webp, ../../assets/img/<?php echo $order['product']['image']?>/0-2X.webp 2x"
+              <source srcset="assets/img/<?php echo $order['product']['image']?>/0.webp, assets/img/<?php echo $order['product']['image']?>/0-2X.webp 2x"
                 sizes="40px" type="image/webp">
-              <source srcset="../../assets/img/<?php echo $order['product']['image']?>/0.jpg, ../../assets/img/<?php echo $order['product']['image']?>/0-2X.jpg 2x"
+              <source srcset="assets/img/<?php echo $order['product']['image']?>/0.jpg, assets/img/<?php echo $order['product']['image']?>/0-2X.jpg 2x"
                 sizes="40px" type="image/jpg">
-              <img class="webshop__cart__orders__form__table__order__image__picture" alt="<?php echo $order['product']['name']?>" src="../../assets/img/<?php echo $order['product']['image']?>/0.jpg">
+              <img class="webshop__cart__orders__form__table__order__image__picture" alt="<?php echo $order['product']['name']?>" src="assets/img/<?php echo $order['product']['image']?>/0.jpg">
             </picture>
         </td>
           <td class="webshop__cart__orders__form__table__order__title"><span class="webshop__cart__orders__form__table__order__title__amount"><?php echo $order['quantity']?>x</span> <a href="index.php?page=detail&id=<?php echo $order['product']['id']?><?php if(isset($order['color'])) {echo '&color='. $order['color'];} ?>"><?php echo $order['product']['name']?> <?php if(isset($order['color'])) {echo '('. $order['color'] .')';} ?></a></td>
@@ -67,7 +67,7 @@
       </div>
       <div class="webshop__cart__orders__form__gift">
         <input id="gift" class="webshop__cart__orders__form__gift__input" name="gift" type="checkbox" <?php if(isset($_SESSION['cart']['gift'])){echo 'checked';} ?>>
-        <img class="webshop__cart__orders__form__gift__img" alt="Humo cadeaupapier" src="../../assets/img/wrappingpaper.png">
+        <img class="webshop__cart__orders__form__gift__img" alt="Humo cadeaupapier" src="assets/img/wrappingpaper.png">
         <label class="webshop__cart__orders__form__gift__label" for="gift">Inpakken als cadeau (€2)</label>
       </div>
       <?php

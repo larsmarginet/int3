@@ -3,11 +3,11 @@
   <h2 class="webshop__subscription__title">Papier + digitaal</h2>
   <div class="webshop__subscription__banner-wrapper">
     <picture class="webshop__subscription__banner__image">
-      <source srcset="../../assets/img/Subscription/1.webp, ../../assets/img/Subscription/1-2X.webp 2x"
+      <source srcset="assets/img/Subscription/1.webp, assets/img/Subscription/1-2X.webp 2x"
         sizes="260px" type="image/webp">
-      <source srcset="../../assets/img/Subscription/1.png, ../../assets/img/Subscription/1-2X.png 2x"
+      <source srcset="assets/img/Subscription/1.png, assets/img/Subscription/1-2X.png 2x"
         sizes="260px" type="image/png">
-      <img class="webshop__subscription__banner__image" alt="Humo abonnement" src="../../assets/img/Subscription/1.png">
+      <img class="webshop__subscription__banner__image" alt="Humo abonnement" src="assets/img/Subscription/1.png">
     </picture>
     <ul class="webshop__subscription__banner__list">
       <li class="webshop__subscription__banner__list__item">Onbeperkte toegang tot straffe onderzoeksjournalistiek</li>
@@ -75,11 +75,11 @@
         <li class="webshop__subscription__detail__list__item">Dit allemaal in een prachtig ontworpen <strong class="webshop__strong">magazine of via uw internetmachine naar keuze.</strong></li>
     </ul>
     <picture class="webshop__subscription__detail__image">
-      <source srcset="../../assets/img/Subscription/2.webp, ../../assets/img/Subscription/2-2X.webp 2x"
+      <source srcset="assets/img/Subscription/2.webp, assets/img/Subscription/2-2X.webp 2x"
         sizes="300px" type="image/webp">
-      <source srcset="../../assets/img/Subscription/2.jpg, ../../assets/img/Subscription/2-2X.jpg 2x"
+      <source srcset="assets/img/Subscription/2.jpg, assets/img/Subscription/2-2X.jpg 2x"
         sizes="300px" type="image/jpg">
-      <img class="webshop__subscription__detail__image" alt="Humo abonnement" src="../../assets/img/Subscription/2.jpg">
+      <img class="webshop__subscription__detail__image" alt="Humo abonnement" src="assets/img/Subscription/2.jpg">
     </picture>
   </div>
 </section>
@@ -98,11 +98,11 @@
         <article class="webshop__recently-viewed__product">
           <div class="webshop__recently-viewed__product__img-wrapper">
             <picture class="webshop__recently-viewed__product__img">
-              <source srcset="../../assets/img/<?php echo $article['product']['image']?>/0.webp, ../../assets/img/<?php echo $article['product']['image']?>/0-2X.webp 2x"
+              <source srcset="assets/img/<?php echo $article['product']['image']?>/0.webp, assets/img/<?php echo $article['product']['image']?>/0-2X.webp 2x"
                 sizes="80px" type="image/webp">
-              <source srcset="../../assets/img/<?php echo $article['product']['image']?>/0.jpg, ../../assets/img/<?php echo $article['product']['image']?>/0-2X.jpg 2x"
+              <source srcset="assets/img/<?php echo $article['product']['image']?>/0.jpg, assets/img/<?php echo $article['product']['image']?>/0-2X.jpg 2x"
                 sizes="80px" type="image/jpg">
-              <img class="webshop__recently-viewed__product__img" alt="<?php echo $article['product']['name']?>" src="../../assets/img/<?php echo $article['product']['image']?>/0.jpg">
+              <img class="webshop__recently-viewed__product__img" alt="<?php echo $article['product']['name']?>" src="assets/img/<?php echo $article['product']['image']?>/0.jpg">
             </picture>
           </div>
           <h3 class="webshop__recently-viewed__product__title"><?php echo $article['product']['name']?></h3>

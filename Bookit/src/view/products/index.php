@@ -6,7 +6,15 @@
       <p class="webshop__banner__img__discount__discount-price">&euro;4,99</p>
       <p class="webshop__banner__img__discount__text">met kortingscode uit je Humo</p>
     </div>
-    <img class="webshop__banner__img" src="../../assets/img/banner_thehanmaidstale.png" alt="The Handmaid's Tale">
+    <picture class="webshop__banner__img">
+          <source srcset="assets/img/TheHandmaidsTale/banner_thehanmaidstale.webp, assets/img/TheHandmaidsTale/banner_thehanmaidstale-2X.webp 2x"
+            sizes="(max-width: 715px) 140px,
+            222px" type="image/webp">
+          <source srcset="assets/img/TheHandmaidsTale/banner_thehanmaidstale.png, assets/img/TheHandmaidsTale/banner_thehanmaidstale-2X.png 2x"
+            sizes="(max-width: 715px) 140px,
+            222px" type="image/png">
+          <img class="webshop__banner__img" alt="The Handmaid's Tale Boek" src="assets/img/TheHandmaidsTale/banner_thehanmaidstale.png">
+        </picture>
   </div>
   <div class="webshop__banner__info">
     <h2 class="webshop__banner__info__title">Boek van de week:</h2>
@@ -85,11 +93,11 @@
     <article class="webshop__product">
       <div class="webshop__product__img-wrapper">
         <picture class="webshop__product__img">
-          <source srcset="../../assets/img/<?php echo $product['image']?>/0.webp, ../../assets/img/<?php echo $product['image']?>/0-2X.webp 2x"
+          <source srcset="assets/img/<?php echo $product['image']?>/0.webp, assets/img/<?php echo $product['image']?>/0-2X.webp 2x"
             sizes="220px" type="image/webp">
-          <source srcset="../../assets/img/<?php echo $product['image']?>/0.jpg, ../../assets/img/<?php echo $product['image']?>/0-2X.jpg 2x"
+          <source srcset="assets/img/<?php echo $product['image']?>/0.jpg, assets/img/<?php echo $product['image']?>/0-2X.jpg 2x"
             sizes="220px" type="image/jpg">
-          <img class="webshop__product__img" alt="<?php echo $product['name']?>" src="../../assets/img/<?php echo $product['image']?>/0.jpg">
+          <img class="webshop__product__img" alt="<?php echo $product['name']?>" src="assets/img/<?php echo $product['image']?>/0.jpg">
         </picture>
         <?php
         $favos = 0;
@@ -183,11 +191,11 @@
         <article class="webshop__recently-viewed__product">
           <div class="webshop__recently-viewed__product__img-wrapper">
             <picture class="webshop__recently-viewed__product__img">
-              <source srcset="../../assets/img/<?php echo $article['product']['image']?>/0.webp, ../../assets/img/<?php echo $article['product']['image']?>/0-2X.webp 2x"
+              <source srcset="assets/img/<?php echo $article['product']['image']?>/0.webp, assets/img/<?php echo $article['product']['image']?>/0-2X.webp 2x"
                 sizes="80px" type="image/webp">
-              <source srcset="../../assets/img/<?php echo $article['product']['image']?>/0.jpg, ../../assets/img/<?php echo $article['product']['image']?>/0-2X.jpg 2x"
+              <source srcset="assets/img/<?php echo $article['product']['image']?>/0.jpg, assets/img/<?php echo $article['product']['image']?>/0-2X.jpg 2x"
                 sizes="80px" type="image/jpg">
-              <img class="webshop__recently-viewed__product__img" alt="<?php echo $article['product']['name']?>" src="../../assets/img/<?php echo $article['product']['image']?>/0.jpg">
+              <img class="webshop__recently-viewed__product__img" alt="<?php echo $article['product']['name']?>" src="assets/img/<?php echo $article['product']['image']?>/0.jpg">
             </picture>
           </div>
           <h3 class="webshop__recently-viewed__product__title"><?php echo $article['product']['name']?></h3>
@@ -220,11 +228,11 @@
   <div class="webshop__subscription__footer-wrapper">
     <h2 class="webshop__subscription__footer__title">Nog geen abonnement?</h2>
     <picture class="webshop__subscription__footer__image">
-      <source srcset="../../assets/img/Subscription/1.webp, ../../assets/img/Subscription/1-2X.webp 2x"
+      <source srcset="assets/img/Subscription/1.webp, assets/img/Subscription/1-2X.webp 2x"
         sizes="260px" type="image/webp">
-      <source srcset="../../assets/img/Subscription/1.png, ../../assets/img/Subscription1-2X.png 2x"
+      <source srcset="assets/img/Subscription/1.png, assets/img/Subscription1-2X.png 2x"
         sizes="260px" type="image/png">
-      <img class="webshop__subscription__footer__image" alt="Humo abonnement" src="../../assets/img/Subscription/1.png">
+      <img class="webshop__subscription__footer__image" alt="Humo abonnement" src="assets/img/Subscription/1.png">
     </picture>
     <ul class="webshop__subscription__footer__list">
       <li class="webshop__subscription__footer__list__item">Sluit aan bij 50.000 andere humo(r) fans</li>
