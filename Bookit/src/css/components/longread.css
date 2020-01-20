@@ -19,6 +19,15 @@
   margin: var(--smallMargin);
 }
 
+.longread__header__exitfullscreen {
+  background: none;
+  border: none;
+  align-self: start;
+  justify-self: start;
+  margin: var(--smallMargin);
+  display: none;
+}
+
 .longread__header__img-fullscreen {
   grid-column: 2/3;
   background: none;

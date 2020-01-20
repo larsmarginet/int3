@@ -1,8 +1,54 @@
 const init = () => {
-  test();
+  const $fullscreen = document.querySelector('.longread__header__fullscreen');
+  const $exitFfullscreen = document.querySelector('.longread__header__exitfullscreen');
+  if($fullscreen) {
+    $fullscreen.addEventListener('click', handleClickFullScreen);
+  }
+  if($exitFfullscreen) {
+    $exitFfullscreen.addEventListener('click', handleClickExitFullScreen);
+  }
+  interactiveImages();
 }
 
-const test = () => {
+const handleClickFullScreen = e => {
+  e.preventDefault();
+  console.log('open');
+  const $btn = e.currentTarget;
+  $btn.style.display = 'none';
+  const $exitFfullscreen = document.querySelector('.longread__header__exitfullscreen');
+  $exitFfullscreen.style.display = 'block';
+  $exitFfullscreen.addEventListener('click', handleClickExitFullScreen);
+  const doc = document.documentElement;
+  if (doc.requestFullscreen) {
+    doc.requestFullscreen();
+  } else if (doc.mozRequestFullScreen) { /* Firefox */
+    doc.mozRequestFullScreen();
+  } else if (doc.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    doc.webkitRequestFullscreen();
+  } else if (doc.msRequestFullscreen) { /* IE/Edge */
+    doc.msRequestFullscreen();
+  }
+}
+
+const handleClickExitFullScreen = e => {
+  console.log('close mf');
+  e.preventDefault();
+  const $btn = e.currentTarget;
+  $btn.style.display = 'none';
+  const $fullscreen = document.querySelector('.longread__header__fullscreen');
+  $fullscreen.style.display = 'block';
+  if (document.exitFullscreen) {
+		document.exitFullscreen();
+	} else if (document.webkitExitFullscreen) {
+		document.webkitExitFullscreen();
+	} else if (document.mozCancelFullScreen) {
+		document.mozCancelFullScreen();
+	} else if (document.msExitFullscreen) {
+		document.msExitFullscreen();
+	}
+}
+
+const interactiveImages = () => {
   document.querySelectorAll('.longread__section__information').forEach(button => {
     button.removeAttribute('title');
     button.addEventListener('mouseenter', handleHoverInfo);
