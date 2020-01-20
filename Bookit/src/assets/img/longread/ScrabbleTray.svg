@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1041 181">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #ff4848;
+      }
+    </style>
+  </defs>
+  <title>ScrabbleTray</title>
+  <g id="Layer_2" data-name="Layer 2">
+    <polygon class="cls-1" points="4 176 5 109 13 3 1024 6 1034 119 1033 178 4 176"/>
+  </g>
+  <g id="Layer_1" data-name="Layer 1">
+    <path d="M994,9V109H46V9H994m8-8H38V117h964V1Z"/>
+    <path d="M37.43,9l-6.9,100h-20L17.47,9h20M46,1H10L2,117H38L46,1Z"/>
+    <path d="M1022.53,9l6.9,100h-20l-6.9-100h20M1030,1H994l8,116h36L1030,1Z"/>
+    <path d="M1030,117v10H10V117H1030m8-8H2v26H1038V109Z"/>
+    <path d="M1030,134v38H10V134H1030m8-8H2v54H1038V126Z"/>
+  </g>
+</svg>

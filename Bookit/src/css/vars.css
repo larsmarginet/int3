@@ -16,21 +16,44 @@
   font-stretch: condensed;
 }
 
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url(../assets/fonts/SourceSansPro/SourceSansPro.woff) format('woff'), url(../assets/fonts/SourceSansPro/SourceSansPro.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: Recoleta;
+  src: url(../assets/fonts/Recoleta/Recoleta.woff) format('woff'), url(../assets/fonts/Recoleta/Recoleta.woff2) format('woff2');
+}
+
 :root {
   --redColor: #db3125;
+  --lightRedColor: #ec5751;
   --yellowColor: #ffe408;
+  --backgroundColor: #fffdee;
+  --darkColor: #2c2a39;
+  --blueColor: #51a5d9;
   --greenColor: #2eb101;
   --greyColor: #c4c4c4;
   --lightColor: #f8f8f4;
+  --goldColor: #ffe7aa;
   --extraSmallMargin: 1rem;
   --smallMargin: 2rem;
   --regularMargin: 3rem;
   --mediumMargin: 5rem;
+  --mediumSpacer: 8rem;
+  --regularSpacer: 12rem;
+  --bigSpacer: 15rem;
   --smallFont: 1.3rem;
   --regularFont: 1.6rem;
   --bigBold: 1.8rem;
   --mediumTitle: 2.4rem;
+  --longreadSmallTitle: 3.6rem;
+  --longreadMediumTitle: 4.2rem;
+  --longreadRegularTitle: 6rem;
   --bigTitle: 4.6rem;
+  --bigQuote: 8.8rem;
+  --longreadBigTitle: 12.5rem;
 }
 
 @custom-media --extrasmall-viewport (width <= 500px);

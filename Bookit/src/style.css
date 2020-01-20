@@ -8,6 +8,7 @@
 @import './css/components/viewed.css';
 @import './css/components/subscription.css';
 @import './css/components/order.css';
+@import './css/components/longread.css';
 
 ::selection {
   background: var(--redColor);
@@ -29,6 +30,21 @@ html {
   font-family: 'swiss721', sans-serif;
   font-size: var(--regularFont);
   line-height: 1.5;
+}
+
+.longread__wrapper {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: var(--bigBold);
+  line-height: 1.4;
+  color: var(--darkColor);
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  scroll-snap-type: mandatory;
+  scroll-snap-type: y mandatory;
+  background-color: var(--backgroundColor);
 }
 
 .hidden {

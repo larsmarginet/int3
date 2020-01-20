@@ -218,7 +218,7 @@
     <img class="webshop__detail__longread__img" alt="<?php echo $product['name']?>" src="assets/img/<?php echo $product['image']?>/3.jpg">
   </picture>
   <h2 class="webshop__detail__longread__title">ontdek het verhaal in een prachtige longread!</h2>
-  <a href="../<?php echo $product['longread']?>" class="webshop__primary-btn-small webshop__detail__longread__btn">ga naar de longread</a>
+  <a href="<?php echo $product['longread']?>" class="webshop__primary-btn-small webshop__detail__longread__btn">ga naar de longread</a>
   </section>
 <?php  endif; ?>
 

@@ -281,9 +281,9 @@
           </footer>
         </div>
       <?php } else { ?>
-        <div class="longread__wrapper">
-
-        </div>
+        <form class="longread__wrapper" method="POST" action="index.php?page=longread">
+          <?php echo $content;?>
+      </form>
       <?php };?>
 
     </main>

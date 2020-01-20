@@ -52,6 +52,10 @@ $routes = array(
   'thanks' => array(
     'controller' => 'Orders',
     'action' => 'thanks'
+  ),
+  'longread' => array(
+    'controller' => 'Longread',
+    'action' => 'longread'
   )
 );
 
