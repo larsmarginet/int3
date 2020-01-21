@@ -1,7 +1,17 @@
 <h1 class="webshop__products__title">Winkelmandje</h1>
 <section class="webshop__cart__orders">
   <h2 class="hidden">Bestelling</h2>
-  <?php if(!empty($_SESSION['cart'])) {?>
+  <?php if(!empty($_SESSION['cart'])) {
+    $gifft = 0;
+    foreach($_SESSION['cart'] as $thing) {
+      if($thing['product'] == 'gift') {
+        $gifft = 1;
+      }
+    }
+    if($gifft == 1 && count($_SESSION['cart']) == 1) {
+      echo 'Winkelmanje is leeg';
+    } else {
+  ?>
   <form action="index.php?page=cart" method="POST" class="webshop__cart__orders__form">
   <button type="submit" class="webshop__secondary-btn-big hide-js" name="action" id="update-cart" value="update">Update</button>
     <table class="webshop__cart__orders__form__table">
@@ -111,7 +121,8 @@
     </div>
 
   </form>
-      <?php } else {
+      <?php }
+      } else {
         echo 'Winkelmanje is leeg';
       } ?>
   <aside class="webshop__cart__info">

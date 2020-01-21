@@ -12,7 +12,6 @@ const init = () => {
 
 const handleClickFullScreen = e => {
   e.preventDefault();
-  console.log('open');
   const $btn = e.currentTarget;
   $btn.style.display = 'none';
   const $exitFfullscreen = document.querySelector('.longread__header__exitfullscreen');
@@ -31,7 +30,6 @@ const handleClickFullScreen = e => {
 }
 
 const handleClickExitFullScreen = e => {
-  console.log('close mf');
   e.preventDefault();
   const $btn = e.currentTarget;
   $btn.style.display = 'none';

@@ -55,7 +55,17 @@
                   <p class="webshop__secondary-nav__list__item__link__count">
                       <?php
                         if(!empty($_SESSION['cart'])) {
-                          echo count($_SESSION['cart']);
+                          $gifft = 0;
+                          foreach($_SESSION['cart'] as $thing) {
+                            if($thing['product'] == 'gift') {
+                              $gifft = 1;
+                            }
+                          }
+                          if($gifft == 1) {
+                            echo count($_SESSION['cart']) - 1;
+                          } else {
+                            echo count($_SESSION['cart']);
+                          }
                         } else {
                           echo '0';
                         }
@@ -202,11 +212,21 @@
                     </svg>
                     <p class="webshop__secondary-nav__list__item__link__count">
                       <?php
-                        if(!empty($_SESSION['cart'])) {
-                          echo count($_SESSION['cart']);
-                        } else {
-                          echo '0';
+                       if(!empty($_SESSION['cart'])) {
+                        $gifft = 0;
+                        foreach($_SESSION['cart'] as $thing) {
+                          if($thing['product'] == 'gift') {
+                            $gifft = 1;
+                          }
                         }
+                        if($gifft == 1) {
+                          echo count($_SESSION['cart']) - 1;
+                        } else {
+                          echo count($_SESSION['cart']);
+                        }
+                      } else {
+                        echo '0';
+                      }
                       ?>
                     </p>
                   </a>
