@@ -6,9 +6,9 @@
     <div class="webshop__detail_general__img__large-wrapper">
       <picture class="webshop__detail_general__img__large">
         <source srcset="assets/img/<?php echo $largeImage['image-webp-1X']?>, assets/img/<?php echo $largeImage['image-webp-2X']?> 2x"
-          sizes="250px" type="image/webp">
+          type="image/webp">
         <source srcset="assets/img/<?php echo $largeImage['image-jpg-1X']?>, assets/img/<?php echo $largeImage['image-jpg-2X']?> 2x"
-          sizes="250px" type="image/jpg">
+          type="image/jpg">
         <img alt="<?php echo $product['name']?>" src="assets/img/<?php echo $largeImage['image-jpg-1X']?>">
       </picture>
     </div>
@@ -26,9 +26,9 @@
           <a class="webshop__detail__general__img__small__item__link" href="index.php?page=detail&id=<?php echo $product['id']?>&image=<?php echo $image['id']?>">
             <picture class="webshop__detail_general__img__small__picture">
               <source srcset="assets/img/<?php echo $image['image-webp-1X']?>, assets/img/<?php echo $image['image-webp-2X']?> 2x"
-                sizes="52px" type="image/webp">
+                type="image/webp">
               <source srcset="assets/img/<?php echo $image['image-jpg-1X']?>, assets/img/<?php echo $image['image-jpg-2X']?> 2x"
-                sizes="52px" type="image/jpg">
+                type="image/jpg">
               <img class="webshop__detail_general__img__small__picture__img" alt="<?php echo $product['name']?>" src="assets/img/<?php echo $image['image-jpg-1X']?>">
           </picture>
           </a>
@@ -202,6 +202,7 @@
         <li class="webshop__detail__general__list__item">30 dagen bedenktijd</li>
       </ul>
     <?php endif; ?>
+  </article>
 </section>
 
 
@@ -212,9 +213,9 @@
   <section class="webshop__detail__longread">
   <picture class="webshop__detail__longread__img">
     <source srcset="assets/img/<?php echo $product['image']?>/3.webp, assets/img/<?php echo $product['image']?>/3-2X.webp 2x"
-      sizes="280px" type="image/webp">
+      type="image/webp">
     <source srcset="assets/img/<?php echo $product['image']?>/3.jpg, assets/img/<?php echo $product['image']?>/3-2X.jpg 2x"
-      sizes="280px" type="image/jpg">
+      type="image/jpg">
     <img class="webshop__detail__longread__img" alt="<?php echo $product['name']?>" src="assets/img/<?php echo $product['image']?>/3.jpg">
   </picture>
   <h2 class="webshop__detail__longread__title">ontdek het verhaal in een prachtige longread!</h2>
@@ -438,7 +439,7 @@
         <p class="form-error"></p>
         <textarea id="review" name="message" class="webshop__detail__reviews__input__form__input webshop__detail__reviews__input__form__input--textarea valid-input" required></textarea>
       </div>
-      <button type="sumbit" class="webshop__primary-btn-small">verzenden</button>
+      <button type="submit" class="webshop__primary-btn-small">verzenden</button>
     </form>
   </article>
 </section>
@@ -456,9 +457,9 @@
           <div class="webshop__recently-viewed__product__img-wrapper">
             <picture class="webshop__recently-viewed__product__img">
               <source srcset="assets/img/<?php echo $article['product']['image']?>/0.webp, assets/img/<?php echo $article['product']['image']?>/0-2X.webp 2x"
-                sizes="80px" type="image/webp">
+                type="image/webp">
               <source srcset="assets/img/<?php echo $article['product']['image']?>/0.jpg, assets/img/<?php echo $article['product']['image']?>/0-2X.jpg 2x"
-                sizes="80px" type="image/jpg">
+                type="image/jpg">
               <img class="webshop__recently-viewed__product__img" alt="<?php echo $article['product']['name']?>" src="assets/img/<?php echo $article['product']['image']?>/0.jpg">
             </picture>
           </div>
@@ -494,9 +495,9 @@
     <h2 class="webshop__subscription__footer__title">Nog geen abonnement?</h2>
     <picture class="webshop__subscription__footer__image">
       <source srcset="assets/img/Subscription/1.webp, assets/img/Subscription/1-2X.webp 2x"
-        sizes="260px" type="image/webp">
+        type="image/webp">
       <source srcset="assets/img/Subscription/1.png, assets/img/Subscription1-2X.png 2x"
-        sizes="260px" type="image/png">
+        type="image/png">
       <img class="webshop__subscription__footer__image" alt="Humo abonnement" src="assets/img/Subscription/1.png">
     </picture>
     <ul class="webshop__subscription__footer__list">
@@ -506,25 +507,25 @@
     </ul>
 
   <form class="webshop__subscription__subscribe__form" method="POST" action="index.php?page=cart">
-    <?php foreach($subscriptions as $subscription): ?>
+  <?php foreach($subscriptions as $subscription): ?>
       <input id="<?php echo $subscription['id']?>" class="webshop__subscription__subscribe__form__input" type="radio" name="id" value="<?php echo $subscription['id']?>" <?php if($subscription['id'] == 29){echo 'checked';} ?>>
       <label for="<?php echo $subscription['id']?>" class="webshop__subscription__subscribe__form__label">
-        <div class="webshop__subscription__subscribe__form__btn-wrapper">
-          <div class="webshop__subscription__subscribe__form__radio"></div>
-          <p class="webshop__subscription__subscribe__form__duration"><?php echo $subscription['duration']?> maanden</p>
+        <span class="webshop__subscription__subscribe__form__btn-wrapper">
+          <span class="webshop__subscription__subscribe__form__radio"></span>
+          <span class="webshop__subscription__subscribe__form__duration"><?php echo $subscription['duration']?> maanden</span>
           <?php if($subscription['discount_percentage'] > 0): ?>
-            <p class="webshop__subscription__subscribe__form__savings">Je bespaart <?php echo $subscription['discount_euro']?> euro</p>
+            <span class="webshop__subscription__subscribe__form__savings">Je bespaart <?php echo $subscription['discount_euro']?> euro</span>
           <?php endif; ?>
-        </div>
+        </span>
         <?php if($subscription['discount_percentage'] > 0): ?>
-          <p class="webshop__subscription__subscribe__form__percentage"><?php echo $subscription['discount_percentage']?>% Korting</p>
+          <span class="webshop__subscription__subscribe__form__percentage"><?php echo $subscription['discount_percentage']?>% Korting</span>
         <?php endif; ?>
-        <p class="webshop__subscription__subscribe__form__price">
+        <span class="webshop__subscription__subscribe__form__price">
           <?php if($subscription['discount_percentage'] > 0):?>
             <span class="webshop__subscription__subscribe__form__price__original">&euro;15,95</span>
           <?php endif; ?>
           &euro;<?php echo $subscription['price']?>/mnd
-        </p>
+        </span>
       </label>
     <?php endforeach; ?>
     <div class="webshop__subscription__subscribe__form__bigbtn-wrapper">

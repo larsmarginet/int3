@@ -61,3 +61,4 @@
 @custom-media --medium-viewport (width <= 834px);
 @custom-media --regular-viewport (width <= 960px);
 @custom-media --large-viewport (width > 834px);
+@custom-media --extralarge-viewport (width <= 1435px);

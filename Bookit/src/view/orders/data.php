@@ -29,7 +29,7 @@
         <div>
           <label class="webshop__order__content__login__form__label" for="name">Naam</label>
           <p class="form-error"></p>
-          <input class="webshop__order__content__login__form__input valid-input" type="name" name="name" id="name" value="<?php if(isset($_SESSION['user']) && !empty($_SESSION['user'])){echo $_SESSION['user']['1']['user']['name'];}?>" required>
+          <input class="webshop__order__content__login__form__input valid-input" type="text" name="name" id="name" value="<?php if(isset($_SESSION['user']) && !empty($_SESSION['user'])){echo $_SESSION['user']['1']['user']['name'];}?>" required>
         </div>
         <div>
           <label class="webshop__order__content__login__form__label" for="email">E-mail <span class="webshop__order__content__login__form__label__span">Zodat we je kunnen updaten over jouw bestelling.</span></label>

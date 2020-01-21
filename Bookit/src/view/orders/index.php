@@ -21,9 +21,9 @@
           <td class="webshop__cart__orders__form__table__order__image">
             <picture class="webshop__cart__orders__form__table__order__image__picture">
               <source srcset="assets/img/<?php echo $order['product']['image']?>/0.webp, assets/img/<?php echo $order['product']['image']?>/0-2X.webp 2x"
-                sizes="40px" type="image/webp">
+                type="image/webp">
               <source srcset="assets/img/<?php echo $order['product']['image']?>/0.jpg, assets/img/<?php echo $order['product']['image']?>/0-2X.jpg 2x"
-                sizes="40px" type="image/jpg">
+                type="image/jpg">
               <img class="webshop__cart__orders__form__table__order__image__picture" alt="<?php echo $order['product']['name']?>" src="assets/img/<?php echo $order['product']['image']?>/0.jpg">
             </picture>
         </td>

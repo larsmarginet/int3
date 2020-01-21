@@ -91,9 +91,9 @@
                           </p>
                           <picture class="buy-popup-content__img">
                             <source srcset="assets/img/<?php echo $cart['product']['image']?>/0.webp, assets/img/<?php echo $cart['product']['image']?>/0-2X.webp 2x"
-                              sizes="60px" type="image/webp">
+                               type="image/webp">
                             <source srcset="assets/img/<?php echo $cart['product']['image']?>/0.jpg, assets/img/<?php echo $cart['product']['image']?>/0-2X.jpg 2x"
-                              sizes="60px" type="image/jpg">
+                                type="image/jpg">
                             <img class="buy-popup-content__img" alt="<?php echo $cart['product']['name']?>" src="assets/img/<?php echo $cart['product']['image']?>/0.jpg">
                           </picture>
                           <div class="buy-popup-content__info--wrapper">
@@ -248,9 +248,9 @@
                           </p>
                           <picture class="buy-popup-content__img">
                             <source srcset="assets/img/<?php echo $cart['product']['image']?>/0.webp, assets/img/<?php echo $cart['product']['image']?>/0-2X.webp 2x"
-                              sizes="60px" type="image/webp">
+                              type="image/webp">
                             <source srcset="assets/img/<?php echo $cart['product']['image']?>/0.jpg, assets/img/<?php echo $cart['product']['image']?>/0-2X.jpg 2x"
-                              sizes="60px" type="image/jpg">
+                              type="image/jpg">
                             <img class="buy-popup-content__img" alt="<?php echo $cart['product']['name']?>" src="assets/img/<?php echo $cart['product']['image']?>/0.jpg">
                           </picture>
                           <div class="buy-popup-content__info--wrapper">

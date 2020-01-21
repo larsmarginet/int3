@@ -252,7 +252,7 @@ class OrdersController extends Controller {
 
 
   private function _handleAddDiscount() {
-    if($_POST['discount'] === 'ABCDEF123' && $_POST['id'] == 3 ) {
+    if(($_POST['discount'] === 'ABCDEF123'|| $_POST['discount'] === 'HHIENUDDAETOI') && $_POST['id'] == 3 ) {
       $product = $this->productDAO->selectProductById($_POST['id']);
       if (empty($product)) {
         return;

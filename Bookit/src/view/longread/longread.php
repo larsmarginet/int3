@@ -1,4 +1,41 @@
 
+<label class="showTop" for="toggleTop" id="showTop">%<span>13</span></label>
+<input class="toggleTop" type="checkbox" id="toggleTop" name="toggleTop" value="toggleTop" checked="checked">
+<div class="topbar" id="topbar">
+  <div></div>
+  <div class="topbar__content">
+    <p class="topbar__content__title">Kortingscode</p>
+    <p class="topbar__content__text">Krijg een kortingscode voor het boek door de Scrabble letters te verzamelen, door er op te klikken.</p>
+    <p class="topbar__content__text">Kopieer de code en gebruik hem in de webshop.</p>
+    <img alt="logo" class="topbar__content__img" src="assets/img/logo138.svg">
+    <div class="topbar__content__scrabbletray-wrapper">
+      <div class="topbar__content__scrabbletray">
+        <div class="topbar__content__scrabbletray__tiles">
+          <img id="tile1" class="topbar__content__scrabbletray__tiles__tile" alt="letter H" src="assets/img/longread/H.svg">
+          <img id="tile2" class="topbar__content__scrabbletray__tiles__tile" alt="letter H" src="assets/img/longread/H.svg">
+          <img id="tile3" class="topbar__content__scrabbletray__tiles__tile" alt="letter I" src="assets/img/longread/I.svg">
+          <img id="tile4" class="topbar__content__scrabbletray__tiles__tile" alt="letter E" src="assets/img/longread/E.svg">
+          <img id="tile5" class="topbar__content__scrabbletray__tiles__tile" alt="letter N" src="assets/img/longread/N.svg">
+          <img id="tile6" class="topbar__content__scrabbletray__tiles__tile" alt="letter U" src="assets/img/longread/U.svg">
+          <img id="tile7" class="topbar__content__scrabbletray__tiles__tile" alt="letter D" src="assets/img/longread/D.svg">
+          <img id="tile8" class="topbar__content__scrabbletray__tiles__tile" alt="letter D" src="assets/img/longread/D.svg">
+          <img id="tile9" class="topbar__content__scrabbletray__tiles__tile" alt="letter A" src="assets/img/longread/A.svg">
+          <img id="tile10" class="topbar__content__scrabbletray__tiles__tile" alt="letter E" src="assets/img/longread/E.svg">
+          <img id="tile11" class="topbar__content__scrabbletray__tiles__tile" alt="letter T" src="assets/img/longread/T.svg">
+          <img id="tile12" class="topbar__content__scrabbletray__tiles__tile" alt="letter O" src="assets/img/longread/O.svg">
+          <img id="tile13" class="topbar__content__scrabbletray__tiles__tile" alt="letter I" src="assets/img/longread/I.svg">
+        </div>
+        <button class="topbar__content__scrabbletray__copy">
+          <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M11.8749 0.791656C12.0849 0.791656 12.2862 0.875064 12.4347 1.02353C12.5832 1.172 12.6666 1.37336 12.6666 1.58332C12.6666 1.79329 12.5832 1.99465 12.4347 2.14312C12.2862 2.29158 12.0849 2.37499 11.8749 2.37499H3.16659V12.6667C3.16659 12.8766 3.08318 13.078 2.93471 13.2264C2.78625 13.3749 2.58488 13.4583 2.37492 13.4583C2.16496 13.4583 1.96359 13.3749 1.81513 13.2264C1.66666 13.078 1.58325 12.8766 1.58325 12.6667V2.37499C1.58325 1.50416 2.29575 0.791656 3.16659 0.791656H11.8749Z" fill="#FFFDEE"/>
+            <path d="M6.33333 3.95834H15.0417C15.4616 3.95834 15.8643 4.12516 16.1613 4.42209C16.4582 4.71902 16.625 5.12175 16.625 5.54168V16.625C16.625 17.0449 16.4582 17.4477 16.1613 17.7446C15.8643 18.0415 15.4616 18.2083 15.0417 18.2083H6.33333C5.91341 18.2083 5.51068 18.0415 5.21375 17.7446C4.91681 17.4477 4.75 17.0449 4.75 16.625V5.54168C4.75 5.12175 4.91681 4.71902 5.21375 4.42209C5.51068 4.12516 5.91341 3.95834 6.33333 3.95834V3.95834Z" fill="#FFFDEE"/>
+          </svg>
+        Kopieer</button>
+      </div>
+    </div>
+  </div>
+<label class="hideTop" for="toggleTop" id="hideTop">&times;</label>
+</div>
 <header class="longread__header">
   <h1 class="hidden">The Handmaid's Tale</h1>
   <button class="longread__header__fullscreen">
@@ -101,9 +138,9 @@
 </header>
 
 <section id="1" class="longread__section">
-  <h2 class="longread__big-title"><span class="longread__scrabble-big longread__scrabble-big--4">H</span>et verhaal van de dienstmaagd:</h2>
+  <h2 class="longread__big-title"><span class="longread__scrabble-big longread__scrabble-big--4 scrabble-tile" data-tile="tile1">H</span>et verhaal van de dienstmaagd:</h2>
   <p class="longread__section__subtitle">Over het ontstaan van de Republiek van Gilead</p>
-  <p class="longread__section__text"><span class="longread__scrabble-regualar longread__scrabble-regualar--4">H</span>allo, mijn naam is Offred. Althans, dat is mijn nieuwe naam. Vroeger werkte ik in een bibliotheek, maar nu ben ik een dienstmaagd. Hoe is het zover kunnen komen? We zagen het allemaal wel aankomen, maar deden bijna niets. Ik zal jullie stap voor stap vertellen hoe we hier geraakt zijn. Want ik wil niet langer zwijgen. Ik hoop dat je beseft hoe gevaarlijk het is dat ik dit doe.</p>
+  <p class="longread__section__text"><span class="longread__scrabble-regualar longread__scrabble-regualar--4 scrabble-tile" data-tile="tile2">H</span>allo, mijn naam is Offred. Althans, dat is mijn nieuwe naam. Vroeger werkte ik in een bibliotheek, maar nu ben ik een dienstmaagd. Hoe is het zover kunnen komen? We zagen het allemaal wel aankomen, maar deden bijna niets. Ik zal jullie stap voor stap vertellen hoe we hier geraakt zijn. Want ik wil niet langer zwijgen. Ik hoop dat je beseft hoe gevaarlijk het is dat ik dit doe.</p>
 </section>
 
 <section class="longread__section--quote">
@@ -126,7 +163,7 @@
 
 <section class="longread__section">
   <h2 class="longread__small-title">President neergeschoten</h2>
-  <p class="longread__section__text"><span class="longread__scrabble-regualar longread__scrabble-regualar--1">I</span>k was in de bibliotheek aan het werken zoals ik al jaren doe. Niets speciaals, maar toen hoorden we het op het nieuws. De president was neergeschoten, daarna radiostilte. Er ontstond grote paniek. Later die dag waren er geruchten dat er mannen met machinegeweren het congres waren binnengevallen. Een terroristische aanval werd toen gezegd. Nu weten we wel beter. Het waren de “Zonen van Jacob”. De grondleggers van onze herboren natie Gilead. </p>
+  <p class="longread__section__text"><span class="longread__scrabble-regualar longread__scrabble-regualar--1 scrabble-tile" data-tile="tile3">I</span>k was in de bibliotheek aan het werken zoals ik al jaren doe. Niets speciaals, maar toen hoorden we het op het nieuws. De president was neergeschoten, daarna radiostilte. Er ontstond grote paniek. Later die dag waren er geruchten dat er mannen met machinegeweren het congres waren binnengevallen. Een terroristische aanval werd toen gezegd. Nu weten we wel beter. Het waren de “Zonen van Jacob”. De grondleggers van onze herboren natie Gilead. </p>
   <p class="longread__section__date">27 april 2004</p>
 
   <article class="longread__section__question">
@@ -176,7 +213,7 @@
 
 <section class="longread__section">
   <h2 class="longread__small-title">Grondwet afgeschaft</h2>
-  <p class="longread__section__text"><span class="longread__scrabble-regualar longread__scrabble-regualar--1">E</span>ontstond grote paniek. Er heerste een spanning van onzekerheid op de straten. Het tekort aan nieuws had er veel mee te maken. Iedereen wou weten wat er aan de hand was, maar het was aan onze fantasie om de gaten in te vullen.
+  <p class="longread__section__text"><span class="longread__scrabble-regualar longread__scrabble-regualar--1 scrabble-tile" data-tile="tile4">E</span>ontstond grote paniek. Er heerste een spanning van onzekerheid op de straten. Het tekort aan nieuws had er veel mee te maken. Iedereen wou weten wat er aan de hand was, maar het was aan onze fantasie om de gaten in te vullen.
   De noodtoestand werd uitgeroepen. Daarna werd de grondwet afgeschaft. Tijdelijk, werd er gezegd. Om de veiligheid te garanderen. Uiteraard kwam hier weinig protest op. We waren allemaal verlamd door angst.
  </p>
   <p class="longread__section__date">02 mei 2004</p>
@@ -223,7 +260,7 @@
 
 <section class="longread__section">
   <h2 class="longread__small-title">Wegblokkades</h2>
-  <p class="longread__section__text"><span class="longread__scrabble-regualar longread__scrabble-regualar--1">N</span>iet veel later, verrassend snel zelfs, schoten er wegblokkades op zoals paddenstoelen uit de grond. Overal werden we gecontroleerd. Nu begonnen de huiszoekingen ook. Alle vijanden van de staat moesten worden opgespoord. Je kon niet over straat lopen zonder een groep militairen te zien.
+  <p class="longread__section__text"><span class="longread__scrabble-regualar longread__scrabble-regualar--1 scrabble-tile" data-tile="tile5">N</span>iet veel later, verrassend snel zelfs, schoten er wegblokkades op zoals paddenstoelen uit de grond. Overal werden we gecontroleerd. Nu begonnen de huiszoekingen ook. Alle vijanden van de staat moesten worden opgespoord. Je kon niet over straat lopen zonder een groep militairen te zien.
  </p>
   <p class="longread__section__date">07 mei 2004</p>
 
@@ -267,7 +304,7 @@
 
 <section class="longread__section">
   <h2 class="longread__small-title">Censuur</h2>
-  <p class="longread__section__text"><span class="longread__scrabble-regualar longread__scrabble-regualar--1">U</span>iteraard werd hierover gerapporteerd door pers. We hadden niet veel nieuws, maar toch een beetje. Maar sinds die dag werd persvrijheid afgeschaft. Sommige kranten moesten hun deuren sluiten. De andere werden gecensureerd. Er mocht geen kritiek komen op de acties die de regering ondernam om de bevolking veilig te houden. Anders kon er misschien protest ontstaan. Het volk weet niet wat goed voor hen is werd er gezegd.</p>
+  <p class="longread__section__text"><span class="longread__scrabble-regualar longread__scrabble-regualar--1 scrabble-tile" data-tile="tile6">U</span>iteraard werd hierover gerapporteerd door pers. We hadden niet veel nieuws, maar toch een beetje. Maar sinds die dag werd persvrijheid afgeschaft. Sommige kranten moesten hun deuren sluiten. De andere werden gecensureerd. Er mocht geen kritiek komen op de acties die de regering ondernam om de bevolking veilig te houden. Anders kon er misschien protest ontstaan. Het volk weet niet wat goed voor hen is werd er gezegd.</p>
   <p class="longread__section__date">09 mei 2004</p>
 
   <article class="longread__section__question">
@@ -310,7 +347,7 @@
 
 <section class="longread__section">
   <h2 class="longread__small-title">De Republiek van Gilead</h2>
-  <p class="longread__section__text"><span class="longread__scrabble-regualar longread__scrabble-regualar--2">D</span>it was de dag dat de Verenigde Staten officieel gevallen is. Er werd een nieuwe natie herboren: de Republiek van Gilead. De zonen van Jacob hebben altijd gedroomd van een maatschappij zoals die van het Oude Testament. Je kunt Gilead beschrijven als een: </p>
+  <p class="longread__section__text"><span class="longread__scrabble-regualar longread__scrabble-regualar--2 scrabble-tile" data-tile="tile7">D</span>it was de dag dat de Verenigde Staten officieel gevallen is. Er werd een nieuwe natie herboren: de Republiek van Gilead. De zonen van Jacob hebben altijd gedroomd van een maatschappij zoals die van het Oude Testament. Je kunt Gilead beschrijven als een: </p>
   <p class="longread__section__date">14 mei 2004</p>
 
   <article class="longread__section__definitions">
@@ -353,7 +390,7 @@
 
 <section class="longread__section">
   <h2 class="hidden">De Republiek van Gilead vervolg</h2>
-  <p class="longread__section__text longread__section__text--space"><span class="longread__scrabble-regualar longread__scrabble-regualar--2">D</span>ie hele wereld leed aan een afname van de vruchtbaarheid. Dit is vooral te danken aan de toxische stoffen in lucht en het water. Er waren ook heel wat gebieden met hoge radiatie door de nucleaire oorlog. Voordien werd dit verholpen door kunstmatige inseminatie, adopteren en draagmoeders. De eerste twee waren niet Bijbels en werden verboden. De laatste komt overeen met de Bijbelse waarden en werd de standaard. Dit is mijn rol als dienstmaagd. </p>
+  <p class="longread__section__text longread__section__text--space"><span class="longread__scrabble-regualar longread__scrabble-regualar--2 scrabble-tile" data-tile="tile8">D</span>ie hele wereld leed aan een afname van de vruchtbaarheid. Dit is vooral te danken aan de toxische stoffen in lucht en het water. Er waren ook heel wat gebieden met hoge radiatie door de nucleaire oorlog. Voordien werd dit verholpen door kunstmatige inseminatie, adopteren en draagmoeders. De eerste twee waren niet Bijbels en werden verboden. De laatste komt overeen met de Bijbelse waarden en werd de standaard. Dit is mijn rol als dienstmaagd. </p>
 </section>
 
 <section class="longread__section--quote">
@@ -376,7 +413,7 @@
 
 <section class="longread__section">
   <h2 class="longread__small-title">De grote boekenroof</h2>
-  <p class="longread__section__text"><span class="longread__scrabble-regualar longread__scrabble-regualar--1">A</span>lle huizen, bedrijven, organisaties, bibliotheken en noem maar op worden doorzocht op zoek naar boeken en tijdschriften die niet conform zijn met de Heilige Bijbelse waarden. Deze worden op stapel gegooid en verbrand. Sommige toeschouwers juichen dit toe. De auteurs, uitgevers en verkopers van deze heidense geschriften moeten op hun knieën, met het woord “schaamte” op hun hoofd geschreven, toezien op de vlammen.</p>
+  <p class="longread__section__text"><span class="longread__scrabble-regualar longread__scrabble-regualar--1 scrabble-tile" data-tile="tile9">A</span>lle huizen, bedrijven, organisaties, bibliotheken en noem maar op worden doorzocht op zoek naar boeken en tijdschriften die niet conform zijn met de Heilige Bijbelse waarden. Deze worden op stapel gegooid en verbrand. Sommige toeschouwers juichen dit toe. De auteurs, uitgevers en verkopers van deze heidense geschriften moeten op hun knieën, met het woord “schaamte” op hun hoofd geschreven, toezien op de vlammen.</p>
   <p class="longread__section__date">15 mei 2004</p>
 
   <article class="longread__section__question">
@@ -419,7 +456,7 @@
 
 <section class="longread__section">
   <h2 class="longread__small-title">Zware repressie</h2>
-  <p class="longread__section__text"><span class="longread__scrabble-regualar longread__scrabble-regualar--1">E</span>r werden een aantal wetten doorgevoerd die vooral de rechten afnam van vrouwen, maar ook defensie meer macht gaf. Hier kwam protest op. Het waren vooral vrouwen die de straat op trokken, maar de aantallen vielen heel hard tegen. Waarschijnlijk door de zware repressie. De marsen waren nog niet begonnen of er vlogen al kogels door de lucht. Velen die verzet toonden werden ter plaatse vermoord of hebben we nooit meer van gehoord. </p>
+  <p class="longread__section__text"><span class="longread__scrabble-regualar longread__scrabble-regualar--1 scrabble-tile" data-tile="tile10">E</span>r werden een aantal wetten doorgevoerd die vooral de rechten afnam van vrouwen, maar ook defensie meer macht gaf. Hier kwam protest op. Het waren vooral vrouwen die de straat op trokken, maar de aantallen vielen heel hard tegen. Waarschijnlijk door de zware repressie. De marsen waren nog niet begonnen of er vlogen al kogels door de lucht. Velen die verzet toonden werden ter plaatse vermoord of hebben we nooit meer van gehoord. </p>
   <p class="longread__section__date">20 mei 2004</p>
 
   <article class="longread__section__question">
@@ -462,7 +499,7 @@
 
 <section class="longread__section">
   <h2 class="longread__small-title">Het Junidecreet</h2>
-  <p class="longread__section__text"><span class="longread__scrabble-regualar longread__scrabble-regualar--1">T</span>oen het grootste protest onderdrukt werd kwam er het “Junidecreet”. Een bundel van wetteksten die de droom van de Zonen van Jacob moesten realiseren.</p>
+  <p class="longread__section__text"><span class="longread__scrabble-regualar longread__scrabble-regualar--1 scrabble-tile" data-tile="tile11">T</span>oen het grootste protest onderdrukt werd kwam er het “Junidecreet”. Een bundel van wetteksten die de droom van de Zonen van Jacob moesten realiseren.</p>
   <p class="longread__section__date">01 juni 2004</p>
   <article class="longread__section__laws">
     <h3 class="hidden">Wetten</h3>
@@ -511,13 +548,13 @@
 
 <section class="longread__section">
   <h2 class="longread__small-title">Heidenen</h2>
-  <p class="longread__section__text"><span class="longread__scrabble-regualar longread__scrabble-regualar--1">O</span>m een pure maatschappij te vormen enkel met mensen die geloven in het regime en voldoen aan Zijn wensen werden heel wat mensen verbannen. Er waren massale arrestaties. Onvruchtbare vrouwen, Joden, niet-blanken worden overgeplaatst naar radioactieve gebieden die overbleven na de nucleaire oorlog. Zij leefden daar om het verwoeste gebied op te kuisen. Gemiddeld leef je daar drie jaar. Wanneer je “geluk” hebt mag je gaan werken op de plantages. </p>
+  <p class="longread__section__text"><span class="longread__scrabble-regualar longread__scrabble-regualar--1 scrabble-tile" data-tile="tile12">O</span>m een pure maatschappij te vormen enkel met mensen die geloven in het regime en voldoen aan Zijn wensen werden heel wat mensen verbannen. Er waren massale arrestaties. Onvruchtbare vrouwen, Joden, niet-blanken worden overgeplaatst naar radioactieve gebieden die overbleven na de nucleaire oorlog. Zij leefden daar om het verwoeste gebied op te kuisen. Gemiddeld leef je daar drie jaar. Wanneer je “geluk” hebt mag je gaan werken op de plantages. </p>
   <p class="longread__section__date">14 juni 2004</p>
 </section>
 
 <section class="longread__section--no-snap">
   <h2 class="longread__small-title">Hiërarchie</h2>
-  <p class="longread__section__text"><span class="longread__scrabble-regualar longread__scrabble-regualar--1">I</span>k had je al verteld dat Gilead hiërarchisch was. Als dienstmaagd staan er heel wat mensen boven mij. Ik dien enkel als reproductieorgaan. Dit is de hiërarchie van Gilead:</p>
+  <p class="longread__section__text"><span class="longread__scrabble-regualar longread__scrabble-regualar--1 scrabble-tile" data-tile="tile13">I</span>k had je al verteld dat Gilead hiërarchisch was. Als dienstmaagd staan er heel wat mensen boven mij. Ik dien enkel als reproductieorgaan. Dit is de hiërarchie van Gilead:</p>
   <article class="longread__section__roles">
     <h3 class="hidden">Rollen</h3>
     <ul class="longread__section__roles__titles">

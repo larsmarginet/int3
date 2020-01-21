@@ -28,40 +28,40 @@
       <label for="bancontact" class="webshop__order__content__payment__form__label">
         <picture class="webshop__order__content__payment__form__picture">
           <source srcset="assets/img/payment/bancontact.webp, assets/img/payment/bancontact-2X.webp 2x"
-            sizes="40px" type="image/webp">
+             type="image/webp">
           <source srcset="assets/img/payment/bancontact.jpg, assets/img/payment/bancontact-2X.jpg 2x"
-            sizes="40px" type="image/jpg">
+             type="image/jpg">
           <img class="webshop__order__content__payment__form__picture" alt="Bancontact" src="assets/img/payment/bancontact.jpg">
         </picture>
-        <p class="webshop__order__content__payment__form__title">Bancontact</p>
-        <p class="webshop__order__content__payment__form__free">Gratis</p>
+        <span class="webshop__order__content__payment__form__title">Bancontact</span>
+        <span class="webshop__order__content__payment__form__free">Gratis</span>
       </label>
       <input id="creditcard" class="webshop__order__content__payment__form__input" type="radio" name="payment" value="creditcard">
       <label for="creditcard" class="webshop__order__content__payment__form__label">
         <picture class="webshop__order__content__payment__form__picture">
           <source srcset="assets/img/payment/mastercard.webp, assets/img/payment/mastercard-2X.webp 2x"
-            sizes="40px" type="image/webp">
+             type="image/webp">
           <source srcset="assets/img/payment/mastercard.jpg, assets/img/payment/mastercard-2X.jpg 2x"
-            sizes="40px" type="image/jpg">
+             type="image/jpg">
           <img class="webshop__order__content__payment__form__picture" alt="Mastercard" src="assets/img/payment/mastercard.jpg">
         </picture>
-        <p class="webshop__order__content__payment__form__title">Creditcard</p>
-        <p class="webshop__order__content__payment__form__free">Gratis</p>
+        <span class="webshop__order__content__payment__form__title">Creditcard</span>
+        <span class="webshop__order__content__payment__form__free">Gratis</span>
       </label>
       <input id="paypal" class="webshop__order__content__payment__form__input" type="radio" name="payment" value="paypal">
       <label for="paypal" class="webshop__order__content__payment__form__label">
         <picture class="webshop__order__content__payment__form__picture">
           <source srcset="assets/img/payment/paypal.webp, assets/img/payment/paypal-2X.webp 2x"
-            sizes="40px" type="image/webp">
+            type="image/webp">
           <source srcset="assets/img/payment/paypal.jpg, assets/img/payment/paypal-2X.jpg 2x"
-            sizes="40px" type="image/jpg">
+            type="image/jpg">
           <img class="webshop__order__content__payment__form__picture" alt="Paypal" src="assets/img/payment/paypal.jpg">
         </picture>
-        <p class="webshop__order__content__payment__form__title">Paypal</p>
-        <p class="webshop__order__content__payment__form__free">Gratis</p>
+        <span class="webshop__order__content__payment__form__title">Paypal</span>
+        <span class="webshop__order__content__payment__form__free">Gratis</span>
       </label>
       <div class="webshop__order__content__login__form__submit">
-        <label><p class="form-error"></p><input type="checkbox" class="valid-input" name="terms" required>Ik accepteer de <a class="webshop__order__content__data__form__check__link" href="index.php">algemene voorwaarden</a></label>
+        <label><span class="form-error"></span><input type="checkbox" class="valid-input" name="terms" required>Ik accepteer de <a class="webshop__order__content__data__form__check__link" href="index.php">algemene voorwaarden</a></label>
         <button class="webshop__primary-btn-big" type="submit" name="action" value="payment">betalen &#8227;</button>
       </div>
     </form>
