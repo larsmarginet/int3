@@ -35,27 +35,49 @@ const init = () => {
   }
   document.querySelectorAll('.scrabble-tile').forEach($tile => $tile.addEventListener('click', handleClickTile));
   document.querySelectorAll('.topbar__content__scrabbletray__tiles__tile').forEach($tile => $tile.style.opacity = '0');
+  document.querySelectorAll('.longread__section__img-fullscreen').forEach($btn => $btn.addEventListener('click', handleClickImgFullscreen));
+  document.querySelectorAll('.longread__section__img-closefullscreen').forEach($btn => $btn.addEventListener('click', handleClickImgCloseFullscreen));
   interactiveImages();
 }
 
 
 
+
+
+const handleClickImgCloseFullscreen = e => {
+  const $btn = e.currentTarget;
+  const $img = $btn.parentElement;
+  $btn.style.display = 'none';
+  $img.querySelector('.longread__section__img-closefullscreen').style.display = 'none';
+  $img.querySelector('.longread__section__img-fullscreen').style.display = 'block';
+  $img.querySelectorAll('.longread__section__information').forEach(info => info.style.opacity = '0');
+  $img.querySelector('.longread__section__information__swipe').style.display = 'none';
+  $img.style.width = '100vw';
+  $img.style.height = '56.25vw';
+  $img.style.backgroundSize = '100vw auto';
+  $img.parentElement.style.overflowX = 'hidden';
+  $img.parentElement.style.overflowY = 'scroll';
+}
+
+const handleClickImgFullscreen = e => {
+  const $btn = e.currentTarget;
+  const $img = $btn.parentElement;
+  $btn.style.display = 'none';
+  $img.querySelector('.longread__section__img-closefullscreen').style.display = 'block';
+  $img.querySelectorAll('.longread__section__information').forEach(info => info.style.opacity = '1');
+  $img.querySelector('.longread__section__information__swipe').style.display = 'block';
+  $img.style.height = '100vh';
+  $img.style.width = '177.78vh';
+  $img.style.backgroundSize = '177.78vh 100vh';
+  $img.parentElement.style.overflowX = 'scroll';
+  $img.parentElement.style.overflowY = 'hidden';
+
+}
+
 const handleSubmitRole = e => {
   const $form = e.currentTarget;
   e.preventDefault();
   submitWithJS($form);
-}
-
-const formdataToJson = $form => {
-  const data = new FormData($form);
-  const obj = {}
-  data.forEach((value, key) => {
-    const score = parseFloat(value);
-    if(isNaN(score) == false) {
-      obj[key] = score;
-    }
-  });
-  return obj;
 }
 
 const submitWithJS = async (form) => {
@@ -251,23 +273,18 @@ const interactiveImages = () => {
 
 const handleHoverInfo = e => {
   const target = e.currentTarget;
-
   const explain = target.nextElementSibling;
   explain.style.display = 'block';
-  if(window.innerWidth <= 500) {
-    if(e.clientX > window.innerWidth/2) {
-      explain.style.right = `${e.clientX/window.innerWidth + 120}px`;
-    } else {
-      explain.style.right = `${e.clientX/window.innerWidth - 70}px`;
-    }
+  if(e.clientX > window.innerWidth/2) {
+    explain.style.right = `${window.innerWidth - e.clientX}px`;
   } else {
-    if(e.clientX > window.innerWidth/2) {
-      explain.style.left = `${((e.clientX/window.innerWidth)*100)- 20}vw`;
-    } else {
-      explain.style.left = `${((e.clientX/window.innerWidth)*100) + 3}vw`;
-    }
+    explain.style.left = `${e.clientX}px`;
   }
-  explain.style.top = `${e.clientY - 100}px`;
+  if(window.innerWidth <= 500) {
+    explain.style.top = `${e.clientY - 115}px`;
+  } else {
+    explain.style.top = `${e.clientY - 100}px`;
+  }
 }
 
 const handleHoverLeaveInfo = e => {
