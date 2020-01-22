@@ -113,7 +113,8 @@ class OrdersController extends Controller {
   private function _handlePayment() {
     if(isset($_POST['terms']) && $_POST['terms'] == 'on') {
       $_SESSION['orders']['payment'] = $_POST['payment'];
-      unset( $_SESSION['cart']);
+      unset($_SESSION['cart']);
+      $this->orderDAO->insertOrder($_SESSION['orders']);
       header('Location: index.php?page=thanks');
     }
   }
@@ -154,9 +155,37 @@ class OrdersController extends Controller {
       );
     }
     $errors = $this->validateBilling($data);
+    $cart = array();
+    foreach($_SESSION['cart'] as $item) {
+      if($item['product'] == 'gift'){
+        $cartItem = array(
+          'quantity' => $item['quantity'],
+          'name' => $item['product']
+        );
+      } else if(isset($item['color']) && !empty($item['color'])) {
+        $cartItem = array(
+          'quantity' => $item['quantity'],
+          'id' => $item['product']['id'],
+          'name' => $item['product']['name'],
+          'price' => $item['product']['price'],
+          'color' => $item['color']
+        );
+      } else {
+        $cartItem = array(
+          'quantity' => $item['quantity'],
+          'id' => $item['product']['id'],
+          'name' => $item['product']['name'],
+          'price' => $item['product']['price']
+        );
+        if(isset($_SESSION['discount']) && !empty($_SESSION['discount']) && $item['product']['id'] == 3) {
+          $cartItem['price'] = $item['product']['discount_price'];
+        }
+      }
+      array_push($cart,  $cartItem);
+    }
     if(empty($errors)){
       $_SESSION['orders'] = array(
-        'orders' => $_SESSION['cart'],
+        'orders' => $cart,
         'info' => $data,
         'payment' => 0
       );

@@ -85,13 +85,21 @@
     <?php endif; ?>
     <?php if(!empty($versions)): ?>
       <div class="webshop__detail__general__version-wrapper">
-        <?php foreach($versions as $version): ?>
+        <?php foreach($versions as $i => $version): ?>
           <!-- Voorlopig gewoon links, eens nadenken als je het effectief kunt kopen -->
           <a href="index.php?page=detail&id=<?php echo $product['id']?>&color=<?php echo $version['color'] ?>" class="<?php
-          if(isset($_GET['color']) && $_GET['color'] == $version['color']) {
-            echo 'webshop__primary-btn-small';
+          if(isset($_GET['color']) && !empty($_GET['color'])) {
+            if($_GET['color'] == $version['color']) {
+              echo 'webshop__primary-btn-small';
+            } else {
+              echo 'webshop__secondary-btn-small';
+            }
           } else {
-            echo 'webshop__secondary-btn-small';
+            if($i == 0) {
+              echo 'webshop__primary-btn-small';
+            } else {
+              echo 'webshop__secondary-btn-small';
+            }
           }
         ?>"><?php echo $version['color'] ?></a>
         <?php endforeach ?>
