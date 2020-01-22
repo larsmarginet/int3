@@ -1,6 +1,6 @@
 
 <label class="showTop" for="toggleTop" id="showTop">%<span>13</span></label>
-<input class="toggleTop" type="checkbox" id="toggleTop" name="toggleTop" value="toggleTop" checked="checked">
+<input class="toggleTop" type="checkbox" id="toggleTop" value="toggleTop" checked="checked">
 <div class="topbar" id="topbar">
   <div></div>
   <div class="topbar__content">
@@ -25,7 +25,7 @@
           <img id="tile12" class="topbar__content__scrabbletray__tiles__tile" alt="letter O" src="assets/img/longread/O.svg">
           <img id="tile13" class="topbar__content__scrabbletray__tiles__tile" alt="letter I" src="assets/img/longread/I.svg">
         </div>
-        <button class="topbar__content__scrabbletray__copy">
+        <button type="button" class="topbar__content__scrabbletray__copy">
           <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M11.8749 0.791656C12.0849 0.791656 12.2862 0.875064 12.4347 1.02353C12.5832 1.172 12.6666 1.37336 12.6666 1.58332C12.6666 1.79329 12.5832 1.99465 12.4347 2.14312C12.2862 2.29158 12.0849 2.37499 11.8749 2.37499H3.16659V12.6667C3.16659 12.8766 3.08318 13.078 2.93471 13.2264C2.78625 13.3749 2.58488 13.4583 2.37492 13.4583C2.16496 13.4583 1.96359 13.3749 1.81513 13.2264C1.66666 13.078 1.58325 12.8766 1.58325 12.6667V2.37499C1.58325 1.50416 2.29575 0.791656 3.16659 0.791656H11.8749Z" fill="#FFFDEE"/>
             <path d="M6.33333 3.95834H15.0417C15.4616 3.95834 15.8643 4.12516 16.1613 4.42209C16.4582 4.71902 16.625 5.12175 16.625 5.54168V16.625C16.625 17.0449 16.4582 17.4477 16.1613 17.7446C15.8643 18.0415 15.4616 18.2083 15.0417 18.2083H6.33333C5.91341 18.2083 5.51068 18.0415 5.21375 17.7446C4.91681 17.4477 4.75 17.0449 4.75 16.625V5.54168C4.75 5.12175 4.91681 4.71902 5.21375 4.42209C5.51068 4.12516 5.91341 3.95834 6.33333 3.95834V3.95834Z" fill="#FFFDEE"/>
@@ -38,12 +38,12 @@
 </div>
 <header class="longread__header">
   <h1 class="hidden">The Handmaid's Tale</h1>
-  <button class="longread__header__fullscreen">
+  <button type="button" class="longread__header__fullscreen">
     <svg width="36" height="35" viewBox="0 0 36 35" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M36 23.8171V32.3668C36.0006 32.6076 35.9512 32.8461 35.8545 33.0686C35.7578 33.2912 35.6158 33.4934 35.4365 33.6636C35.2573 33.8339 35.0445 33.9688 34.8102 34.0607C34.5759 34.1525 34.3249 34.1995 34.0714 34.1989H25.0714C23.3526 34.1989 22.4928 32.2218 23.7054 31.0691L26.6143 28.3057L18 20.1224L9.38331 28.3133L12.2946 31.0691C13.5072 32.2218 12.6474 34.1989 10.9286 34.1989H1.92858C1.67513 34.1995 1.42406 34.1525 1.18979 34.0607C0.955521 33.9688 0.742664 33.8339 0.563453 33.6636C0.384242 33.4934 0.242209 33.2912 0.145514 33.0686C0.0488199 32.8461 -0.000629935 32.6076 6.05763e-06 32.3668V23.8171C6.05763e-06 22.1835 2.08045 21.3667 3.29465 22.5194L6.20277 25.2828L14.8227 17.0995L6.20197 8.90851L3.29465 11.6795C2.08126 12.8322 6.05763e-06 12.0154 6.05763e-06 10.3818V1.83209C-0.000629935 1.59133 0.0488199 1.35282 0.145514 1.13027C0.242209 0.907716 0.384242 0.705508 0.563453 0.535263C0.742664 0.365018 0.955521 0.230091 1.18979 0.138234C1.42406 0.0463775 1.67513 -0.000598419 1.92858 5.75456e-06H10.9286C12.6474 5.75456e-06 13.5072 1.97713 12.2946 3.12982L9.38572 5.89321L18 14.0765L26.6167 5.88557L23.7054 3.12982C22.4928 1.97713 23.3526 5.75456e-06 25.0714 5.75456e-06H34.0714C34.3249 -0.000598419 34.5759 0.0463775 34.8102 0.138234C35.0445 0.230091 35.2573 0.365018 35.4365 0.535263C35.6158 0.705508 35.7578 0.907716 35.8545 1.13027C35.9512 1.35282 36.0006 1.59133 36 1.83209V10.3818C36 12.0154 33.9195 12.8322 32.7053 11.6795L29.7972 8.91615L21.1773 17.0995L29.798 25.2904L32.7053 22.527C33.9187 21.3667 36 22.1835 36 23.8171Z" fill="#FFFDEE"/>
     </svg>
   </button>
-  <button class="longread__header__exitfullscreen">
+  <button type="button" class="longread__header__exitfullscreen">
   <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M20.25 13.75C20.25 14.8546 21.1454 15.75 22.25 15.75H32.4608C33.3517 15.75 33.7979 14.6729 33.1679 14.0429L29.25 10.125L36 3.375L32.625 0L25.875 6.75L21.9571 2.83211C21.3271 2.20214 20.25 2.64831 20.25 3.53921V13.75Z" fill="#FFFDEE"/>
     <path d="M22.25 20.25C21.1454 20.25 20.25 21.1454 20.25 22.25V32.4608C20.25 33.3517 21.3271 33.7979 21.9571 33.1679L25.875 29.25L32.625 36L36 32.625L29.25 25.875L33.1679 21.9571C33.7979 21.3271 33.3517 20.25 32.4608 20.25H22.25Z" fill="#FFFDEE"/>
@@ -130,7 +130,7 @@
       </ul>
     </div>
   </nav>
-  <button class="longread__header__img-fullscreen">
+  <button type="button" class="longread__header__img-fullscreen">
     <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M17.0908 22.7663L9.64286 30.2143L12.2884 32.7077C13.5034 33.9227 12.6429 36 10.9247 36H1.92471C0.85958 36 0 35.1366 0 34.0714V25.0714C0 23.3532 2.07346 22.4928 3.28838 23.7077L5.78571 26.3571L13.2337 18.9092C13.7358 18.4071 14.5499 18.4071 15.0519 18.9092L17.0908 20.9481C17.593 21.4501 17.593 22.2642 17.0908 22.7663ZM18.9092 13.2337L26.3571 5.78571L23.7116 3.29231C22.4966 2.07731 23.3571 0 25.0753 0H34.0753C35.1404 0 36 0.863437 36 1.92857V10.9286C36 12.6468 33.9265 13.5072 32.7116 12.2923L30.2143 9.64286L22.7663 17.0908C22.2642 17.5929 21.4501 17.5929 20.9481 17.0908L18.9092 15.0519C18.407 14.5499 18.407 13.7358 18.9092 13.2337Z" fill="#FFFDEE"/>
     </svg>
@@ -154,7 +154,7 @@
   <p class="longread__section__information__explain">De president wordt neergeschoten.</p>
   <p title="De president wordt neergeschoten" class="longread__section__information longread__section__information--2">i</p>
   <p class="longread__section__information__explain">De “zonen van Jacob” met hun machinegeweren.</p>
-  <button class="longread__section__img-fullscreen">
+  <button type="button" class="longread__section__img-fullscreen">
     <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M17.0908 22.7663L9.64286 30.2143L12.2884 32.7077C13.5034 33.9227 12.6429 36 10.9247 36H1.92471C0.85958 36 0 35.1366 0 34.0714V25.0714C0 23.3532 2.07346 22.4928 3.28838 23.7077L5.78571 26.3571L13.2337 18.9092C13.7358 18.4071 14.5499 18.4071 15.0519 18.9092L17.0908 20.9481C17.593 21.4501 17.593 22.2642 17.0908 22.7663ZM18.9092 13.2337L26.3571 5.78571L23.7116 3.29231C22.4966 2.07731 23.3571 0 25.0753 0H34.0753C35.1404 0 36 0.863437 36 1.92857V10.9286C36 12.6468 33.9265 13.5072 32.7116 12.2923L30.2143 9.64286L22.7663 17.0908C22.2642 17.5929 21.4501 17.5929 20.9481 17.0908L18.9092 15.0519C18.407 14.5499 18.407 13.7358 18.9092 13.2337Z" fill="#FFFDEE"/>
     </svg>
@@ -177,19 +177,19 @@
         </span>
       </label>
       <label class="longread__section__question__form__label">
-        <input type="radio" name="2" value="2" class="longread__section__question__form__input">
+        <input type="radio" name="2" value="4" class="longread__section__question__form__input">
         <span class="longread__section__question__form__content">
           <span class="longread__section__question__form__content__text">Paniekerig</span>
         </span>
       </label>
       <label class="longread__section__question__form__label">
-        <input type="radio" name="2" value="3" class="longread__section__question__form__input">
+        <input type="radio" name="2" value="2" class="longread__section__question__form__input">
         <span class="longread__section__question__form__content">
           <span class="longread__section__question__form__content__text">Bezorgd</span>
         </span>
       </label>
       <label class="longread__section__question__form__label">
-        <input type="radio" name="2" value="4" class="longread__section__question__form__input">
+        <input type="radio" name="2" value="3" class="longread__section__question__form__input">
         <span class="longread__section__question__form__content">
           <span class="longread__section__question__form__content__text">Boos</span>
         </span>
@@ -204,7 +204,7 @@
   <p class="longread__section__information__explain">De grondwet wordt afgeschaft.</p>
   <p title="De president wordt neergeschoten" class="longread__section__information longread__section__information--4">i</p>
   <p class="longread__section__information__explain">Er was amper nieuws.</p>
-  <button class="longread__section__img-fullscreen">
+  <button type="button" class="longread__section__img-fullscreen">
     <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M17.0908 22.7663L9.64286 30.2143L12.2884 32.7077C13.5034 33.9227 12.6429 36 10.9247 36H1.92471C0.85958 36 0 35.1366 0 34.0714V25.0714C0 23.3532 2.07346 22.4928 3.28838 23.7077L5.78571 26.3571L13.2337 18.9092C13.7358 18.4071 14.5499 18.4071 15.0519 18.9092L17.0908 20.9481C17.593 21.4501 17.593 22.2642 17.0908 22.7663ZM18.9092 13.2337L26.3571 5.78571L23.7116 3.29231C22.4966 2.07731 23.3571 0 25.0753 0H34.0753C35.1404 0 36 0.863437 36 1.92857V10.9286C36 12.6468 33.9265 13.5072 32.7116 12.2923L30.2143 9.64286L22.7663 17.0908C22.2642 17.5929 21.4501 17.5929 20.9481 17.0908L18.9092 15.0519C18.407 14.5499 18.407 13.7358 18.9092 13.2337Z" fill="#FFFDEE"/>
     </svg>
@@ -251,7 +251,7 @@
     <p class="longread__section__information__explain">Constante iedentiteitschecks.</p>
     <p title="De president wordt neergeschoten" class="longread__section__information longread__section__information--7">i</p>
     <p class="longread__section__information__explain">Het krioelde van zwaarbewapende militairen.</p>
-    <button class="longread__section__img-fullscreen">
+    <button type="button" class="longread__section__img-fullscreen">
     <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M17.0908 22.7663L9.64286 30.2143L12.2884 32.7077C13.5034 33.9227 12.6429 36 10.9247 36H1.92471C0.85958 36 0 35.1366 0 34.0714V25.0714C0 23.3532 2.07346 22.4928 3.28838 23.7077L5.78571 26.3571L13.2337 18.9092C13.7358 18.4071 14.5499 18.4071 15.0519 18.9092L17.0908 20.9481C17.593 21.4501 17.593 22.2642 17.0908 22.7663ZM18.9092 13.2337L26.3571 5.78571L23.7116 3.29231C22.4966 2.07731 23.3571 0 25.0753 0H34.0753C35.1404 0 36 0.863437 36 1.92857V10.9286C36 12.6468 33.9265 13.5072 32.7116 12.2923L30.2143 9.64286L22.7663 17.0908C22.2642 17.5929 21.4501 17.5929 20.9481 17.0908L18.9092 15.0519C18.407 14.5499 18.407 13.7358 18.9092 13.2337Z" fill="#FFFDEE"/>
     </svg>
@@ -268,7 +268,7 @@
     <h3 class="longread__section__question__title">Denk je dat jij iets te verbergen hebt?</h3>
     <div class="longread__section__question__form">
       <label class="longread__section__question__form__label">
-        <input type="radio" name="4" value="1" class="longread__section__question__form__input" checked>
+        <input type="radio" name="4" value="3" class="longread__section__question__form__input" checked>
         <span class="longread__section__question__form__content">
           <span class="longread__section__question__form__content__text">Ja</span>
         </span>
@@ -280,7 +280,7 @@
         </span>
       </label>
       <label class="longread__section__question__form__label">
-        <input type="radio" name="4" value="3" class="longread__section__question__form__input">
+        <input type="radio" name="4" value="1" class="longread__section__question__form__input">
         <span class="longread__section__question__form__content">
           <span class="longread__section__question__form__content__text">Neen</span>
         </span>
@@ -295,7 +295,7 @@
   <p class="longread__section__information__explain">Kritiek werd gecensureerd.</p>
   <p title="De president wordt neergeschoten" class="longread__section__information longread__section__information--9">i</p>
   <p class="longread__section__information__explain">De kranten werden gecontroleerd.</p>
-  <button class="longread__section__img-fullscreen">
+  <button type="button" class="longread__section__img-fullscreen">
     <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M17.0908 22.7663L9.64286 30.2143L12.2884 32.7077C13.5034 33.9227 12.6429 36 10.9247 36H1.92471C0.85958 36 0 35.1366 0 34.0714V25.0714C0 23.3532 2.07346 22.4928 3.28838 23.7077L5.78571 26.3571L13.2337 18.9092C13.7358 18.4071 14.5499 18.4071 15.0519 18.9092L17.0908 20.9481C17.593 21.4501 17.593 22.2642 17.0908 22.7663ZM18.9092 13.2337L26.3571 5.78571L23.7116 3.29231C22.4966 2.07731 23.3571 0 25.0753 0H34.0753C35.1404 0 36 0.863437 36 1.92857V10.9286C36 12.6468 33.9265 13.5072 32.7116 12.2923L30.2143 9.64286L22.7663 17.0908C22.2642 17.5929 21.4501 17.5929 20.9481 17.0908L18.9092 15.0519C18.407 14.5499 18.407 13.7358 18.9092 13.2337Z" fill="#FFFDEE"/>
     </svg>
@@ -311,7 +311,7 @@
     <h3 class="longread__section__question__title">Hoe geloofwaardig vind jij de Belgische pers?</h3>
     <div class="longread__section__question__form">
       <label class="longread__section__question__form__label">
-        <input type="radio" name="5" value="1" class="longread__section__question__form__input" checked>
+        <input type="radio" name="5" value="3" class="longread__section__question__form__input" checked>
         <span class="longread__section__question__form__content">
           <span class="longread__section__question__form__content__text">Enorm</span>
         </span>
@@ -323,7 +323,7 @@
         </span>
       </label>
       <label class="longread__section__question__form__label">
-        <input type="radio" name="5" value="3" class="longread__section__question__form__input">
+        <input type="radio" name="5" value="1" class="longread__section__question__form__input">
         <span class="longread__section__question__form__content">
           <span class="longread__section__question__form__content__text">Totaal niet</span>
         </span>
@@ -338,7 +338,7 @@
   <p class="longread__section__information__explain">De republiek van Gilead is geboren.</p>
   <p title="De president wordt neergeschoten" class="longread__section__information longread__section__information--11">i</p>
   <p class="longread__section__information__explain">Het logo van Gilead</p>
-  <button class="longread__section__img-fullscreen">
+  <button type="button" class="longread__section__img-fullscreen">
     <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M17.0908 22.7663L9.64286 30.2143L12.2884 32.7077C13.5034 33.9227 12.6429 36 10.9247 36H1.92471C0.85958 36 0 35.1366 0 34.0714V25.0714C0 23.3532 2.07346 22.4928 3.28838 23.7077L5.78571 26.3571L13.2337 18.9092C13.7358 18.4071 14.5499 18.4071 15.0519 18.9092L17.0908 20.9481C17.593 21.4501 17.593 22.2642 17.0908 22.7663ZM18.9092 13.2337L26.3571 5.78571L23.7116 3.29231C22.4966 2.07731 23.3571 0 25.0753 0H34.0753C35.1404 0 36 0.863437 36 1.92857V10.9286C36 12.6468 33.9265 13.5072 32.7116 12.2923L30.2143 9.64286L22.7663 17.0908C22.2642 17.5929 21.4501 17.5929 20.9481 17.0908L18.9092 15.0519C18.407 14.5499 18.407 13.7358 18.9092 13.2337Z" fill="#FFFDEE"/>
     </svg>
@@ -381,7 +381,7 @@
   <p class="longread__section__information__explain">"De ceremonie."</p>
   <p title="De president wordt neergeschoten" class="longread__section__information longread__section__information--13">i</p>
   <p class="longread__section__information__explain">De kansen van zwangerschap zijn heel laag.</p>
-  <button class="longread__section__img-fullscreen">
+  <button type="button" class="longread__section__img-fullscreen">
     <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M17.0908 22.7663L9.64286 30.2143L12.2884 32.7077C13.5034 33.9227 12.6429 36 10.9247 36H1.92471C0.85958 36 0 35.1366 0 34.0714V25.0714C0 23.3532 2.07346 22.4928 3.28838 23.7077L5.78571 26.3571L13.2337 18.9092C13.7358 18.4071 14.5499 18.4071 15.0519 18.9092L17.0908 20.9481C17.593 21.4501 17.593 22.2642 17.0908 22.7663ZM18.9092 13.2337L26.3571 5.78571L23.7116 3.29231C22.4966 2.07731 23.3571 0 25.0753 0H34.0753C35.1404 0 36 0.863437 36 1.92857V10.9286C36 12.6468 33.9265 13.5072 32.7116 12.2923L30.2143 9.64286L22.7663 17.0908C22.2642 17.5929 21.4501 17.5929 20.9481 17.0908L18.9092 15.0519C18.407 14.5499 18.407 13.7358 18.9092 13.2337Z" fill="#FFFDEE"/>
     </svg>
@@ -404,7 +404,7 @@
   <p class="longread__section__information__explain">Heidense boeken werden verbrand.</p>
   <p title="De president wordt neergeschoten" class="longread__section__information longread__section__information--15">i</p>
   <p class="longread__section__information__explain">De uitgevers werden publiekelijk beschaamd.</p>
-  <button class="longread__section__img-fullscreen">
+  <button type="button" class="longread__section__img-fullscreen">
     <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M17.0908 22.7663L9.64286 30.2143L12.2884 32.7077C13.5034 33.9227 12.6429 36 10.9247 36H1.92471C0.85958 36 0 35.1366 0 34.0714V25.0714C0 23.3532 2.07346 22.4928 3.28838 23.7077L5.78571 26.3571L13.2337 18.9092C13.7358 18.4071 14.5499 18.4071 15.0519 18.9092L17.0908 20.9481C17.593 21.4501 17.593 22.2642 17.0908 22.7663ZM18.9092 13.2337L26.3571 5.78571L23.7116 3.29231C22.4966 2.07731 23.3571 0 25.0753 0H34.0753C35.1404 0 36 0.863437 36 1.92857V10.9286C36 12.6468 33.9265 13.5072 32.7116 12.2923L30.2143 9.64286L22.7663 17.0908C22.2642 17.5929 21.4501 17.5929 20.9481 17.0908L18.9092 15.0519C18.407 14.5499 18.407 13.7358 18.9092 13.2337Z" fill="#FFFDEE"/>
     </svg>
@@ -420,19 +420,19 @@
     <h3 class="longread__section__question__title">Heb jij al eens de Bijbel gelezen?</h3>
     <div class="longread__section__question__form">
       <label class="longread__section__question__form__label">
-        <input type="radio" name="8" value="1" class="longread__section__question__form__input" checked>
+        <input type="radio" name="8" value="2" class="longread__section__question__form__input" checked>
         <span class="longread__section__question__form__content">
           <span class="longread__section__question__form__content__text">Ooit</span>
         </span>
       </label>
       <label class="longread__section__question__form__label">
-        <input type="radio" name="8" value="2" class="longread__section__question__form__input">
+        <input type="radio" name="8" value="3" class="longread__section__question__form__input">
         <span class="longread__section__question__form__content">
           <span class="longread__section__question__form__content__text">Nooit</span>
         </span>
       </label>
       <label class="longread__section__question__form__label">
-        <input type="radio" name="8" value="3" class="longread__section__question__form__input">
+        <input type="radio" name="8" value="1" class="longread__section__question__form__input">
         <span class="longread__section__question__form__content">
           <span class="longread__section__question__form__content__text">Vaak</span>
         </span>
@@ -447,7 +447,7 @@
   <p class="longread__section__information__explain">Een klein aantal feministen protesteren.</p>
   <p title="De president wordt neergeschoten" class="longread__section__information longread__section__information--17">i</p>
   <p class="longread__section__information__explain">De protesten worden onmiddelijk onderdrukt.</p>
-  <button class="longread__section__img-fullscreen">
+  <button type="button" class="longread__section__img-fullscreen">
     <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M17.0908 22.7663L9.64286 30.2143L12.2884 32.7077C13.5034 33.9227 12.6429 36 10.9247 36H1.92471C0.85958 36 0 35.1366 0 34.0714V25.0714C0 23.3532 2.07346 22.4928 3.28838 23.7077L5.78571 26.3571L13.2337 18.9092C13.7358 18.4071 14.5499 18.4071 15.0519 18.9092L17.0908 20.9481C17.593 21.4501 17.593 22.2642 17.0908 22.7663ZM18.9092 13.2337L26.3571 5.78571L23.7116 3.29231C22.4966 2.07731 23.3571 0 25.0753 0H34.0753C35.1404 0 36 0.863437 36 1.92857V10.9286C36 12.6468 33.9265 13.5072 32.7116 12.2923L30.2143 9.64286L22.7663 17.0908C22.2642 17.5929 21.4501 17.5929 20.9481 17.0908L18.9092 15.0519C18.407 14.5499 18.407 13.7358 18.9092 13.2337Z" fill="#FFFDEE"/>
     </svg>
@@ -490,7 +490,7 @@
   <p class="longread__section__information__explain">"Het junidecreet".</p>
   <p title="De president wordt neergeschoten" class="longread__section__information longread__section__information--19">i</p>
   <p class="longread__section__information__explain">Veel mensen werden opgehangen.</p>
-  <button class="longread__section__img-fullscreen">
+  <button type="button" class="longread__section__img-fullscreen">
     <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M17.0908 22.7663L9.64286 30.2143L12.2884 32.7077C13.5034 33.9227 12.6429 36 10.9247 36H1.92471C0.85958 36 0 35.1366 0 34.0714V25.0714C0 23.3532 2.07346 22.4928 3.28838 23.7077L5.78571 26.3571L13.2337 18.9092C13.7358 18.4071 14.5499 18.4071 15.0519 18.9092L17.0908 20.9481C17.593 21.4501 17.593 22.2642 17.0908 22.7663ZM18.9092 13.2337L26.3571 5.78571L23.7116 3.29231C22.4966 2.07731 23.3571 0 25.0753 0H34.0753C35.1404 0 36 0.863437 36 1.92857V10.9286C36 12.6468 33.9265 13.5072 32.7116 12.2923L30.2143 9.64286L22.7663 17.0908C22.2642 17.5929 21.4501 17.5929 20.9481 17.0908L18.9092 15.0519C18.407 14.5499 18.407 13.7358 18.9092 13.2337Z" fill="#FFFDEE"/>
     </svg>
@@ -539,7 +539,7 @@
 
 <section id="11" class="longread__section--img--big longread__section--img--11">
   <h2 class="hidden">14 juni 2004</h2>
-  <button class="longread__section__img-fullscreen">
+  <button type="button" class="longread__section__img-fullscreen">
     <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M17.0908 22.7663L9.64286 30.2143L12.2884 32.7077C13.5034 33.9227 12.6429 36 10.9247 36H1.92471C0.85958 36 0 35.1366 0 34.0714V25.0714C0 23.3532 2.07346 22.4928 3.28838 23.7077L5.78571 26.3571L13.2337 18.9092C13.7358 18.4071 14.5499 18.4071 15.0519 18.9092L17.0908 20.9481C17.593 21.4501 17.593 22.2642 17.0908 22.7663ZM18.9092 13.2337L26.3571 5.78571L23.7116 3.29231C22.4966 2.07731 23.3571 0 25.0753 0H34.0753C35.1404 0 36 0.863437 36 1.92857V10.9286C36 12.6468 33.9265 13.5072 32.7116 12.2923L30.2143 9.64286L22.7663 17.0908C22.2642 17.5929 21.4501 17.5929 20.9481 17.0908L18.9092 15.0519C18.407 14.5499 18.407 13.7358 18.9092 13.2337Z" fill="#FFFDEE"/>
     </svg>
@@ -582,15 +582,16 @@
   </article>
 </section>
 
-<section class="longread__section--end">
+<section id="12" class="longread__section--end">
   <h2 class="longread__big-title">Wie zou jij zijn?</h2>
   <p class="longread__section__end__text">De heer luistert, de heer kijkt... Wat is jouw rol binnen de Republiek van Gilead?</p>
-  <button type="submit" class="longread__button" name="action" value="submit">Wat is de heer Zijn oordeel?</button>
+  <button type="submit" class="longread__button" name="action" value="submit">Wat is de Heer Zijn oordeel?</button>
   <div class="longread__section__end__result">
-    <img class="longread__section__end__result__img" src="assets/img/longread/Engelen.svg" alt="Engelen">
+    <?php if(isset($_SESSION['role']) && !empty($_SESSION['role'])): ?>
+    <img class="longread__section__end__result__img" src="assets/img/longread/<?php echo $_SESSION['role']['name'] ?>.svg" alt="Engelen">
     <div class="longread__section__end__result__info">
-      <p class="longread__section__end__result__info__title">Engelen</p>
-      <p class="longread__section__end__result__info__explain">Dit zijn de soldaten die vechten of gevochten hebben in de oorlog. Hierdoor hebben ze een groot aanzien. Alhoewel dat dokters een veel minder belangrijke rol spelen in de onze maatschappij, vallen zei ook onder de engelen.</p>
+      <p class="longread__section__end__result__info__title"><?php echo $_SESSION['role']['name'] ?></p>
+      <p class="longread__section__end__result__info__explain"><?php echo $_SESSION['role']['explanation'] ?></p>
       <p class="longread__section__end__result__info__share">Delen</p>
       <ul class="longread__section__end__result__info__social">
         <li><a href="www.facebook.com" class="longread__section__end__result__info__social__btn longread__section__end__result__info__social__btn--facebook">
@@ -613,6 +614,7 @@
         </li>
       </ul>
     </div>
+    <?php endif; ?>
   </div>
   <p class="longread__section__end__text__quote">Na alles wat mij is aangedaan moet ik dit delen met de rest van de wereld. Mijn verhaal als dienstmaagd start hier... </p>
   <div class="longread__section__end__text__product">

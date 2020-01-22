@@ -88,7 +88,7 @@ import Product from './components/Product.js';
   const handleReviewSubmit = e => {
     const $form = e.currentTarget;
     e.preventDefault();
-    postReview($form.getAttribute('action'), formdataToJson($form)); // object opmaken
+    postReview($form.getAttribute('action'), formdataToJson($form));
   };
 
 

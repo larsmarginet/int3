@@ -1,3 +1,5 @@
+import Role from './components/Role.js';
+
 const init = () => {
   const $fullscreen = document.querySelector('.longread__header__fullscreen');
   const $exitFfullscreen = document.querySelector('.longread__header__exitfullscreen');
@@ -27,6 +29,10 @@ const init = () => {
   if($scrollRoles){
     $scrollRoles.addEventListener('scroll', handleScrollRoles);
   }
+  const $submit = document.querySelector('.longread__wrapper');
+  if($submit) {
+    $submit.addEventListener('submit', handleSubmitRole);
+  }
   document.querySelectorAll('.scrabble-tile').forEach($tile => $tile.addEventListener('click', handleClickTile));
   document.querySelectorAll('.topbar__content__scrabbletray__tiles__tile').forEach($tile => $tile.style.opacity = '0');
   interactiveImages();
@@ -34,6 +40,70 @@ const init = () => {
 
 
 
+const handleSubmitRole = e => {
+  const $form = e.currentTarget;
+  e.preventDefault();
+  submitWithJS($form);
+}
+
+const formdataToJson = $form => {
+  const data = new FormData($form);
+  const obj = {}
+  data.forEach((value, key) => {
+    const score = parseFloat(value);
+    if(isNaN(score) == false) {
+      obj[key] = score;
+    }
+  });
+  return obj;
+}
+
+const submitWithJS = async (form) => {
+  const $form = form;
+  const data = new FormData($form);
+  const entries = [...data.entries()];
+  const qs = new URLSearchParams(entries).toString();
+  const url = `${$form.getAttribute('action')}&${qs}`;
+  const response = await fetch(url, {
+      headers: new Headers({
+        Accept: 'application/json'
+      })
+    });
+  const roles = await response.json();
+  showRole(roles, entries);
+  window.history.pushState(
+    {},
+    '',
+    `${url}`
+  );
+}
+
+const showRole = (roles, data) => {
+  let totalScore = 0;
+  data.forEach(entry => {
+    totalScore += parseFloat(entry['1']);
+  })
+  console.log(totalScore);
+  let id = 1;
+  if(data['5']['1'] == '3') {
+    id = 10;
+  } else if (data['5']['1'] == '2') {
+    if(totalScore <= 8) {
+      id = 6;
+    } else {
+      id = 8;
+    }
+  } else {
+    if(totalScore <= 8) {
+      id = 1;
+    } else {
+      id = 4;
+    }
+  }
+  console.log(roles[id-1]);
+  const role = new Role(roles[id-1]);
+  document.querySelector('.longread__section__end__result').innerHTML = role.createHTMLForRole();
+}
 
 const handleScrollRoles = e => {
   const target = e.currentTarget;
