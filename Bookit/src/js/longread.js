@@ -15,10 +15,86 @@ const init = () => {
   if($copy){
     $copy.addEventListener('click', handleClickCopy)
   }
+  const $scrollDefs = document.querySelector('.longread__section__definitions__explain');
+  if($scrollDefs){
+    $scrollDefs.addEventListener('scroll', handleScrollDefs);
+  }
+  const $scrollLaws = document.querySelector('.longread__section__laws-wrapper');
+  if($scrollLaws){
+    $scrollLaws.addEventListener('scroll', handleScrollLaws);
+  }
+  const $scrollRoles = document.querySelector('.longread__section__roles__imgs');
+  if($scrollRoles){
+    $scrollRoles.addEventListener('scroll', handleScrollRoles);
+  }
   document.querySelectorAll('.scrabble-tile').forEach($tile => $tile.addEventListener('click', handleClickTile));
   document.querySelectorAll('.topbar__content__scrabbletray__tiles__tile').forEach($tile => $tile.style.opacity = '0');
   interactiveImages();
 }
+
+
+
+
+const handleScrollRoles = e => {
+  const target = e.currentTarget;
+  const $img = document.querySelectorAll('.longread__section__roles__imgs__card');
+  $img.forEach((img, i) => {
+    const distance = calcDistance(target, img);
+    const height = img.offsetHeight;
+    const $titles = document.querySelectorAll('.longread__section__roles__titles__title');
+    if(distance >= 0 && distance < (height - 80)) {
+      $titles[i].classList.add("longread__section__roles__titles__title--highlight");
+    } else {
+      $titles[i].classList.remove("longread__section__roles__titles__title--highlight");
+    };
+  });
+}
+
+const calcDistance = (target, el) => {
+  const parentTop = target.getBoundingClientRect().top;
+  const currentChildTop = el.getBoundingClientRect().top;
+  var childParentDistance = Math.abs(parentTop - currentChildTop);
+  const scrolledParentDistance = Math.abs(parentTop - target.getBoundingClientRect().top);
+  return childParentDistance - scrolledParentDistance;
+}
+
+const handleScrollLaws = e => {
+  const target = e.currentTarget;
+  const $text = document.querySelectorAll('.longread__section__laws__text');
+  $text.forEach((text, i) => {
+    const parentLeft = target.getBoundingClientRect().left;
+    const currentChildLeft = text.getBoundingClientRect().left;
+    var childParentDistance = Math.abs(parentLeft - currentChildLeft);
+    const scrolledParentDistance = Math.abs(parentLeft - target.getBoundingClientRect().left);
+    const distance = childParentDistance - scrolledParentDistance;
+    const $laws = target.querySelectorAll('.longread__section__laws__text__title');
+    const $dots = document.querySelectorAll('.longread__section__laws__dots__dot');
+    const width = text.offsetWidth;
+    console.log(`${i} ${distance} ${width}`);
+    if(distance >= 0 && distance < (width/3)) {
+      $laws[i].classList.add("longread__section__laws__text__title--higlight");
+      $dots[i].classList.add("longread__section__laws__dots__dot--highlight");
+    } else {
+      $laws[i].classList.remove("longread__section__laws__text__title--higlight");
+      $dots[i].classList.remove("longread__section__laws__dots__dot--highlight");
+    }
+  });
+}
+
+const handleScrollDefs = e => {
+  const target = e.currentTarget;
+  const $text = document.querySelectorAll('.longread__section__definitions__explain__text');
+  $text.forEach((text, i) => {
+    const distance = calcDistance(target, text);
+    const height = text.offsetHeight;
+    const $definition = document.querySelectorAll('.longread__section__definitions__terms__term');
+    if(distance >= 0 && distance < (height - 60)) {
+      $definition[i].classList.add("longread__section__definitions__terms__term--highlight");
+    } else {
+      $definition[i].classList.remove("longread__section__definitions__terms__term--highlight");
+    };
+  });
+};
 
 
 const handleClickCopy = e => {
@@ -33,7 +109,7 @@ const handleClickCopy = e => {
   console.log(e.currentTarget);
   const code = 'HHIENUDDAETOI';
   navigator.clipboard.writeText(code);
-}
+};
 
 let counter = 0;
 let letters = [];
@@ -56,8 +132,8 @@ const handleClickTile = e => {
   $showTopNum.textContent = counter;
   if(letters.length === 13) {
     document.querySelector('.topbar__content__scrabbletray__copy').style.display = 'block';
-  }
-}
+  };
+};
 
 const handleClickFullScreen = e => {
   e.preventDefault();
@@ -75,8 +151,8 @@ const handleClickFullScreen = e => {
     doc.webkitRequestFullscreen();
   } else if (doc.msRequestFullscreen) { /* IE/Edge */
     doc.msRequestFullscreen();
-  }
-}
+  };
+};
 
 const handleClickExitFullScreen = e => {
   e.preventDefault();
@@ -92,15 +168,15 @@ const handleClickExitFullScreen = e => {
 		document.mozCancelFullScreen();
 	} else if (document.msExitFullscreen) {
 		document.msExitFullscreen();
-	}
-}
+	};
+};
 
 const interactiveImages = () => {
   document.querySelectorAll('.longread__section__information').forEach(button => {
     button.removeAttribute('title');
     button.addEventListener('mouseenter', handleHoverInfo);
     button.addEventListener('mouseleave', handleHoverLeaveInfo);
-  })
+  });
 }
 
 const handleHoverInfo = e => {

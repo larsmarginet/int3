@@ -785,6 +785,7 @@
 
 .longread__section__definitions__explain__text {
   margin-bottom: var(--mediumMargin);
+  height: 17.5rem;
 }
 
 .longread__section__definitions__explain-wrapper::before {
