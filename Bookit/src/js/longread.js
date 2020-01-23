@@ -38,6 +38,7 @@ const init = () => {
   if($submit) {
     $submit.addEventListener('submit', handleSubmitRole);
   }
+  document.querySelectorAll('.longread__header__navigation__menu__list__item__link').forEach($nav => $nav.addEventListener('click' , handleClickNav));
   document.querySelectorAll('.scrabble-tile').forEach($tile => $tile.addEventListener('click', handleClickTile));
   document.querySelectorAll('.topbar__content__scrabbletray__tiles__tile').forEach($tile => $tile.style.opacity = '0');
   document.querySelectorAll('.longread__section__img-fullscreen').forEach($btn => $btn.addEventListener('click', handleClickImgFullscreen));
@@ -54,6 +55,12 @@ const handleLoadBody = () => {
 const showPage = () => {
   document.getElementById("loader").style.display = "none";
   document.querySelector('.longread__wrapper').style.display = "block";
+}
+
+
+const handleClickNav = e => {
+  document.querySelectorAll('.longread__header__navigation__menu__list__item__link').forEach($nav => $nav.classList.remove('longread__header__navigation__menu__list__item__link--active'));
+  e.currentTarget.classList.add('longread__header__navigation__menu__list__item__link--active');
 }
 
 
