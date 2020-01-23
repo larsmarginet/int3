@@ -5,6 +5,10 @@
   <p class="webshop__thanks__text">Dan kun je op <strong class="webshop__strong"><?php echo $date ?></strong> je pakketje verwachten op het adres: </p>
   <p class="webshop__thanks__text--highlight"><?php echo $_SESSION['orders']['info']['street'] . ' ' . $_SESSION['orders']['info']['number'] . ', ' . $_SESSION['orders']['info']['zip'] . ' ' . $_SESSION['orders']['info']['city']?></p>
 
+
+
+
+  
   <section class="webshop__thanks__overview">
     <h2 class="hidden">Overzicht</h2>
     <article class="webshop__thanks__overview-wrapper">
@@ -38,29 +42,11 @@
         <?php foreach($_SESSION['orders']['orders'] as $order) :
           if($order['name'] !== 'gift'){
           ?>
-
-          <?php
-          // $discount = 0;
-          //   if(isset($_SESSION['discount']) && !empty($_SESSION['discount'])){
-          //     foreach($_SESSION['discount'] as $item){
-          //       if($item['product']['id'] == $order['product']['id']) {
-          //         $discount = 1;
-          //       } else {
-          //         $discount = 0;
-          //       }
-          //     }
-          //   }
-          ?>
-
           <tr class="webshop__thanks__order__table__row">
             <td class="webshop__thanks__order__table__row__quantity"><?php echo $order['quantity']?>x</td>
             <td class="webshop__thanks__order__table__row__title"><?php echo $order['name']?> <?php if(isset($order['color'])) {echo '('. $order['color'] .')';} ?></td>
             <td class="webshop__thanks__order__table__row__price"><?php
-            // if($discount === 1) {
-            //   echo '&euro;' . number_format(($order['product']['discount_price']*$order['quantity']), 2 , "," , ".");
-            // } else {
               echo '&euro;' . number_format(($order['price']*$order['quantity']), 2 , "," , ".");
-            // }
           ?></td>
           </tr>
         <?php } else { ?>
@@ -75,17 +61,7 @@
         $totalPrice = 0;
         foreach($_SESSION['orders']['orders'] as $price){
           if($price['name'] !== 'gift'){
-            // if(isset($_SESSION['discount']) && !empty($_SESSION['discount'])){
-            //   foreach($_SESSION['discount'] as $item){
-            //     if($item['product']['id'] == $price['product']['id']) {
-            //       $totalPrice += ($price['product']['discount_price']*$price['quantity']);
-            //     } else {
-            //       $totalPrice += ($price['product']['price']*$price['quantity']);
-            //     }
-            //   }
-            // } else {
               $totalPrice += $price['price']*$price['quantity'];
-            // }
           } else if($price['name'] === 'gift') {
             $totalPrice += 2;
           }
@@ -118,6 +94,10 @@
     </div>
   </div>
 </section>
+
+
+
+
 
 <a class="webshop__primary-btn-big webshop__thanks__btn" href="index.php?page=home">
   <svg width="21" height="19" viewBox="0 0 21 19" fill="none" xmlns="http://www.w3.org/2000/svg">

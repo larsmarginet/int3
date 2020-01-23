@@ -17,6 +17,7 @@ class OrdersController extends Controller {
       $this->subscriptionDAO = new SubscriptionDAO();
     }
 
+
   public function index() {
     $date = date('d/m/Y', strtotime(date('Y-m-d'). ' + 2 days'));
     if (!empty($_POST['action'])) {
@@ -31,7 +32,6 @@ class OrdersController extends Controller {
         } else {
           header('Location: ' . $_SERVER['HTTP_REFERER'] . '?buy=true&product_id=' . $_POST['id']) . '&color=' . $color;
         }
-
         exit();
       }
       if ($_POST['action'] == 'addDiscount') {
@@ -60,7 +60,6 @@ class OrdersController extends Controller {
       header('Location: index.php?page=login');
       exit();
     }
-
     $this->set('date', $date);
     $this->set('title', 'Winkelmandje');
   }
@@ -80,6 +79,10 @@ class OrdersController extends Controller {
     $this->set('title', 'Gegevens');
   }
 
+
+
+
+
   public function data() {
     $date = date('d/m/Y', strtotime(date('Y-m-d'). ' + 2 days'));
     if (!empty($_POST['action'])) {
@@ -90,6 +93,10 @@ class OrdersController extends Controller {
     $this->set('date', $date);
     $this->set('title', 'Gegevens');
   }
+
+
+
+
 
   public function payment() {
     $date = date('d/m/Y', strtotime(date('Y-m-d'). ' + 2 days'));
@@ -102,11 +109,17 @@ class OrdersController extends Controller {
     $this->set('title', 'Betaalmethode');
   }
 
+
+
+
+
   public function thanks() {
     $date = date('d/m/Y', strtotime(date('Y-m-d'). ' + 2 days'));
     $this->set('date', $date);
     $this->set('title', 'Bedankt');
   }
+
+
 
 
 
@@ -118,6 +131,8 @@ class OrdersController extends Controller {
       header('Location: index.php?page=thanks');
     }
   }
+
+
 
 
 
@@ -196,6 +211,9 @@ class OrdersController extends Controller {
   }
 
 
+
+
+
   private function validateBilling($data) {
     $errors = [];
     if (empty($data['name'])) {
@@ -232,6 +250,9 @@ class OrdersController extends Controller {
   }
 
 
+
+
+
   private function _handleLogin() {
     $user = $this->orderDAO->selectUserByEmailAndPassword($_POST['email'], $_POST['password']);
     if (empty($user)) {
@@ -246,9 +267,11 @@ class OrdersController extends Controller {
 
 
 
+
+
   private function _handleAdd() {
     if (empty($_SESSION['cart'][$_POST['id']])) {
-      if($_POST['id']<=28){
+      if($_POST['id']<=33){
         $product = $this->productDAO->selectProductById($_POST['id']);
         if (empty($product)) {
           return;
@@ -280,6 +303,9 @@ class OrdersController extends Controller {
   }
 
 
+
+
+
   private function _handleAddDiscount() {
     if(($_POST['discount'] === 'ABCDEF123'|| $_POST['discount'] === 'HHIENUDDAETOI') && $_POST['id'] == 3 ) {
       $product = $this->productDAO->selectProductById($_POST['id']);
@@ -299,11 +325,17 @@ class OrdersController extends Controller {
 
 
 
+
+
   private function _handleRemove() {
     if (isset($_SESSION['cart'][$_POST['remove']])) {
       unset($_SESSION['cart'][$_POST['remove']]);
     }
   }
+
+
+
+
 
   private function _handleUpdate() {
     foreach ($_POST['quantity'] as $productId => $quantity) {
@@ -322,6 +354,10 @@ class OrdersController extends Controller {
     $this->_removeWhereQuantityIsZero();
   }
 
+
+
+
+
   private function _removeWhereQuantityIsZero() {
     foreach($_SESSION['cart'] as $productId => $info) {
       if ($info['quantity'] <= 0) {
@@ -329,7 +365,4 @@ class OrdersController extends Controller {
       }
     }
   }
-
-
-
 }

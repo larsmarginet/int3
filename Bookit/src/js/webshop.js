@@ -27,6 +27,7 @@ import Product from './components/Product.js';
   }
   };
 
+
   //Order
   const handleBillingCheck = e => {
     const click = e.currentTarget;
@@ -39,6 +40,7 @@ import Product from './components/Product.js';
     }
   }
 
+
   //Review
   const checkOverFlow = () => {
     const $reviewWrapper = document.querySelector('.webshop__detail__reviews__overview');
@@ -50,6 +52,7 @@ import Product from './components/Product.js';
      }
     }
   }
+
 
   const addMoreButton = (wrapper) => {
     let button = document.createElement('button');
@@ -67,6 +70,7 @@ import Product from './components/Product.js';
     }
   }
 
+
   const handleClickButton = e => {
     const button = e.currentTarget;
     const $reviewWrapper = document.querySelector('.webshop__detail__reviews__overview');
@@ -75,15 +79,16 @@ import Product from './components/Product.js';
     button.addEventListener('click', handleClickLessButton);
   }
 
+
   const handleClickLessButton = e => {
     const button = e.currentTarget;
-
     const $reviewWrapper = document.querySelector('.webshop__detail__reviews__overview');
     $reviewWrapper.style.height = "40rem";
     $reviewWrapper.style.overflow = "hidden";
     button.textContent = `Meer reviews`;
     addMoreButton($reviewWrapper);
   }
+
 
   const handleReviewSubmit = e => {
     const $form = e.currentTarget;
@@ -118,6 +123,7 @@ import Product from './components/Product.js';
     const $notification = document.querySelector(`.thanks`);
     $notification.textContent = `Bedankt voor je review`;
   };
+
 
   const showReviews = reviews => {
     document.querySelectorAll('.webshop__detail__reviews__input__form__input').forEach(input => {input.value=''});
@@ -154,7 +160,6 @@ import Product from './components/Product.js';
   }
 
 
-
   //Cart
   const handleInputQuantity = e => {
     const $input = e.currentTarget;
@@ -184,6 +189,7 @@ import Product from './components/Product.js';
     $save.textContent = `Je bespaart €${numberToMoney(originalPrice - totalPrice)}`;
   }
 
+
   const handleClickCheckbox = e => {
     const $totalPrice = document.querySelector('.webshop__cart__orders__form__price__total-price');
     const $original = document.querySelector('.webshop__cart__orders__form__price__original');
@@ -200,9 +206,11 @@ import Product from './components/Product.js';
     }
   }
 
+
   const moneyToNumber = value => {
     return parseFloat(value.textContent.substring(1).replace(',', '.'));
   }
+
 
   const numberToMoney = value => {
     return value.toFixed(2).toString().replace('.', ',')
@@ -220,6 +228,7 @@ import Product from './components/Product.js';
       target.nextElementSibling.style.color = 'black';
     }
   };
+
 
   const submitWithJS = async (form) => {
     const $form = form;
@@ -241,6 +250,7 @@ import Product from './components/Product.js';
     );
   }
 
+
   const updateProducts = products => {
     const $webshopProducts = document.querySelector('.webshop__products');
     $webshopProducts.innerHTML = '<h2 class="hidden">Producten</h2>';
@@ -252,21 +262,17 @@ import Product from './components/Product.js';
   };
 
 
-
-
   //Images
   const handleClickLink = e => {
     e.preventDefault();
     const $link = e.currentTarget;
     highlightSelectedPicture($link.parentElement);
     const $picture = $link.firstElementChild.innerHTML;
-
     document.querySelector(`.webshop__detail_general__img__large-wrapper`).innerHTML = `${$picture}`;
     const path = window.location.href.split('?')[0];
     const qs = $link.getAttribute(`href`).split('?')[1];
      window.history.pushState({},'',`${path}?${qs}`);
   };
-
   const highlightSelectedPicture = item => {
     const $items = document.querySelectorAll('.webshop__detail__general__img__small__item');
     $items.forEach($item => {
@@ -277,23 +283,23 @@ import Product from './components/Product.js';
   }
 
 
-
   //Modal
   const handleClickModal = e => {
     e.preventDefault();
     const $modal = document.querySelector('.webshop__detail__general__modal');
     $modal.style.display = 'block';
-
     const $close = document.querySelector('.webshop__detail__general__modal-conten__close');
     $close.addEventListener('click', handleClickCrossClose);
     window.addEventListener('click', handleClickModalClose);
   }
+
 
   const handleClickCrossClose = e => {
     const $modal = document.querySelector('.webshop__detail__general__modal');
     $modal.style.display = 'none';
   }
 
+  
   const handleClickModalClose = e => {
     if (e.target.getAttribute('class') === 'webshop__detail__general__modal') {
       const $modal = document.querySelector('.webshop__detail__general__modal');

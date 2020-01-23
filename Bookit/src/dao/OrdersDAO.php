@@ -33,7 +33,6 @@ class OrderDAO extends DAO {
     return $stmt->fetch(PDO::FETCH_ASSOC);
   }
 
-
   public function insertOrder($data){
     $sql = "INSERT INTO `orders` (`user`, `ordered`) VALUES (:user, :ordered)";
     $stmt = $this->pdo->prepare($sql);

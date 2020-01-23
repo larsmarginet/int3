@@ -31,7 +31,6 @@ class Product {
                 </svg>`;
       }
     };
-
     this.html += `<article class="webshop__product">
       <div class="webshop__product__img-wrapper">
         <picture class="webshop__product__img">
@@ -58,14 +57,11 @@ class Product {
       </div>
       <div class="webshop__product__info-wrapper">
         <h3 class="webshop__product__title">${this.name}</h3>`;
-
     if(this.author) {
       this.html += `<p class="webshop__product__subtitle">${this.author}</p>`;
     }
-
     this.html += `</div>
     <div class="webshop__product__end-wrapper">`;
-
     if (this.discount_price > 0){
       this.html += `
         <div class="webshop__product__price-wrapper">
@@ -76,7 +72,6 @@ class Product {
     } else {
       this.html += `<p class="webshop__product__price">€${this.price}</p>`;
     }
-
     this.html += ` <div class="webshop__product__btn-wrapper">
         <form method="POST" action="index.php?page=cart">
           <input type="hidden" name="id" value="${this.id}"/>
@@ -90,7 +85,6 @@ class Product {
       </div>
     </div>
     </article>`
-
     return this.html;
   }
 }

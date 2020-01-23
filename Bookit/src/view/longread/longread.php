@@ -59,7 +59,6 @@
         <span></span>
         <span></span>
       </div>
-
       <ul class="longread__header__navigation__menu__list">
         <li class="longread__header__navigation__menu__list__item">
           <a class="longread__header__navigation__menu__list__item__link longread__header__navigation__menu__list__item__link--active" href="#1">
@@ -132,16 +131,28 @@
   </nav>
 </header>
 
+
+
+
+
 <section id="1" class="longread__section">
   <h2 class="longread__big-title"><span class="longread__scrabble-big longread__scrabble-big--4 scrabble-tile" data-tile="tile1">H</span>et verhaal van de dienstmaagd:</h2>
   <p class="longread__section__subtitle">Over het ontstaan van de Republiek van Gilead</p>
   <p class="longread__section__text"><span class="longread__scrabble-regualar longread__scrabble-regualar--4 scrabble-tile" data-tile="tile2">H</span>allo, mijn naam is Offred. Althans, dat is mijn nieuwe naam. Vroeger werkte ik in een bibliotheek, maar nu ben ik een dienstmaagd. Hoe is het zover kunnen komen? We zagen het allemaal wel aankomen, maar deden bijna niets. Ik zal jullie stap voor stap vertellen hoe we hier geraakt zijn. Want ik wil niet langer zwijgen. Ik hoop dat je beseft hoe gevaarlijk het is dat ik dit doe.</p>
 </section>
 
+
+
+
+
 <section class="longread__section--quote">
     <h2 class="hidden">Quote</h2>
     <blockquote>“Wat in stilte gehuld wordt, zal schreeuwen om gehoord te worden, zij het stil...”</blockquote>
 </section>
+
+
+
+
 
 <section id="2" class="longread__section--img longread__section--img--2">
   <h2 class="hidden">27 april 2004</h2>
@@ -173,11 +184,14 @@
   </div>
 </section>
 
+
+
+
+
 <section class="longread__section">
   <h2 class="longread__small-title">President neergeschoten</h2>
   <p class="longread__section__text"><span class="longread__scrabble-regualar longread__scrabble-regualar--1 scrabble-tile" data-tile="tile3">I</span>k was in de bibliotheek aan het werken zoals ik al jaren doe. Niets speciaals, maar toen hoorden we het op het nieuws. De president was neergeschoten, daarna radiostilte. Er ontstond grote paniek. Later die dag waren er geruchten dat er mannen met machinegeweren het congres waren binnengevallen. Een terroristische aanval werd toen gezegd. Nu weten we wel beter. Het waren de “Zonen van Jacob”. De grondleggers van onze herboren natie Gilead. </p>
   <p class="longread__section__date">27 april 2004</p>
-
   <article class="longread__section__question">
     <h3 class="longread__section__question__title">Hoe zou jij reageren?</h3>
     <p class="longread__section__question__title__explain">Beantwoord deze vragen en kom op het einde te weten wat jouw rol is. Deze gegevens blijven anoniem en worden niet gedeeld met derden. </p>
@@ -210,6 +224,10 @@
   </article>
 </section>
 
+
+
+
+
 <section id="3" class="longread__section--img longread__section--img--3">
   <h2 class="hidden">02 mei 2004</h2>
   <p title="De president wordt neergeschoten" class="longread__section__information longread__section__information--3">i</p>
@@ -240,13 +258,16 @@
   </div>
 </section>
 
+
+
+
+
 <section class="longread__section">
   <h2 class="longread__small-title">Grondwet afgeschaft</h2>
   <p class="longread__section__text"><span class="longread__scrabble-regualar longread__scrabble-regualar--1 scrabble-tile" data-tile="tile4">E</span>ontstond grote paniek. Er heerste een spanning van onzekerheid op de straten. Het tekort aan nieuws had er veel mee te maken. Iedereen wou weten wat er aan de hand was, maar het was aan onze fantasie om de gaten in te vullen.
   De noodtoestand werd uitgeroepen. Daarna werd de grondwet afgeschaft. Tijdelijk, werd er gezegd. Om de veiligheid te garanderen. Uiteraard kwam hier weinig protest op. We waren allemaal verlamd door angst.
  </p>
   <p class="longread__section__date">02 mei 2004</p>
-
   <article class="longread__section__question">
     <h3 class="longread__section__question__title">Vind jij dat de grondwet ooit afgeschaft mag worden?</h3>
     <div class="longread__section__question__form">
@@ -271,6 +292,10 @@
     </div>
   </article>
 </section>
+
+
+
+
 
 <section id="4" class="longread__section--img longread__section--img--4">
     <h2 class="hidden">07 mei  2004</h2>
@@ -304,12 +329,15 @@
   </div>
 </section>
 
+
+
+
+
 <section class="longread__section">
   <h2 class="longread__small-title">Wegblokkades</h2>
   <p class="longread__section__text"><span class="longread__scrabble-regualar longread__scrabble-regualar--1 scrabble-tile" data-tile="tile5">N</span>iet veel later, verrassend snel zelfs, schoten er wegblokkades op zoals paddenstoelen uit de grond. Overal werden we gecontroleerd. Nu begonnen de huiszoekingen ook. Alle vijanden van de staat moesten worden opgespoord. Je kon niet over straat lopen zonder een groep militairen te zien.
  </p>
   <p class="longread__section__date">07 mei 2004</p>
-
   <article class="longread__section__question">
     <h3 class="longread__section__question__title">Denk je dat jij iets te verbergen hebt?</h3>
     <div class="longread__section__question__form">
@@ -334,6 +362,11 @@
     </div>
   </article>
 </section>
+
+
+
+
+
 
 <section id="5" class="longread__section--img longread__section--img--5">
   <h2 class="hidden">09 mei 2004</h2>
@@ -365,11 +398,15 @@
   </div>
 </section>
 
+
+
+
+
+
 <section class="longread__section">
   <h2 class="longread__small-title">Censuur</h2>
   <p class="longread__section__text"><span class="longread__scrabble-regualar longread__scrabble-regualar--1 scrabble-tile" data-tile="tile6">U</span>iteraard werd hierover gerapporteerd door pers. We hadden niet veel nieuws, maar toch een beetje. Maar sinds die dag werd persvrijheid afgeschaft. Sommige kranten moesten hun deuren sluiten. De andere werden gecensureerd. Er mocht geen kritiek komen op de acties die de regering ondernam om de bevolking veilig te houden. Anders kon er misschien protest ontstaan. Het volk weet niet wat goed voor hen is werd er gezegd.</p>
   <p class="longread__section__date">09 mei 2004</p>
-
   <article class="longread__section__question">
     <h3 class="longread__section__question__title">Hoe geloofwaardig vind jij de Belgische pers?</h3>
     <div class="longread__section__question__form">
@@ -394,6 +431,11 @@
     </div>
   </article>
 </section>
+
+
+
+
+
 
 <section id="6" class="longread__section--img longread__section--img--6">
   <h2 class="hidden">14 mei 2004</h2>
@@ -425,11 +467,14 @@
   </div>
 </section>
 
+
+
+
+
 <section class="longread__section">
   <h2 class="longread__small-title">De Republiek van Gilead</h2>
   <p class="longread__section__text"><span class="longread__scrabble-regualar longread__scrabble-regualar--2 scrabble-tile" data-tile="tile7">D</span>it was de dag dat de Verenigde Staten officieel gevallen is. Er werd een nieuwe natie herboren: de Republiek van Gilead. De zonen van Jacob hebben altijd gedroomd van een maatschappij zoals die van het Oude Testament. Je kunt Gilead beschrijven als een: </p>
   <p class="longread__section__date">14 mei 2004</p>
-
   <article class="longread__section__definitions">
     <h3 class="hidden">Definities</h3>
     <div class="longread__section__definitions__terms">
@@ -450,10 +495,18 @@
   </article>
 </section>
 
+
+
+
+
 <section class="longread__section--quote">
     <h2 class="hidden">Quote</h2>
     <blockquote>“Aan ieder volgens haar vermogen. Aan ieder volgens zijn behoeften.”</blockquote>
 </section>
+
+
+
+
 
 <section id="7" class="longread__section--img longread__section--img--7">
   <h2 class="hidden">14 mei 2004</h2>
@@ -485,15 +538,27 @@
   </div>
 </section>
 
+
+
+
+
 <section class="longread__section">
   <h2 class="hidden">De Republiek van Gilead vervolg</h2>
   <p class="longread__section__text longread__section__text--space"><span class="longread__scrabble-regualar longread__scrabble-regualar--2 scrabble-tile" data-tile="tile8">D</span>ie hele wereld leed aan een afname van de vruchtbaarheid. Dit is vooral te danken aan de toxische stoffen in lucht en het water. Er waren ook heel wat gebieden met hoge radiatie door de nucleaire oorlog. Voordien werd dit verholpen door kunstmatige inseminatie, adopteren en draagmoeders. De eerste twee waren niet Bijbels en werden verboden. De laatste komt overeen met de Bijbelse waarden en werd de standaard. Dit is mijn rol als dienstmaagd. </p>
 </section>
 
+
+
+
+
 <section class="longread__section--quote">
     <h2 class="hidden">Quote</h2>
     <blockquote>“God heeft me een doel gegeven, omdat ik mijn vrucht aan mijn man heb gegeven.”</blockquote>
 </section>
+
+
+
+
 
 <section id="8" class="longread__section--img longread__section--img--8">
   <h2 class="hidden">15 mei 2004</h2>
@@ -525,11 +590,14 @@
   </div>
 </section>
 
+
+
+
+
 <section class="longread__section">
   <h2 class="longread__small-title">De grote boekenroof</h2>
   <p class="longread__section__text"><span class="longread__scrabble-regualar longread__scrabble-regualar--1 scrabble-tile" data-tile="tile9">A</span>lle huizen, bedrijven, organisaties, bibliotheken en noem maar op worden doorzocht op zoek naar boeken en tijdschriften die niet conform zijn met de Heilige Bijbelse waarden. Deze worden op stapel gegooid en verbrand. Sommige toeschouwers juichen dit toe. De auteurs, uitgevers en verkopers van deze heidense geschriften moeten op hun knieën, met het woord “schaamte” op hun hoofd geschreven, toezien op de vlammen.</p>
   <p class="longread__section__date">15 mei 2004</p>
-
   <article class="longread__section__question">
     <h3 class="longread__section__question__title">Heb jij al eens de Bijbel gelezen?</h3>
     <div class="longread__section__question__form">
@@ -554,6 +622,10 @@
     </div>
   </article>
 </section>
+
+
+
+
 
 <section id="9" class="longread__section--img longread__section--img--9">
   <h2 class="hidden">20 mei 2004</h2>
@@ -585,6 +657,10 @@
   </div>
 </section>
 
+
+
+
+
 <section class="longread__section">
   <h2 class="longread__small-title">Zware repressie</h2>
   <p class="longread__section__text"><span class="longread__scrabble-regualar longread__scrabble-regualar--1 scrabble-tile" data-tile="tile10">E</span>r werden een aantal wetten doorgevoerd die vooral de rechten afnam van vrouwen, maar ook defensie meer macht gaf. Hier kwam protest op. Het waren vooral vrouwen die de straat op trokken, maar de aantallen vielen heel hard tegen. Waarschijnlijk door de zware repressie. De marsen waren nog niet begonnen of er vlogen al kogels door de lucht. Velen die verzet toonden werden ter plaatse vermoord of hebben we nooit meer van gehoord. </p>
@@ -615,6 +691,10 @@
   </article>
 </section>
 
+
+
+
+
 <section id="10" class="longread__section--img longread__section--img--10">
   <h2 class="hidden">01 juni 2004</h2>
   <p title="De president wordt neergeschoten" class="longread__section__information longread__section__information--18">i</p>
@@ -644,6 +724,10 @@
     </svg>
   </div>
 </section>
+
+
+
+
 
 <section class="longread__section">
   <h2 class="longread__small-title">Het Junidecreet</h2>
@@ -685,15 +769,27 @@
   </article>
 </section>
 
+
+
+
+
 <section id="11" class="longread__section--img--big longread__section--img--11">
   <h2 class="hidden">14 juni 2004</h2>
 </section>
+
+
+
+
 
 <section class="longread__section">
   <h2 class="longread__small-title">Heidenen</h2>
   <p class="longread__section__text"><span class="longread__scrabble-regualar longread__scrabble-regualar--1 scrabble-tile" data-tile="tile12">O</span>m een pure maatschappij te vormen enkel met mensen die geloven in het regime en voldoen aan Zijn wensen werden heel wat mensen verbannen. Er waren massale arrestaties. Onvruchtbare vrouwen, Joden, niet-blanken worden overgeplaatst naar radioactieve gebieden die overbleven na de nucleaire oorlog. Zij leefden daar om het verwoeste gebied op te kuisen. Gemiddeld leef je daar drie jaar. Wanneer je “geluk” hebt mag je gaan werken op de plantages. </p>
   <p class="longread__section__date">14 juni 2004</p>
 </section>
+
+
+
+
 
 <section class="longread__section--no-snap">
   <h2 class="longread__small-title">Hiërarchie</h2>
@@ -724,6 +820,10 @@
     </ul>
   </article>
 </section>
+
+
+
+
 
 <section id="12" class="longread__section--end">
   <h2 class="longread__big-title">Wie zou jij zijn?</h2>
@@ -777,6 +877,11 @@
     </div>
   </div>
 </section>
+
+
+
+
+
 <footer class="longread__footer">
   <img class="longread__footer__logo" src="assets/img/logo138.svg" alt="logo Humo">
 </footer>

@@ -119,7 +119,6 @@
       </div>
       <button type="submit" class="webshop__primary-btn-big" name="order" id="order" value="update-cart">bestellen</button>
     </div>
-
   </form>
       <?php }
       } else {

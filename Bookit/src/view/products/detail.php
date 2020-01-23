@@ -86,8 +86,7 @@
     <?php if(!empty($versions)): ?>
       <div class="webshop__detail__general__version-wrapper">
         <?php foreach($versions as $i => $version): ?>
-          <!-- Voorlopig gewoon links, eens nadenken als je het effectief kunt kopen -->
-          <a href="index.php?page=detail&id=<?php echo $product['id']?>&color=<?php echo $version['color'] ?>" class="<?php
+          <a href="index.php?page=detail&id=<?php echo $product['id']?>&color=<?php echo $version['color'] ?>&buy_id=<?php echo $version['product_id']?>" class="<?php
           if(isset($_GET['color']) && !empty($_GET['color'])) {
             if($_GET['color'] == $version['color']) {
               echo 'webshop__primary-btn-small';
@@ -107,7 +106,6 @@
     <?php endif; ?>
     <p class="webshop__detail__general__stock">Op voorraad</p>
     <div class="webshop__detail__general__price-wrapper">
-
         <p class="webshop__detail__general__price">
           <?php
           $discount = 0;
@@ -120,7 +118,6 @@
                 }
               }
             }
-
             if($discount === 1) {
               echo '&euro;' . number_format(($product['discount_price']), 2 , "," , ".");
             } else {
@@ -128,22 +125,17 @@
             }
           ?>
         </p>
-
-
         <?php if(($product['discount_price'] > 0 || $product['product_category'] == 2) && $discount === 0):  ?>
-        <p class="webshop__detail__general__price-detail">
-          <?php
-            if($product['discount_price'] > 0){
-              echo '&euro;' . number_format(($product['discount_price']), 2 , "," , ".") . ' met kortingscode uit je Humo';
-            } else if ($product['product_category'] == 2) {
-              echo 'Na de betaling krijg je de code in jouw mailbox';
-            }
-          ?>
-        </p>
+          <p class="webshop__detail__general__price-detail">
+            <?php
+              if($product['discount_price'] > 0){
+                echo '&euro;' . number_format(($product['discount_price']), 2 , "," , ".") . ' met kortingscode uit je Humo';
+              } else if ($product['product_category'] == 2) {
+                echo 'Na de betaling krijg je de code in jouw mailbox';
+              }
+            ?>
+          </p>
         <?php endif; ?>
-
-
-
     </div>
     <?php if($product['discount_price'] > 0): ?>
       <form class="webshop__detail__general__discount-form" method="POST" action="index.php?page=detail&id=<?php echo $product['id']?>">
@@ -165,14 +157,18 @@
     <?php endif; ?>
     <div class="webshop__detail__general__btn-wrapper">
       <form class="webshop__detail__general__buy-form" method="POST" action="index.php?page=cart<?php if(isset($_GET['color'])) { echo '&color=' . $_GET['color']; }?>">
-      <input type="hidden" name="id" value="<?php echo $product['id'];?>"/>
+      <input type="hidden" name="id" value="<?php
+      if(isset($_GET['buy_id']) && !empty($_GET['buy_id'])) {
+        echo $_GET['buy_id'];
+      } else {
+        echo $product['id'];
+      }?>"/>
         <button class="webshop__primary-btn-big" type="submit" name="action" value="add">
           <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M18.9905 6.38903L18.1937 10.96C18.0954 11.465 17.6931 11.772 17.2292 11.7778H5.61292L5.38229 13.0778H16.4534C17.0363 13.1221 17.4318 13.5351 17.4389 14.0633C17.3965 14.645 16.9835 15.0415 16.4534 15.0488H4.20807C3.54581 14.9892 3.15091 14.4613 3.22257 13.8746L3.74677 11.0229L2.94999 3.01314L0.685455 2.30028C0.132064 2.08056 -0.0937983 1.57994 0.0354492 1.06317C0.250355 0.5246 0.765303 0.278534 1.27256 0.413165L4.16613 1.33576C4.55595 1.48188 4.78019 1.80097 4.8371 2.17448L5.00484 3.76804L18.1308 5.23579C18.7339 5.36643 19.0613 5.84414 18.9905 6.38903ZM7.20847 17.118C7.20847 17.9489 6.53492 18.6224 5.70402 18.6224C4.87313 18.6224 4.19958 17.9489 4.19958 17.118C4.19958 16.2871 4.87315 15.6135 5.70402 15.6135C6.53491 15.6135 7.20847 16.2871 7.20847 17.118ZM16.19 17.118C16.19 17.9489 15.5164 18.6224 14.6855 18.6224C13.8546 18.6224 13.1811 17.9489 13.1811 17.118C13.1811 16.2871 13.8546 15.6135 14.6855 15.6135C15.5164 15.6135 16.19 16.2871 16.19 17.118Z" fill="white"/>
           </svg>kopen
         </button>
       </form>
-
       <?php
         $favos = 0;
         if(!empty($_SESSION['favorite'])){
@@ -265,112 +261,96 @@
       <td class="webshop__detail__specs__table__text"><?php echo $product['name']?></td>
     </tr>
   <?php endif ?>
-
   <?php if($product['product_category'] == 1 || $product['product_category'] == 2): ?>
     <tr>
       <td class="webshop__detail__specs__table__title">Auteur:</td>
       <td class="webshop__detail__specs__table__text"><?php echo $product['author']?></td>
     </tr>
   <?php endif ?>
-
   <?php if(!empty($product['designer'])): ?>
     <tr>
       <td class="webshop__detail__specs__table__title">Designer:</td>
       <td class="webshop__detail__specs__table__text"><?php echo $product['designer']?></td>
     </tr>
   <?php endif ?>
-
   <?php if(!empty($product['material'])): ?>
     <tr>
       <td class="webshop__detail__specs__table__title">Materiaal:</td>
       <td class="webshop__detail__specs__table__text"><?php echo $product['material']?></td>
     </tr>
   <?php endif ?>
-
   <?php if($product['zoom'] > 0): ?>
     <tr>
       <td class="webshop__detail__specs__table__title">Vergroting:</td>
       <td class="webshop__detail__specs__table__text"><?php echo $product['zoom']?>X</td>
     </tr>
   <?php endif ?>
-
   <?php if($product['diameter'] > 0): ?>
     <tr>
       <td class="webshop__detail__specs__table__title">Diameter:</td>
       <td class="webshop__detail__specs__table__text"><?php echo $product['diameter']?>mm</td>
     </tr>
   <?php endif ?>
-
   <?php if(!empty($product['connection'])): ?>
     <tr>
       <td class="webshop__detail__specs__table__title">Connectie:</td>
       <td class="webshop__detail__specs__table__text"><?php echo $product['connection']?></td>
     </tr>
   <?php endif ?>
-
   <?php if($product['battery'] > 0): ?>
     <tr>
       <td class="webshop__detail__specs__table__title">Batterijen incl.:</td>
       <td class="webshop__detail__specs__table__text">ja</td>
     </tr>
   <?php endif ?>
-
   <?php if(!empty($product['language'])): ?>
     <tr>
       <td class="webshop__detail__specs__table__title">Taal:</td>
       <td class="webshop__detail__specs__table__text"><?php echo $product['language']?></td>
     </tr>
   <?php endif ?>
-
   <?php if(!empty($product['version'])): ?>
     <tr>
       <td class="webshop__detail__specs__table__title">Versie:</td>
       <td class="webshop__detail__specs__table__text"><?php echo $product['version']?></td>
     </tr>
   <?php endif ?>
-
   <?php if($product['pages'] > 0): ?>
     <tr>
       <td class="webshop__detail__specs__table__title">Aantal pagina’s:</td>
       <td class="webshop__detail__specs__table__text"><?php echo $product['pages']?> pagina's</td>
     </tr>
   <?php endif ?>
-
   <?php if(!empty($product['dimensions'])): ?>
     <tr>
       <td class="webshop__detail__specs__table__title">Afmetingen (hxbxd):</td>
       <td class="webshop__detail__specs__table__text"><?php echo $product['dimensions']?></td>
     </tr>
   <?php endif ?>
-
   <?php if($product['readtime'] > 0): ?>
     <tr>
       <td class="webshop__detail__specs__table__title">Gemiddelde leestijd:</td>
       <td class="webshop__detail__specs__table__text"><?php echo $product['readtime']?> uur</td>
     </tr>
   <?php endif ?>
-
   <?php if($product['weight'] > 0): ?>
     <tr>
       <td class="webshop__detail__specs__table__title">Gewicht:</td>
       <td class="webshop__detail__specs__table__text"><?php echo $product['weight']?> g</td>
     </tr>
   <?php endif ?>
-
   <?php if($product['ISBN'] > 0): ?>
     <tr>
       <td class="webshop__detail__specs__table__title">ISBN-nummer:</td>
       <td class="webshop__detail__specs__table__text"><?php echo $product['ISBN']?></td>
     </tr>
   <?php endif ?>
-
   <?php if(!empty($product['publisher'])): ?>
     <tr>
       <td class="webshop__detail__specs__table__title">Uitgeverij:</td>
       <td class="webshop__detail__specs__table__text"><?php echo $product['publisher']?></td>
     </tr>
   <?php endif ?>
-
   <?php if($product['date'] > date('1979-01-01')): ?>
     <tr>
       <td class="webshop__detail__specs__table__title">Verschijningsdatum:</td>
@@ -408,7 +388,6 @@
           </div>
           <p class="webshop__detail__reviews__overview__comment"><?php echo $review['comment']?></p>
         </div>
-
       <?php endforeach; ?>
     <?php } else {
       echo '<p> Er zijn nog geen reviews... Schrijf jij er één?</p>';
@@ -451,6 +430,10 @@
     </form>
   </article>
 </section>
+
+
+
+
 
 <?php if(isset($_SESSION['recentlyViewed']) && !empty($_SESSION['recentlyViewed'])): ?>
   <section class="webshop__recently-viewed">
@@ -498,6 +481,9 @@
 <?php endif; ?>
 
 
+
+
+
 <section class="webshop__subscription__footer">
   <div class="webshop__subscription__footer-wrapper">
     <h2 class="webshop__subscription__footer__title">Nog geen abonnement?</h2>
@@ -513,7 +499,6 @@
       <li class="webshop__subscription__footer__list__item">Je betaalt maandelijks</li>
       <li class="webshop__subscription__footer__list__item">1 x betalen en dan wordt het bedrag automatisch gestort</li>
     </ul>
-
   <form class="webshop__subscription__subscribe__form" method="POST" action="index.php?page=cart">
   <?php foreach($subscriptions as $subscription): ?>
       <input id="<?php echo $subscription['id']?>" class="webshop__subscription__subscribe__form__input" type="radio" name="id" value="<?php echo $subscription['id']?>" <?php if($subscription['id'] == 29){echo 'checked';} ?>>

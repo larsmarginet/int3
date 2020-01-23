@@ -7,12 +7,12 @@
       <p class="webshop__banner__img__discount__text">met kortingscode uit je Humo</p>
     </div>
     <picture class="webshop__banner__img">
-          <source srcset="assets/img/TheHandmaidsTale/banner_thehanmaidstale.webp, assets/img/TheHandmaidsTale/banner_thehanmaidstale-2X.webp 2x"
-             type="image/webp">
-          <source srcset="assets/img/TheHandmaidsTale/banner_thehanmaidstale.png, assets/img/TheHandmaidsTale/banner_thehanmaidstale-2X.png 2x"
-             type="image/png">
-          <img class="webshop__banner__img" alt="The Handmaid's Tale Boek" src="assets/img/TheHandmaidsTale/banner_thehanmaidstale.png">
-        </picture>
+     <source srcset="assets/img/TheHandmaidsTale/banner_thehanmaidstale.webp, assets/img/TheHandmaidsTale/banner_thehanmaidstale-2X.webp 2x"
+        type="image/webp">
+        <source srcset="assets/img/TheHandmaidsTale/banner_thehanmaidstale.png, assets/img/TheHandmaidsTale/banner_thehanmaidstale-2X.png 2x"
+           type="image/png">
+        <img class="webshop__banner__img" alt="The Handmaid's Tale Boek" src="assets/img/TheHandmaidsTale/banner_thehanmaidstale.png">
+      </picture>
   </div>
   <div class="webshop__banner__info">
     <h2 class="webshop__banner__info__title">Boek van de week:</h2>
@@ -60,11 +60,14 @@
           </button>
         </form>
        <?php } ?>
-
       <a class="webshop__secondary-btn-small" href="index.php?page=detail&id=3">meer info</a>
     </div>
   </div>
 </section>
+
+
+
+
 
 <section class="webshop__filter">
   <h2 class="hidden">Filter</h2>
@@ -84,6 +87,10 @@
     <a href="index.php?page=subscriptions" class="webshop__filter__subscribe">abonnement nemen</a>
   </form>
 </section>
+
+
+
+
 
 <section class="webshop__products">
   <h2 class="hidden">Producten</h2>
@@ -177,6 +184,10 @@
   <?php endforeach; ?>
 </section>
 
+
+
+
+
 <?php if(isset($_SESSION['recentlyViewed']) && !empty($_SESSION['recentlyViewed'])): ?>
   <section class="webshop__recently-viewed">
     <h2 class="webshop__recently-viewed__title">Eerder bekenen door jou</h2>
@@ -222,6 +233,10 @@
   </section>
 <?php endif; ?>
 
+
+
+
+
 <section class="webshop__subscription__footer">
   <div class="webshop__subscription__footer-wrapper">
     <h2 class="webshop__subscription__footer__title">Nog geen abonnement?</h2>
@@ -237,7 +252,6 @@
       <li class="webshop__subscription__footer__list__item">Je betaalt maandelijks</li>
       <li class="webshop__subscription__footer__list__item">1 x betalen en dan wordt het bedrag automatisch gestort</li>
     </ul>
-
   <form class="webshop__subscription__subscribe__form" method="POST" action="index.php?page=cart">
     <?php foreach($subscriptions as $subscription): ?>
       <input id="<?php echo $subscription['id']?>" class="webshop__subscription__subscribe__form__input" type="radio" name="id" value="<?php echo $subscription['id']?>" <?php if($subscription['id'] == 29){echo 'checked';} ?>>

@@ -20,6 +20,9 @@
 </section>
 
 
+
+
+
 <section class="webshop__subscription__subscribe">
   <h2 class="hidden">Abonneren</h2>
   <ul class="webshop__subscription__subscribe__list">
@@ -27,27 +30,26 @@
     <li class="webshop__subscription__subscribe__list__item">Je betaalt maandelijks</li>
     <li class="webshop__subscription__subscribe__list__item">1 x betalen en dan wordt het bedrag automatisch gestort</li>
   </ul>
-
   <form class="webshop__subscription__subscribe__form" method="POST" action="index.php?page=cart">
     <?php foreach($subscriptions as $subscription): ?>
-      <input id="<?php echo $subscription['id']?>" class="webshop__subscription__subscribe__form__input" type="radio" name="id" value="<?php echo $subscription['id']?>" <?php if($subscription['id'] == 29){echo 'checked';} ?>>
+      <input id="<?php echo $subscription['id']?>" class="webshop__subscription__subscribe__form__input" type="radio" name="id" value="<?php echo $subscription['id']?>" <?php if($subscription['id'] == 40){echo 'checked';} ?>>
       <label for="<?php echo $subscription['id']?>" class="webshop__subscription__subscribe__form__label">
-        <div class="webshop__subscription__subscribe__form__btn-wrapper">
-          <div class="webshop__subscription__subscribe__form__radio"></div>
-          <p class="webshop__subscription__subscribe__form__duration"><?php echo $subscription['duration']?> maanden</p>
+        <span class="webshop__subscription__subscribe__form__btn-wrapper">
+          <span class="webshop__subscription__subscribe__form__radio"></span>
+          <span class="webshop__subscription__subscribe__form__duration"><?php echo $subscription['duration']?> maanden</span>
           <?php if($subscription['discount_percentage'] > 0): ?>
-            <p class="webshop__subscription__subscribe__form__savings">Je bespaart <?php echo $subscription['discount_euro']?> euro</p>
+            <span class="webshop__subscription__subscribe__form__savings">Je bespaart <?php echo $subscription['discount_euro']?> euro</span>
           <?php endif; ?>
-        </div>
+        </span>
         <?php if($subscription['discount_percentage'] > 0): ?>
-          <p class="webshop__subscription__subscribe__form__percentage"><?php echo $subscription['discount_percentage']?>% Korting</p>
+          <span class="webshop__subscription__subscribe__form__percentage"><?php echo $subscription['discount_percentage']?>% Korting</span>
         <?php endif; ?>
-        <p class="webshop__subscription__subscribe__form__price">
+        <span class="webshop__subscription__subscribe__form__price">
           <?php if($subscription['discount_percentage'] > 0):?>
             <span class="webshop__subscription__subscribe__form__price__original">&euro;15,95</span>
           <?php endif; ?>
           &euro;<?php echo $subscription['price']?>/mnd
-        </p>
+        </span>
       </label>
     <?php endforeach; ?>
     <div class="webshop__subscription__subscribe__form__bigbtn-wrapper">
@@ -59,6 +61,9 @@
     </div>
   </form>
 </section>
+
+
+
 
 
 <section class="webshop__subscription__detail">
@@ -83,6 +88,8 @@
     </picture>
   </div>
 </section>
+
+
 
 
 

@@ -11,6 +11,7 @@ class LongreadController extends Controller {
       $this->longreadDAO = new LongreadDAO();
     }
 
+
   public function longread() {
     $roles = $this->longreadDAO->selectAllRoles();
 
@@ -30,6 +31,10 @@ class LongreadController extends Controller {
     }
   }
 
+
+
+
+
   private function _handleSubmit() {
     $totalScore = 0;
     foreach($_POST as $answer) {
@@ -38,17 +43,14 @@ class LongreadController extends Controller {
       }
     }
     if($_POST['9'] == 3) {
-      //X
       $_SESSION['role'] = $this->longreadDAO->selectRoleById(10);
     } else if ($_POST['9'] == 2) {
-      //V
       if($totalScore <= 8) {
         $_SESSION['role'] = $this->longreadDAO->selectRoleById(6);
       } else {
         $_SESSION['role'] = $this->longreadDAO->selectRoleById(8);
       }
     } else {
-      //M
       if($totalScore <= 8) {
         $_SESSION['role'] = $this->longreadDAO->selectRoleById(1);
       } else {

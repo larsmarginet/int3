@@ -14,6 +14,7 @@ class ProductsController extends Controller {
       $this->subscriptionDAO = new SubscriptionDAO();
     }
 
+
   public function index() {
     if (!empty($_POST['action'])) {
       if ($_POST['action'] == 'add') {
@@ -27,25 +28,20 @@ class ProductsController extends Controller {
         exit();
       }
     }
-
     $category = false;
-
     if (!empty($_GET['product_category'])) {
       $category = $_GET['product_category'];
     }
-
     $subscriptions = $this->subscriptionDAO->selectAllSubscriptions();
     $products = $this->productDAO->selectAllProducts($category);
-
     $this->set('subscriptions', $subscriptions);
     $this->set('products', $products);
     $this->set('title', 'Producten');
-
     if ($_SERVER['HTTP_ACCEPT'] == 'application/json') {
       echo json_encode($products);
       exit();
+    }
   }
-}
 
 
 
@@ -77,8 +73,6 @@ class ProductsController extends Controller {
       }
     }
 
-
-
     if (!empty($_POST['action'])) {
       if ($_POST['action'] == 'add') {
         $this->_handleAddFavorite();
@@ -97,7 +91,6 @@ class ProductsController extends Controller {
       }
     }
 
-
     $contentType = isset($_SERVER["CONTENT_TYPE"]) ? trim($_SERVER["CONTENT_TYPE"]) : '';
     if ($contentType === "application/json") {
       $content = trim(file_get_contents("php://input"));
@@ -114,20 +107,18 @@ class ProductsController extends Controller {
       }
       exit();
     }
-
-      if(!empty($_POST['action'])){
-          if($_POST['action'] == 'insertComment'){
-            $insertedcomment = $this->productDAO->insertComment($_POST);
-            if(!$insertedcomment){
-              $errors = $this->productDAO->validate($_POST);
-              $this->set('errors',$errors);
-            }else{
-              header('Location:index.php?page=detail&id=' . $_POST['id'] . '#reviews');
-              exit();
-            }
-          }
+    if(!empty($_POST['action'])){
+      if($_POST['action'] == 'insertComment'){
+        $insertedcomment = $this->productDAO->insertComment($_POST);
+        if(!$insertedcomment){
+          $errors = $this->productDAO->validate($_POST);
+          $this->set('errors',$errors);
+        } else {
+          header('Location:index.php?page=detail&id=' . $_POST['id'] . '#reviews');
+          exit();
         }
-
+      }
+    }
     $subscriptions = $this->subscriptionDAO->selectAllSubscriptions();
     $product = $this->productDAO->selectProductById($_GET['id']);
     $images = $this->productDAO->selectAllImagesById($_GET['id']);
@@ -174,18 +165,11 @@ class ProductsController extends Controller {
 
 
 
-
-
-
-
-
   public function detailViewingCopy() {
     $product = $this->productDAO->selectProductById($_GET['id']);
     $this->set('title', $product['name']);
     $this->set('product', $product);
   }
-
-
 
 
 
@@ -200,6 +184,9 @@ class ProductsController extends Controller {
       'product' => $product
     );
   }
+
+
+
 
 
   private function _handleAddDiscount() {
@@ -221,12 +208,13 @@ class ProductsController extends Controller {
 
 
 
+
+
   private function _handleRemoveFavorite() {
     if (isset($_SESSION['favorite'][$_GET['id']])) {
       unset($_SESSION['favorite'][$_GET['id']]);
     }
   }
-
 }
 
 

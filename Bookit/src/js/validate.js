@@ -70,7 +70,6 @@
       const fields = form.querySelectorAll(`.valid-input`);
       addValidationListeners(fields);
     })
-
   };
 
   init();

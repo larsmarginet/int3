@@ -12,7 +12,8 @@ class FavoritesController extends Controller {
   function __construct() {
       $this->favoriteDAO = new FavoriteDAO();
       $this->subscriptionDAO = new SubscriptionDAO();
-    }
+  }
+
 
   public function index() {
     if (!empty($_POST['action'])) {
@@ -37,6 +38,9 @@ class FavoritesController extends Controller {
     $this->set('products',  $products);
     $this->set('title', 'Verlanglijstje');
   }
+
+
+
 
 
   private function _handleRemoveFavorite() {

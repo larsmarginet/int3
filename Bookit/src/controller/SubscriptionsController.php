@@ -16,5 +16,4 @@ class SubscriptionsController extends Controller {
     $this->set('subscriptions', $subscriptions);
     $this->set('title', 'Abonnementen');
   }
-
 }

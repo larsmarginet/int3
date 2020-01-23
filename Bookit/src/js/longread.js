@@ -41,44 +41,12 @@ const init = () => {
 }
 
 
-
-
-
-const handleClickImgCloseFullscreen = e => {
-  const $btn = e.currentTarget;
-  const $img = $btn.parentElement;
-  $btn.style.display = 'none';
-  $img.querySelector('.longread__section__img-closefullscreen').style.display = 'none';
-  $img.querySelector('.longread__section__img-fullscreen').style.display = 'block';
-  $img.querySelectorAll('.longread__section__information').forEach(info => info.style.opacity = '0');
-  $img.querySelector('.longread__section__information__swipe').style.display = 'none';
-  $img.style.width = '100vw';
-  $img.style.height = '56.25vw';
-  $img.style.backgroundSize = '100vw auto';
-  $img.parentElement.style.overflowX = 'hidden';
-  $img.parentElement.style.overflowY = 'scroll';
-}
-
-const handleClickImgFullscreen = e => {
-  const $btn = e.currentTarget;
-  const $img = $btn.parentElement;
-  $btn.style.display = 'none';
-  $img.querySelector('.longread__section__img-closefullscreen').style.display = 'block';
-  $img.querySelectorAll('.longread__section__information').forEach(info => info.style.opacity = '1');
-  $img.querySelector('.longread__section__information__swipe').style.display = 'block';
-  $img.style.height = '100vh';
-  $img.style.width = '177.78vh';
-  $img.style.backgroundSize = '177.78vh 100vh';
-  $img.parentElement.style.overflowX = 'scroll';
-  $img.parentElement.style.overflowY = 'hidden';
-
-}
-
 const handleSubmitRole = e => {
   const $form = e.currentTarget;
   e.preventDefault();
   submitWithJS($form);
 }
+
 
 const submitWithJS = async (form) => {
   const $form = form;
@@ -99,6 +67,7 @@ const submitWithJS = async (form) => {
     `${url}`
   );
 }
+
 
 const showRole = (roles, data) => {
   let totalScore = 0;
@@ -127,6 +96,7 @@ const showRole = (roles, data) => {
   document.querySelector('.longread__section__end__result').innerHTML = role.createHTMLForRole();
 }
 
+
 const handleScrollRoles = e => {
   const target = e.currentTarget;
   const $img = document.querySelectorAll('.longread__section__roles__imgs__card');
@@ -142,6 +112,7 @@ const handleScrollRoles = e => {
   });
 }
 
+
 const calcDistance = (target, el) => {
   const parentTop = target.getBoundingClientRect().top;
   const currentChildTop = el.getBoundingClientRect().top;
@@ -149,6 +120,7 @@ const calcDistance = (target, el) => {
   const scrolledParentDistance = Math.abs(parentTop - target.getBoundingClientRect().top);
   return childParentDistance - scrolledParentDistance;
 }
+
 
 const handleScrollLaws = e => {
   const target = e.currentTarget;
@@ -172,6 +144,38 @@ const handleScrollLaws = e => {
     }
   });
 }
+
+
+const handleClickImgCloseFullscreen = e => {
+  const $btn = e.currentTarget;
+  const $img = $btn.parentElement;
+  $btn.style.display = 'none';
+  $img.querySelector('.longread__section__img-closefullscreen').style.display = 'none';
+  $img.querySelector('.longread__section__img-fullscreen').style.display = 'block';
+  $img.querySelectorAll('.longread__section__information').forEach(info => info.style.opacity = '0');
+  $img.querySelector('.longread__section__information__swipe').style.display = 'none';
+  $img.style.width = '100vw';
+  $img.style.height = '56.25vw';
+  $img.style.backgroundSize = '100vw auto';
+  $img.parentElement.style.overflowX = 'hidden';
+  $img.parentElement.style.overflowY = 'scroll';
+}
+
+
+const handleClickImgFullscreen = e => {
+  const $btn = e.currentTarget;
+  const $img = $btn.parentElement;
+  $btn.style.display = 'none';
+  $img.querySelector('.longread__section__img-closefullscreen').style.display = 'block';
+  $img.querySelectorAll('.longread__section__information').forEach(info => info.style.opacity = '1');
+  $img.querySelector('.longread__section__information__swipe').style.display = 'block';
+  $img.style.height = '100vh';
+  $img.style.width = '177.78vh';
+  $img.style.backgroundSize = '177.78vh 100vh';
+  $img.parentElement.style.overflowX = 'scroll';
+  $img.parentElement.style.overflowY = 'hidden';
+}
+
 
 const handleScrollDefs = e => {
   const target = e.currentTarget;
@@ -203,8 +207,10 @@ const handleClickCopy = e => {
   navigator.clipboard.writeText(code);
 };
 
+
 let counter = 0;
 let letters = [];
+
 const handleClickTile = e => {
   const tileId = e.currentTarget.dataset.tile;
   const $showTopNum = document.querySelector('.showTop span');
@@ -227,6 +233,7 @@ const handleClickTile = e => {
   };
 };
 
+
 const handleClickFullScreen = e => {
   e.preventDefault();
   const $btn = e.currentTarget;
@@ -246,6 +253,7 @@ const handleClickFullScreen = e => {
   };
 };
 
+
 const handleClickExitFullScreen = e => {
   e.preventDefault();
   const $btn = e.currentTarget;
@@ -263,6 +271,7 @@ const handleClickExitFullScreen = e => {
 	};
 };
 
+
 const interactiveImages = () => {
   document.querySelectorAll('.longread__section__information').forEach(button => {
     button.removeAttribute('title');
@@ -270,6 +279,7 @@ const interactiveImages = () => {
     button.addEventListener('mouseleave', handleHoverLeaveInfo);
   });
 }
+
 
 const handleHoverInfo = e => {
   const target = e.currentTarget;
@@ -286,6 +296,7 @@ const handleHoverInfo = e => {
     explain.style.top = `${e.clientY - 100}px`;
   }
 }
+
 
 const handleHoverLeaveInfo = e => {
   const target = e.currentTarget;

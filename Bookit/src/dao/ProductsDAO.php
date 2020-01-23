@@ -5,7 +5,7 @@ require_once( __DIR__ . '/DAO.php');
 class ProductDAO extends DAO {
 
   public function selectAllProducts($category = false){
-    $sql = "SELECT `products`.*, AVG(`reviews`.`score`) AS `averagescore`, COUNT(`reviews`.`score`) AS `countscore` FROM `products` LEFT JOIN `reviews` ON `products`.`id` = `reviews`.`product_id` WHERE 1";
+    $sql = "SELECT `products`.*, AVG(`reviews`.`score`) AS `averagescore`, COUNT(`reviews`.`score`) AS `countscore` FROM `products` LEFT JOIN `reviews` ON `products`.`id` = `reviews`.`product_id` WHERE `products`.`is_default` = 1";
 
     $bindValues = array();
 
@@ -51,7 +51,7 @@ class ProductDAO extends DAO {
   }
 
   public function selectAllVersionsById($id){
-    $sql = "SELECT * FROM `versions` WHERE `product_id` = :id";
+    $sql = "SELECT * FROM `versions` WHERE `is_default_id` = :id";
     $stmt = $this->pdo->prepare($sql);
     $stmt->bindValue(':id',$id);
     $stmt->execute();
