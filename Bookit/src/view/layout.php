@@ -182,6 +182,12 @@
           </footer>
         </div>
       <?php } else { ?>
+        <div class="loader" id="loader">
+          <img class="loader__animation" src="assets/img/longread/eyeAnimate.svg" alt="animatie van een oog">
+          <div class="loading-bar">
+            <div class="progress-bar"></div>
+          </div>
+        </div>
         <form class="longread__wrapper" method="POST" action="index.php?page=longread">
           <?php echo $content;?>
       </form>

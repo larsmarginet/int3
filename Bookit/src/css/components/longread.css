@@ -1,5 +1,64 @@
 @import '../vars.css';
 
+.loader__animation {
+  width: 40rem;
+  margin: 35vh 0 2rem;
+
+  @media (--extrasmall-viewport) {
+    width: 25rem;
+  }
+}
+
+.loader {
+  display: flex;
+  align-items: center;
+  flex-flow: column;
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--backgroundColor);
+}
+
+.loading-bar {
+  display: flex;
+  height: 7px;
+  width: 100%;
+  max-width: 250px;
+  box-shadow: inset 0 0 0 1px var(--darkColor);
+  border-radius: 50px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  background: var(--blueColor);
+  animation: progress-animation 3s ease-in-out;
+}
+
+@keyframes progress-animation {
+
+  0% {
+    width: 0%;
+  }
+
+  20% {
+    width: 10%;
+  }
+
+  40% {
+    width: 30%;
+  }
+
+  50% {
+    width: 60%;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
 .topbar {
   position: fixed;
   bottom: -25rem;

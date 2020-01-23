@@ -1,6 +1,11 @@
 import Role from './components/Role.js';
 
 const init = () => {
+  const $body = document.querySelector('.longread__wrapper');
+  if($body){
+    $body.style.display = 'none';
+    document.onload = handleLoadBody();
+  }
   const $fullscreen = document.querySelector('.longread__header__fullscreen');
   const $exitFfullscreen = document.querySelector('.longread__header__exitfullscreen');
   if($fullscreen) {
@@ -38,6 +43,17 @@ const init = () => {
   document.querySelectorAll('.longread__section__img-fullscreen').forEach($btn => $btn.addEventListener('click', handleClickImgFullscreen));
   document.querySelectorAll('.longread__section__img-closefullscreen').forEach($btn => $btn.addEventListener('click', handleClickImgCloseFullscreen));
   interactiveImages();
+}
+
+
+const handleLoadBody = () => {
+  setTimeout(showPage, 3000);
+}
+
+
+const showPage = () => {
+  document.getElementById("loader").style.display = "none";
+  document.querySelector('.longread__wrapper').style.display = "block";
 }
 
 
