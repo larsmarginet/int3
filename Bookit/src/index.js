@@ -2,8 +2,12 @@ require('./style.css');
 
 const regeneratorRuntime = require("regenerator-runtime");
 
-require('./js/webshop.js');
-require('./js/longread.js');
+
+if(window.location.href.includes('longread')){
+  require('./js/longread.js');
+} else {
+  require('./js/webshop.js');
+}
 require('./js/validate.js');
 {
   const init = () => {

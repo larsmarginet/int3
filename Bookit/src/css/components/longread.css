@@ -398,7 +398,9 @@
   margin: -15rem 0 0;
   padding: 15rem 0 5rem;
   right: calc(var(--mediumMargin) * -1);
-
+  display: flex;
+  justify-content: flex-start;
+  flex-flow: column;
   background: var(--darkColor);
   list-style-type: none;
   transition: transform .5s cubic-bezier(.77, .2, .05, 1);
@@ -406,6 +408,7 @@
 
 .longread__header__navigation__menu__list li {
   padding: 0;
+  height: 15rem;
   font-size: var(--mediumTitle);
 }
 
@@ -414,7 +417,7 @@
   opacity: 1;
 }
 
-.longread__header__navigation__menu__list__item__link__img--big {
+.longread__header__navigation__menu__list__item__link__img {
   width: 26.8rem;
 }
 
